@@ -24,7 +24,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/wonderla",
+            "outputPath": "dist/wonderla/browser",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -40,7 +40,7 @@
               "src/styles.scss"
             ],
             "scripts": [],
-             "baseHref": "/wonderla-production/",
+            "baseHref": "https://MrVK000.github.io/wonderla_fe/",
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {
