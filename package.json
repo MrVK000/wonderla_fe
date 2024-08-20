@@ -8,9 +8,11 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:wonderla": "node dist/wonderla/server/server.mjs",
-    "myCustomMemoryComm ": "node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng"
+    "myCustomMemoryComm ": "node --max_old_space_size=8000 ./node_modules/@angular/cli/bin/ng",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
-  "homepage":"https://MrVK000.github.io/wonderla_fe",
+  "homepage": "https://MrVK000.github.io/wonderla_fe",
   "private": true,
   "dependencies": {
     "@angular/animations": "^17.3.0",
