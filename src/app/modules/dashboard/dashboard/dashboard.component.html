@@ -1,0 +1,550 @@
+<div class="dashboardContainer">
+
+  <div class="adBarWrapper flex align-items-center justify-content-center">
+    <div class="adBar flex justify-content-center">
+      <div class="hotHeader">
+        <div class="scrollingText flex align-items-center">{{CONSTANTS.scrollingTextContentOne}} <button
+            class="navigateToDashboard" pButton pRipple label="EXPLORE" class="p-button-success"
+            (click)="goToDashboard()"></button> {{CONSTANTS.scrollingTextContentTwo}}
+          <button class="navigateToDashboard" pButton pRipple label="EXPLORE" class="p-button-success"
+            (click)="goToDashboard()"></button> {{CONSTANTS.scrollingTextContentThree}} <button
+            class="navigateToDashboard" pButton pRipple label="BOOK NOW" class="p-button-success"
+            (click)="goToDashboard()"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <header class="primaryNavbarWrapper">
+    <div class="primaryNavbar flex justify-content-between">
+
+      <div class="primaryNavbarLogoDiv"><img class="primaryNavbarLogo"
+          src="../../../../assets/logo/Wonderla Navbar Logo.png" alt="Logo">
+      </div>
+
+      <div class="primaryNavbarOptions flex align-items-center">
+        <p-menubar [model]="primaryNavbarOptions" />
+      </div>
+      <div class="primaryNavbarBookNowDiv flex align-items-center justify-content-center">
+        <div class="primaryNavbarBookNow">
+          <button pButton pRipple label="BOOK NOW" class="navigateToDashboard p-button-success"
+            (click)="goToDashboard()"></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <div class="secondaryNavbarWrapper">
+    <div class="flex justify-content-center">
+      <div class="secondaryNavbar flex">
+        <div class="cursor-pointer secondaryNavOption" *ngFor="let option of CONSTANTS.secondaryNavbarOptions">
+          <div class="m-2">{{option}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="sliderWrapper">
+    <div class="sliderImagesWrapper">
+      <figure class="flex">
+        <div class="sliderImageDiv flex align-items-center justify-content-center"><img class="cursor-pointer"
+            src="../../../../assets/slider/Wondrela_Friendship_Day_Banner.avif"></div>
+        <div class="sliderImageDiv flex align-items-center justify-content-center"><img class="cursor-pointer"
+            src="../../../../assets/slider/Wonderla_Women_offer_24_B2_G2_Banner.avif"></div>
+        <div class="sliderImageDiv flex align-items-center justify-content-center"><img class="cursor-pointer"
+            src="../../../../assets/slider/Wonderla_Resort_Wednesday_offer_Banner.avif"></div>
+        <div class="sliderImageDiv flex align-items-center justify-content-center"><img class="cursor-pointer"
+            src="../../../../assets/slider/Krishna_Janmashtami_Banner.avif"></div>
+        <div class="sliderImageDiv flex align-items-center justify-content-center"><img class="cursor-pointer"
+            src="../../../../assets/slider/Wondrela_Friendship_Day_Banner.avif"></div>
+      </figure>
+    </div>
+  </div>
+
+
+  <div class="mobileViewDashboardOptionsWrapper flex align-items-center justify-content-around">
+
+    <div
+      class="mobileViewDashboardOptionsMenuDiv cursor-pointer flex align-items-center justify-content-center flex-column"
+      *ngFor="let option of mobileViewDashboardOptions">
+      <i [class]="option.icon"></i>
+      <p class="text-center">{{option.label}}</p>
+    </div>
+
+  </div>
+
+
+  <div class="introWrapper">
+    <h1 class="flex justify-content-center hidden">{{CONSTANTS.introOne}}</h1>
+    <h2 class="flex justify-content-center hidden">{{CONSTANTS.introTwo}}</h2>
+    <b class="flex justify-content-center hidden line">________</b>
+    <p class="flex justify-content-center pt-5">{{CONSTANTS.IntroParagraphOne}}</p>
+    <p class="flex justify-content-center ">{{CONSTANTS.IntroParagraphTwo}}</p>
+  </div>
+
+
+  <div class="cardListWrapper">
+    <div class="cardLeftSwappingDiv">
+      <i class="cardSwappingButtons pi pi-angle-left" (click)="swapCard('right','cardSectionScrollContainer')"></i>
+    </div>
+
+    <div #cardSectionScrollContainer class="cardContainer">
+      <div class="cardWrapper" *ngFor="let card of cardData;let i = index">
+        <div class="card cursor-pointer" [ngStyle]="{'background':card.cardColor}">
+          <div class="cardUpperDiv">
+            <img [src]="card.imgUrl" [alt]="card.title">
+          </div>
+          <div class="cardLowerDiv">
+            <div class="cardTitle">{{card.title}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cardRightSwappingDiv">
+      <i class="cardSwappingButtons pi pi-angle-right" (click)="swapCard('left','cardSectionScrollContainer')"></i>
+    </div>
+  </div>
+
+
+  <div class="zigZagIntroBackGroundWrapper pt-0">
+
+    <div class="zigZagIntroBackGroundDiv">
+
+      <div class="zigZagIntroBackGroundDivOne">
+      </div>
+
+      <div class="zigZagIntroDivOne ml-2">
+
+        <div class="zigZagIntroOneContentWrapper">
+          <div class="zigZagIntroOneContent">
+            <h2 class="flex justify-content-center hidden mt-0">{{CONSTANTS.zigZagInterOneTitle}}</h2>
+            <b class="flex justify-content-center hidden pb-5 line">________</b>
+            <p class="flex justify-content-center">{{CONSTANTS.zigZagInterOneContent}}</p>
+          </div>
+        </div>
+
+        <div class="zigZagIntroOneCardContainer">
+          <div class="zigZagIntroOneCardLeftButton m-2">
+            <p-button icon="pi pi-angle-left" (click)="swapCard('right','zigZagOneCardScrollContainer')" />
+          </div>
+          <div class="zigZagIntroOneCardDiv" #zigZagOneCardScrollContainer>
+            <div class="zigZagIntroOneCardWrapper flex justify-content-center"
+              *ngFor="let card of zigZagInterOneCardData;let i = index">
+              <div class="zigZagIntroOneCard">
+                <img [src]="card.imgUrl" [alt]="card.title">
+              </div>
+              <div class="zigZagIntroOneTitle">
+                <p>{{card.title}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="zigZagIntroOneCardRightButton m-2">
+            <p-button icon="pi pi-angle-right" (click)="swapCard('left','zigZagOneCardScrollContainer')" />
+          </div>
+        </div>
+
+      </div>
+
+
+
+      <div class="zigZagIntroBackGroundDivTwo">
+      </div>
+
+      <div class="zigZagIntroDivTwo">
+
+
+        <div class="zigZagIntroTwoCardContainer">
+          <div class="zigZagIntroTwoCardLeftButton m-2">
+            <p-button icon="pi pi-angle-left" (click)="swapCard('right','zigZagTwoCardScrollContainer')" />
+          </div>
+          <div class="zigZagIntroTwoCardDiv" #zigZagTwoCardScrollContainer>
+            <div class="zigZagIntroTwoCardWrapper flex justify-content-center"
+              *ngFor="let card of zigZagInterTwoCardData;let i = index">
+              <div class="zigZagIntroTwoCard">
+                <img [src]="card.imgUrl" [alt]="card.title">
+              </div>
+            </div>
+          </div>
+          <div class="zigZagIntroTwoCardRightButton m-2">
+            <p-button icon="pi pi-angle-right" (click)="swapCard('left','zigZagTwoCardScrollContainer')" />
+          </div>
+        </div>
+
+
+
+        <div class="zigZagIntroTwoContentWrapper">
+          <div class="zigZagIntroTwoContent">
+            <h2 class="flex justify-content-center hidden">{{CONSTANTS.zigZagInterTwoTitle}}</h2>
+            <b class="flex justify-content-center hidden pb-5 line">________</b>
+            <p class="flex justify-content-center">{{CONSTANTS.zigZagInterTwoContent1}}</p>
+            <p class="flex justify-content-center">{{CONSTANTS.zigZagInterTwoContent2}}</p>
+            <div class="zigZagButtonDiv flex justify-content-center">
+              <button pButton pRipple label="DIVE IN" class=" p-button-success" (click)="goToDashboard()"></button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="noticeBoardWrapper flex justify-content-center">
+    <div class="noticeBoardDiv">
+      <div class="noticeImgDiv">
+        <img src="../../../../assets/noticeBoard/Merchandise_Notice.avif" alt="Merchandise">
+      </div>
+      <div class="noticeContentDiv">
+        <h2 class="flex justify-content-center hidden">{{CONSTANTS.noticeBoardTitle}}</h2>
+        <b class="flex justify-content-center hidden line">________</b>
+        <p class="noticeBoardContent flex justify-content-center hidden">{{CONSTANTS.noticeBoardContent}}</p>
+        <div class="noticeBoardButtonDiv flex justify-content-center align-items-center">
+          <button pButton pRipple label="KNOW MORE" class="noticeBoardButton p-button-success mt-2"
+            (click)="goToDashboard()"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="offersWrapper">
+
+
+    <div class="offerBackGroundDiv">
+    </div>
+
+    <div class="offersWrapperDiv">
+
+      <div class="offersContentWrapper flex justify-content-center">
+        <div class="offersContent text-center">
+          <h2 class="flex justify-content-center hidden">{{CONSTANTS.offersTitle}}</h2>
+          <b class="flex justify-content-center hidden pb-5 line">________</b>
+        </div>
+      </div>
+
+      <div class="offersCardContainer">
+        <div class="offersCardLeftButton m-2">
+          <p-button icon="pi pi-angle-left" (click)="swapCard('right','offersCardScrollContainer')" />
+        </div>
+        <div class="offersCardDiv" #offersCardScrollContainer>
+          <div class="offersCardWrapper flex justify-content-center" *ngFor="let card of offersCardData;let i = index">
+            <div class="offersCard flex flex-column align-items-center">
+              <img [src]="card.imgUrl" [alt]="card.title">
+              <p class="flex justify-content-center"><b>{{card.title}}</b></p>
+            </div>
+          </div>
+        </div>
+        <div class="offersCardRightButton m-2">
+          <p-button icon="pi pi-angle-right" (click)="swapCard('left','offersCardScrollContainer')" />
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <footer class="footerWrapper">
+    <p class="flex justify-content-center p-5">{{CONSTANTS.footerHeader}}</p>
+
+    <div class="addressesWrapper flex justify-content-between flex-wrap">
+      <div class="addressDiv m-5 mb-1 mt-1 p-5 pt-0 pb-0" *ngFor="let address of addresses">
+
+        <p class="flex justify-content-center">{{address.title}}</p>
+
+        <p class="flex justify-content-center align-items-center"><span
+            class="dottedDividerWrapper flex justify-content-center align-items-center"><i
+              class="fa-solid fa-envelope"></i></span><span class="dividerWrapper">Email: </span> {{address.email}}
+        </p>
+
+        <p class="flex justify-content-center align-items-center"><span
+            class="dottedDividerWrapper flex justify-content-center align-items-center"><i
+              class="fa-solid fa-phone-flip"></i></span><span class="dividerWrapper">Phone:
+          </span>{{address.primary_contact}}
+        </p>
+
+        <p class="flex justify-content-center align-items-center"><span
+            class="dottedDividerWrapper flex justify-content-center align-items-center"><i
+              class="fa-solid fa-phone-flip"></i></span>{{address.secondary_contact}}</p>
+
+        <p class="flex justify-content-center align-items-center" *ngIf="address.third_contact"><span
+            class="dottedDividerWrapper flex justify-content-center align-items-center"><i
+              class="fa-solid fa-phone-flip"></i></span>{{address.third_contact}}</p>
+
+      </div>
+    </div>
+
+    <div class="socialLinksWrapper">
+
+      <div class="socialLinkTitle flex justify-content-center">
+        <h4>{{CONSTANTS.socialLinkTitle}}</h4>
+      </div>
+
+      <div class="socialLinksDiv flex justify-content-center link" [ngStyle]="customProperties">
+        <div class="socialLink cursor-pointer flex justify-content-center align-items-center m-2 "
+          [ngStyle]="{'--item-color': link.background}" *ngFor="let link of socialLinks">
+          <i [class]="link.icon" (click)="goToLink(link.url)"></i>
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="dividerWrapper">
+      <hr>
+    </div>
+
+    <div class="contactLinksWrapper flex justify-content-center flex-wrap mb-5">
+      <div class="contactLinkDiv m-2 mb-0 mt-0" *ngFor="let link of contactLinks">
+        <p class="contactLink cursor-pointer mb-2 mt-2"> {{link.link_title}}</p>
+      </div>
+    </div>
+
+    <div class="dottedDividerWrapper"> </div>
+
+    <div class="copyRightsWrapper">
+      <p class="flex justify-content-center copyRight">{{CONSTANTS.copyRightsContent}}</p>
+    </div>
+
+    <div class="instantBookingWrapper">
+
+      <div class="instantBookingDiv flex justify-content-center">
+
+        <div class="locationFieldDiv">
+          <p>Location</p>
+          <p-dropdown [options]="locationsData" [filter]="true" filterBy="label" [(ngModel)]="selectedLocation"
+            optionLabel="label" placeholder="Select Your Destination" (onChange)="locationChanged($event)" />
+        </div>
+        <div class="propertyFieldDiv">
+          <p>Property</p>
+          <p-dropdown [options]="hotelData" [filter]="true" filterBy="label" [(ngModel)]="selectedHotel"
+            optionLabel="label" placeholder="Select Your Hotel" (onChange)="propertyChanged($event)" />
+        </div>
+        <div class="bookOptionDiv pt-4 mt-4 flex justify-content-center align-items-center">
+          <button pButton pRipple label="BOOK NOW" class="p-button-success" (click)="goToDashboard()"></button>
+        </div>
+
+      </div>
+
+      <div class="instructionDiv flex ml-5 pb-3" (mouseenter)="showOverlayPanel($event)"
+        (mouseleave)="hideOverlayPanel()">
+        <b class="instruction cursor-pointer">Why Book Direct?</b>
+      </div>
+
+      <div class="instructionOverlayPanelDiv">
+        <p-overlayPanel #instructionOverlayPanel class="instructionOverlayPanel">
+          <div class="flex flex-column w-25rem">
+            <div class="flex">
+              <b class="mr-3 mt-2 text-3xl">*</b>
+              <p class="mr-3 text-xs"> Get exclusive discount for website direct bookings</p>
+            </div>
+            <div class="flex">
+              <b class="mr-3 mt-2 text-3xl">*</b>
+              <p class="mr-3 text-xs"> Stay & Play offer multiple entry & exit from the
+                Wonderla Park same day( only for website direct booking)</p>
+            </div>
+            <div class="flex">
+              <b class="mr-3 mt-2 text-3xl">*</b>
+              <p class="mr-3 text-xs"> Complimentary access to the activity room and kids play
+                area.</p>
+            </div>
+            <div class="flex">
+              <b class="mr-3 mt-2 text-3xl">*</b>
+              <p class="mr-3 text-xs"> Free cancellation - 24 hours before check-in only for
+                direct bookings</p>
+            </div>
+          </div>
+        </p-overlayPanel>
+      </div>
+
+      <div class="scrollToTopDiv" *ngIf="isVisible">
+        <p-button class="scrollToTop" (click)="scrollToTop()" icon="pi pi-angle-up" />
+      </div>
+
+      <div class="liveChatDiv">
+        <button (click)="openLiveChatPanel()" pButton class="botChatForMobile flex justify-content-center"><img
+            src="../../../../assets/download.png" alt="Chat bot logo"></button>
+      </div>
+
+      <div class="liveChatPanelDiv" *ngIf="showLiveChatPanel">
+
+        <div class="liveChatHeader flex justify-content-around align-items-center">
+          <div class="liveChatHeading">
+            <h3>Wonderla Parks and Resort</h3>
+          </div>
+          <div class="liveChatClose">
+            <i class="pi pi-times cursor-pointer" (click)="showLiveChatPanel=false"></i>
+          </div>
+        </div>
+
+        <div class="liveChatContent">
+          <div class="liveChatDateDiv">
+            <p class="flex justify-content-center text-sm">{{liveChatDate| date: 'EEEE d, MMMM'}}</p>
+          </div>
+          <div class="liveChatConversationDiv flex">
+            <div class="liveChatConversationIcon">
+              <img src="../../../../assets/liveChatConversationIcon/botAvatar.png" alt="Bot Icon">
+            </div>
+            <div class="liveChatConversationsWrapper mr-3">
+              <div class="liveChatFirstConversation p-3 pt-1 mb-2">
+                <p>Hi 👋, Welcome to Wonderla Parks and Resorts.</p>
+                <p> I'm a Chatbot 🤖, I can help you with any queries about our services.</p>
+              </div>
+              <div class="liveChatSecondConversation p-3 pt-1" *ngIf="showChatLater">
+                <p>Choose a property you like to visit</p>
+                <div class="liveChatConversationPropertyDiv" *ngFor="let item of liveChatConversationProperty">
+                  <div class="liveChatConversationProperty cursor-pointer" (click)="liveChatConversationRequests(item)">
+                    <p class="flex justify-content-center m-2">{{item.property}}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="liveChatTimeDiv">
+                <p class="text-xs">{{liveChatTime| date: 'h:mm a'}}</p>
+              </div>
+
+              <div class="liveChatRequestDiv flex align-items-end flex-column"
+                *ngIf="liveChatConversationRequestedProperty.length">
+                <div class="liveChatConversationPropertyDiv" *ngFor="let item of liveChatConversationRequestedProperty">
+                  <div class="liveChatConversationProperty">
+                    <p class="flex justify-content-center m-2">{{item.property}}</p>
+                  </div>
+                </div>
+                <div class="liveChatTimeDiv">
+                  <p class="text-xs">{{liveChatLastTime| date: 'h:mm a'}}</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="liveChatFooter flex align-items-center justify-content-around">
+          <div class="liveChatInputField">
+            <input type="text" pInputText placeholder="Type Your message" [(ngModel)]="liveChatInputFieldValue" />
+          </div>
+          <div class="liveChatInputFieldIcon flex">
+            <input class="liveChatFileInputField" type="file" #liveChatFileInputField
+              (change)="liveChatConversationFileInput($event)">
+            <i class="pi pi-paperclip cursor-pointer m-2" (click)="liveChatFileInputField.click()"></i>
+            <i class="pi pi-send cursor-pointer m-2" (click)="liveChatConversationInputs()"
+              [ngStyle]="{'color':liveChatInputFieldValue.trim().length?'black':'grey'}"></i>
+          </div>
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+    <div class="forMobile dottedDividerWrapper flex justify-content-center">
+      <div class="scrollToTopDiv flex justify-content-center" *ngIf="isVisible">
+        <p-button class="scrollToTop" (click)="scrollToTop()" icon="pi pi-angle-up" />
+      </div>
+      <div class="bookingOptionForMobileDiv flex justify-content-center" *ngIf="isVisible">
+        <p-button class="bookingOptionForMobile" (click)="showBookingOptionDialog=true"
+          icon="fa-solid fa-calendar-days" />
+      </div>
+      <div class="botChatForMobileDiv flex justify-content-center">
+        <button pButton class="botChatForMobile flex justify-content-center align-items-center"
+          (click)="showChatBotDialog=true"><img src="../../../../assets/download.png" alt="Chat bot logo"></button>
+      </div>
+    </div>
+
+
+  </footer>
+
+
+  <p-dialog header="Wonderla Parks and Resort" [(visible)]="showChatBotDialog" [modal]="true"
+    [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" [style]="{ width: '50vw' }" [draggable]="false"
+    [resizable]="false">
+    <div class="liveChatContent">
+      <div class="liveChatDateDiv">
+        <p class="flex justify-content-center text-sm">{{liveChatDate| date: 'EEEE d, MMMM'}}</p>
+      </div>
+      <div class="liveChatConversationDiv flex">
+        <div class="liveChatConversationIcon">
+          <img src="../../../../assets/liveChatConversationIcon/botAvatar.png" alt="Bot Icon">
+        </div>
+        <div class="liveChatConversationsWrapper mr-3">
+          <div class="liveChatFirstConversation p-3 pt-1 mb-2">
+            <p>Hi 👋, Welcome to Wonderla Parks and Resorts.</p>
+            <p> I'm a Chatbot 🤖, I can help you with any queries about our services.</p>
+          </div>
+          <div class="liveChatSecondConversation p-3 pt-1" *ngIf="showChatLater">
+            <p>Choose a property you like to visit</p>
+            <div class="liveChatConversationPropertyDiv" *ngFor="let item of liveChatConversationProperty">
+              <div class="liveChatConversationProperty cursor-pointer" (click)="liveChatConversationRequests(item)">
+                <p class="flex justify-content-center m-2">{{item.property}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="liveChatTimeDiv">
+            <p class="text-xs">{{liveChatTime| date: 'h:mm a'}}</p>
+          </div>
+
+          <div class="liveChatRequestDiv flex align-items-end flex-column"
+            *ngIf="liveChatConversationRequestedProperty.length">
+            <div class="liveChatConversationPropertyDiv" *ngFor="let item of liveChatConversationRequestedProperty">
+              <div class="liveChatConversationProperty">
+                <p class="flex justify-content-center m-2">{{item.property}}</p>
+              </div>
+            </div>
+            <div class="liveChatTimeDiv">
+              <p class="text-xs">{{liveChatLastTime| date: 'h:mm a'}}</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="liveChatFooter flex align-items-center justify-content-around">
+      <div class="liveChatInputField">
+        <input type="text" pInputText placeholder="Type Your message" [(ngModel)]="liveChatInputFieldValue" />
+      </div>
+      <div class="liveChatInputFieldIcon flex">
+        <input class="liveChatFileInputField" type="file" #liveChatFileInputField
+          (change)="liveChatConversationFileInput($event)">
+        <i class="pi pi-paperclip cursor-pointer m-2" (click)="liveChatFileInputField.click()"></i>
+        <i class="pi pi-send cursor-pointer m-2" (click)="liveChatConversationInputs()"
+          [ngStyle]="{'color':liveChatInputFieldValue.trim().length?'black':'grey'}"></i>
+      </div>
+    </div>
+  </p-dialog>
+
+
+  <p-dialog class="bookingDialog" header="BOOK NOW" [(visible)]="showBookingOptionDialog" [modal]="true"
+    [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" [style]="{ width: '50vw' }" [draggable]="false"
+    [resizable]="false">
+    <div class="bookingDialogContentWrapper">
+      <div class="instantBookingDiv flex justify-content-center flex-column">
+
+        <div class="locationFieldDiv">
+          <p>Location</p>
+          <p-dropdown [options]="locationsData" [filter]="true" filterBy="label" [(ngModel)]="selectedLocation"
+            optionLabel="label" placeholder="Select Your Destination" />
+        </div>
+        <div class="propertyFieldDiv">
+          <p>Property</p>
+          <p-dropdown [options]="hotelData" [filter]="true" filterBy="label" [(ngModel)]="selectedHotel"
+            optionLabel="label" placeholder="Select Your Hotel" />
+        </div>
+        <div class="bookOptionDiv pt-4 mt-4 flex justify-content-center align-items-center">
+          <button pButton pRipple label="BOOK" class="p-button-success" (click)="goToDashboard()"></button>
+        </div>
+
+      </div>
+    </div>
+  </p-dialog>
+
+</div>
+<div class=" flex justify-content-center loader align-items-center" *ngIf="isLoading">
+  <p-progressSpinner ariaLabel="loading" />
+</div>

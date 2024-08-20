@@ -1,0 +1,2921 @@
+.dashboardContainer {
+  width: 100%;
+  position: absolute;
+}
+
+.adBarWrapper {
+  background-color: #0a2354;
+  width: 100%;
+  height: 1.9em;
+}
+
+.adBar {
+  width: 100%;
+  max-width: 85em;
+  background-color: #0a2354;
+  height: 1.9em;
+}
+
+.hotHeader {
+  overflow: hidden;
+  background-color: #0a2354;
+  width: max-content;
+}
+
+.scrollingText {
+  width: max-content;
+  color: #ffffff;
+  margin: 0px 10px;
+  animation: righttoleft 50s infinite linear;
+}
+
+@keyframes righttoleft {
+  from {
+    transform: translateX(80%);
+  }
+
+  to {
+    transform: translateX(-120%);
+  }
+}
+
+::ng-deep .scrollingText .p-button,
+::ng-deep .scrollingText .p-button-success {
+  padding: 0.38rem 1.5rem !important;
+  border-radius: 0 !important;
+  color: black !important;
+  background-color: #f9de0a !important;
+  border: 0px !important;
+}
+
+.scrollingText button {
+  margin-right: 2em;
+  margin-left: 2em;
+}
+
+.scrollingText {
+  font-size: 14px;
+}
+
+::ng-deep .p-button.p-button-success:not(:disabled):hover,
+::ng-deep .p-button-group.p-button-success>.p-button:not(:disabled):hover,
+::ng-deep .p-splitbutton.p-button-success>.p-button:not(:disabled):hover {
+  background-color: #ffffff !important;
+}
+
+::ng-deep .p-menubar .p-menubar-root-list>.p-menuitem>.p-menuitem-content {
+  font-size: 12px !important;
+  font-weight: 900 !important;
+}
+
+::ng-deep .p-menubar .p-menubar-root-list>.p-menuitem>.p-menuitem-content .p-menuitem-link {
+  padding: 0.75rem 0.5rem;
+}
+
+.primaryNavbarLogo {
+  width: 12em;
+  height: 5.5em;
+}
+
+.primaryNavbarWrapper {
+  background-color: #ffffff;
+  padding-left: 2em;
+  padding-right: 2em;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  position: sticky !important;
+  top: 0;
+  z-index: 1000;
+  box-shadow: rgba(0, 0, 0, 0.38) 0px 2px 10px;
+}
+
+::ng-deep .p-menubar .p-submenu-list {
+  position: fixed !important;
+  z-index: 1000 !important;
+  width: max-content;
+}
+
+::ng-deep .p-menubar .p-submenu-list,
+::ng-deep .p-menubar ul {
+  width: max-content;
+}
+
+::ng-deep .p-menubar {
+  border: #ffffff;
+  background-color: #ffffff;
+}
+
+.p-menubar ul .primaryNavbarOptions ul {
+  list-style: none;
+}
+
+.primaryNavbarOptions ul li {
+  display: inline-block;
+  position: relative;
+}
+
+.primaryNavbarOptions ul li a {
+  display: block;
+  color: #000000;
+  text-decoration: none;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 800;
+  margin: 14px;
+  margin-top: 24px;
+}
+
+.primaryNavbarOptions ul li .dropdown li {
+  display: block;
+}
+
+.primaryNavbarOptions ul li .dropdown {
+  width: 100%;
+  position: absolute;
+  z-index: 999;
+  display: none !important;
+}
+
+.primaryNavbarOptions ul {
+  padding: 0px;
+}
+
+.primaryNavbarOptions ul li :hover .dropdown {
+  display: block;
+}
+
+.secondaryNavbarWrapper {
+  color: #ffffff;
+  font-size: 12px;
+  background-color: #0a2354;
+  height: 3em;
+  padding-top: 4px;
+}
+
+::ng-deep .primaryNavbarBookNow .p-button,
+::ng-deep .primaryNavbarBookNow .p-button-success,
+::ng-deep .zigZagButtonDiv .p-button,
+::ng-deep .zigZagButtonDiv .p-button-success {
+  padding: 0.5rem 2.3rem !important;
+  border-radius: 0 !important;
+  color: #edd24e !important;
+  background-color: #0b2254 !important;
+  border: 0px !important;
+}
+
+::ng-deep .primaryNavbarBookNow .p-button.p-button-success:not(:disabled):hover,
+::ng-deep .primaryNavbarBookNow .p-button-group.p-button-success>.p-button:not(:disabled):hover,
+::ng-deep .primaryNavbarBookNow .p-splitbutton.p-button-success>.p-button:not(:disabled):hover {
+  border: 2px solid #000000 !important;
+  color: #000000 !important;
+}
+
+.secondaryNavOption:hover {
+  color: #edd24e !important;
+  transition: color 1s;
+}
+
+.primaryNavbar {
+  width: 100%;
+  max-width: 80em;
+  height: 6em;
+}
+
+.primaryNavbarOptions ul li a .pi-angle-down {
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.primaryNavbarOptions {
+  width: 63%;
+  height: 6em;
+  overflow: hidden;
+}
+
+.primaryNavbarOptions ul {
+  width: max-content;
+  height: 6em;
+}
+
+.sliderImagesWrapper {
+  overflow: hidden;
+}
+
+.sliderImagesWrapper figure {
+  position: relative;
+  width: 500%;
+  margin: 0;
+  left: 0;
+  animation: 30s slider infinite;
+}
+
+.sliderImagesWrapper figure .sliderImageDiv {
+  width: 20%;
+}
+
+.sliderImageDiv img {
+  width: 100%;
+}
+
+.mobileViewDashboardOptionsWrapper {
+  color: #ffd352;
+  background-color: #0b2254;
+}
+
+.mobileViewDashboardOptionsMenuDiv {
+  background-color: #0b2254;
+  padding: 1em 1.38em;
+  width: 100%;
+}
+
+.mobileViewDashboardOptionsMenuDiv i {
+  font-size: 2rem;
+}
+
+.mobileViewDashboardOptionsMenuDiv:hover {
+  background-color: #06132e;
+}
+
+.introWrapper {
+  padding: 2em;
+  background-color: #f3fffd;
+  text-align: center;
+}
+
+.hidden {
+  position: relative;
+  line-height: 2em;
+  opacity: 0;
+  top: 0;
+  transition: top 2s;
+  margin-top: 0;
+}
+
+.show {
+  margin: 0;
+  position: relative;
+  top: 1em;
+  opacity: 1;
+}
+
+.cardListWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.cardContainer {
+  overflow: scroll;
+  width: 51em;
+  margin-left: 2em;
+  margin-right: 2em;
+  display: flex;
+}
+
+.cardContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.cardWrapper {
+  position: relative;
+  margin: 0;
+  left: 0;
+  animation: 25s cardSlider infinite;
+}
+
+.card {
+  width: 13em;
+  height: 20em;
+  border-radius: 20px;
+  margin: 2em;
+}
+
+.cardUpperDiv,
+.cardLowerDiv {
+  height: 10em;
+  width: 13em;
+}
+
+.cardUpperDiv img {
+  width: 13em;
+  height: 10em;
+  border-radius: 20px 20px 0px 0px;
+}
+
+.cardLowerDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardTitle {
+  color: #ffffff;
+  font-size: 32px;
+  text-align: center;
+  font-family: 'FF Bauer Grotesk Paneuropean Bold';
+}
+
+.cardSwappingButtons {
+  font-size: 2em;
+}
+
+.cardUpperDiv {
+  background-color: #000000;
+  border-radius: 20px 20px 0px 0px;
+}
+
+.cardLeftSwappingDiv,
+.cardRightSwappingDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+
+.zigZagIntroBackGroundDiv {
+  width: 100%;
+  overflow: hidden;
+}
+
+.zigZagIntroBackGroundDivOne,
+.zigZagIntroBackGroundDivTwo {
+  transform: rotate(-3deg);
+  width: 500em;
+  height: 25em;
+  position: relative;
+  right: 5em;
+}
+
+.zigZagIntroBackGroundDivOne {
+  background-color: #0b2254;
+  margin-top: 5em;
+}
+
+.zigZagIntroBackGroundDivTwo {
+  background-color: #f6d72f;
+  margin-bottom: 15em;
+}
+
+.zigZagIntroWrapper {
+  overflow: hidden;
+  position: relative;
+  padding: 8em;
+}
+
+.zigZagIntroDivOne {
+  position: relative;
+  bottom: 19em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 0;
+}
+
+.zigZagIntroDivTwo {
+  height: 0;
+  position: relative;
+  bottom: 23em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.zigZagIntroOneContent {
+  color: #ffffff;
+  text-align: center;
+}
+
+.zigZagIntroTwoContent {
+  color: #142522;
+  text-align: center;
+}
+
+.zigZagIntroOneCard,
+.zigZagIntroTwoCard,
+.zigZagIntroOneCard img,
+.zigZagIntroTwoCard img {
+  width: 17em;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 20em;
+}
+
+.zigZagIntroOneCardContainer,
+.zigZagIntroTwoCardContainer {
+  display: flex;
+  width: 50em;
+  overflow: hidden;
+}
+
+.zigZagIntroOneCardWrapper,
+.zigZagIntroTwoCardWrapper {
+  padding: 2em;
+  position: relative;
+  margin: 0;
+  left: 0;
+}
+
+.zigZagIntroOneCardWrapper {
+  animation: 30s zigZagCardSlider infinite;
+}
+
+.zigZagIntroTwoCardWrapper {
+  animation: 20s zigZagCardSlider infinite;
+}
+
+.zigZagIntroOneCardWrapper .zigZagIntroOneTitle {
+  color: #ffffff;
+  position: absolute;
+  font-size: 20px;
+  width: 14em;
+  height: 16em;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  font-weight: 700;
+  align-items: flex-end;
+  box-shadow: rgb(0, 0, 0) 0px -50px 50px -15px inset;
+}
+
+.zigZagIntroOneCardDiv,
+.zigZagIntroTwoCardDiv {
+  display: flex;
+  overflow: scroll;
+}
+
+.zigZagIntroOneCardDiv::-webkit-scrollbar,
+.zigZagIntroTwoCardDiv::-webkit-scrollbar {
+  display: none;
+}
+
+.zigZagIntroOneCardLeftButton,
+.zigZagIntroOneCardRightButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+::ng-deep .zigZagIntroOneCardLeftButton .p-element .p-button,
+::ng-deep .zigZagIntroOneCardRightButton .p-element .p-button {
+  border-radius: 100px !important;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+::ng-deep .zigZagIntroOneCardLeftButton .p-element .p-button .pi,
+::ng-deep .zigZagIntroOneCardRightButton .p-element .p-button .pi {
+  font-size: 22px;
+}
+
+.zigZagIntroTwoCardLeftButton,
+.zigZagIntroTwoCardRightButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+::ng-deep .zigZagIntroTwoCardLeftButton .p-element .p-button,
+::ng-deep .zigZagIntroTwoCardRightButton .p-element .p-button {
+  border-radius: 100px !important;
+  background-color: #ffffff;
+  color: #000000;
+  border: none !important;
+}
+
+::ng-deep .zigZagIntroTwoCardLeftButton .p-element .p-button .pi,
+::ng-deep .zigZagIntroTwoCardRightButton .p-element .p-button .pi {
+  font-size: 22px;
+}
+
+::ng-deep .zigZagButtonDiv .p-button.p-button-success:not(:disabled):hover,
+::ng-deep .zigZagButtonDiv .p-button-group.p-button-success>.p-button:not(:disabled):hover,
+::ng-deep .zigZagButtonDiv .p-splitbutton.p-button-success>.p-button:not(:disabled):hover {
+  color: #000000 !important;
+}
+
+.noticeImgDiv {
+  width: 45em;
+  height: 32em;
+}
+
+.noticeImgDiv img {
+  width: 100%;
+  height: 100%;
+}
+
+.noticeBoardDiv {
+  width: 70em;
+  display: flex;
+  align-items: center;
+}
+
+.noticeContentDiv {
+  width: 33em;
+  height: max-content;
+  background-color: #0b2254;
+  color: #ffffff;
+  position: relative;
+  right: 5em;
+  padding-bottom: 2em;
+  text-align: center;
+}
+
+.noticeBoardContent {
+  text-wrap: pretty;
+  padding: 3em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  text-align: center;
+  font-size: 15px;
+  line-height: 2;
+}
+
+::ng-deep .noticeBoardButtonDiv .p-button,
+::ng-deep .noticeBoardButtonDiv .p-button {
+  background-color: #ffd336 !important;
+  color: #0b2254 !important;
+  border: none !important;
+  border-radius: 0px !important;
+  padding: 0.5rem 1.25rem !important;
+  font-size: 14px !important;
+}
+
+::ng-deep .noticeBoardButtonDiv .p-button.p-button-success:not(:disabled):hover,
+::ng-deep .noticeBoardButtonDiv .p-button-group.p-button-success>.p-button:not(:disabled):hover,
+::ng-deep .noticeBoardButtonDiv .p-splitbutton.p-button-success>.p-button:not(:disabled):hover {
+  color: #ffd336 !important;
+  border: 1px solid #ffd336 !important;
+  background-color: #0b2254 !important;
+}
+
+.offersWrapper {
+  overflow: hidden;
+  height: 70em;
+}
+
+.offerBackGroundDiv {
+  transform: rotate(3deg);
+  width: 500em;
+  height: 50em;
+  position: relative;
+  right: 5em;
+  background-color: #f6d72f;
+}
+
+.offersWrapperDiv {
+  position: relative;
+  bottom: 30em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.offersContent {
+  color: #142522;
+}
+
+.offersCardContainer {
+  width: 62em;
+  display: flex;
+  overflow: hidden;
+  text-align: center;
+}
+
+.offersCardLeftButton,
+.offersCardRightButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+::ng-deep .offersCardLeftButton .p-element .p-button,
+::ng-deep .offersCardRightButton .p-element .p-button {
+  border-radius: 100px !important;
+  background-color: #ffffff;
+  color: #000000;
+  border: none !important;
+}
+
+::ng-deep .offersCardLeftButton .p-element .p-button .pi,
+::ng-deep .offersCardRightButton .p-element .p-button .pi {
+  font-size: 22px;
+}
+
+.offersCardDiv {
+  display: flex;
+  overflow: scroll;
+  justify-content: center;
+}
+
+.offersCardDiv::-webkit-scrollbar {
+  display: none;
+}
+
+.offersCardWrapper {
+  padding: 2em;
+  position: relative;
+  margin: 0;
+  left: 0;
+  animation: 40s offerCardSlider infinite;
+}
+
+.offersCard {
+  width: 50em;
+  height: 33em;
+}
+
+.offersCard img {
+  width: 50em;
+  height: 30em;
+}
+
+.footerWrapper {
+  width: 100%;
+  background-color: #0a2153;
+  padding-bottom: 8.8em;
+  text-align: center;
+  background-image: url(../../../../assets/dashboardFooter/wonderlafooter4.avif);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.socialLinksWrapper {
+  margin-bottom: 2em;
+}
+
+.footerWrapper {
+  color: #ffffff;
+}
+
+.addressesWrapper {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.addressDiv p .dottedDividerWrapper {
+  width: 2em;
+  height: 2em;
+  background-color: #FFFFFF;
+  border-radius: 100px;
+}
+
+.addressDiv p .dividerWrapper {
+  color: #FFFFFF;
+}
+
+.addressDiv p span {
+  color: #0a2453;
+}
+
+.fa-envelope {
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+
+.socialLink {
+  color: #000000;
+  width: 2.5em;
+  height: 2.5em;
+  background-color: #ffffff;
+}
+
+.link :hover {
+  display: flex;
+  color: #ffffff;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s color;
+  background-color: var(--item-color);
+}
+
+.dividerWrapper hr {
+  width: 80%;
+}
+
+.contactLinksWrapper {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.contactLink:hover {
+  text-decoration: underline;
+}
+
+.dottedDividerWrapper {
+  border: 1px solid #fff;
+  border-style: dashed;
+  margin-left: 5%;
+  margin-right: 5%;
+  display: none !important;
+}
+
+.instantBookingWrapper {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.instantBookingDiv div {
+  margin: 1em;
+  margin-top: 0;
+  text-align: start;
+}
+
+::ng-deep .bookOptionDiv .p-button {
+  border-radius: 0px !important;
+  background-color: #0b2254;
+  color: #fdce5e;
+  border: none !important;
+  width: 10em;
+}
+
+::ng-deep .bookOptionDiv .p-button.p-button-success:not(:disabled):hover,
+::ng-deep .bookOptionDiv .p-button-group.p-button-success>.p-button:not(:disabled):hover,
+::ng-deep .bookOptionDiv .p-splitbutton.p-button-success>.p-button:not(:disabled):hover {
+  color: #000000 !important;
+}
+
+::ng-deep .instantBookingDiv div .p-inputwrapper .p-dropdown {
+  width: 20em !important;
+  border-radius: 0;
+}
+
+::ng-deep .instantBookingDiv div .p-inputwrapper .p-dropdown p-overlay .p-overlay .p-overlay-content .p-dropdown-panel .p-dropdown-header .p-dropdown-filter-container .p-inputtext {
+  border: 2px solid #000000 !important;
+  border-radius: 8px !important;
+}
+
+::ng-deep .p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled):hover {
+  background-color: #ffd334 !important;
+}
+
+::ng-deep .p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled).p-focus {
+  background-color: #ffffff;
+}
+
+.instruction {
+  font-size: 10px;
+}
+
+::ng-deep .scrollToTopDiv .p-button {
+  border-radius: 100px !important;
+  background-color: #ffffff;
+  color: #000000;
+  border: none !important;
+  width: 3em;
+  height: 3em;
+}
+
+::ng-deep .scrollToTopDiv .p-button .pi-angle-up {
+  font-size: 40px;
+}
+
+::ng-deep .scrollToTopDiv .p-button.p-button-success:not(:disabled):hover,
+::ng-deep .scrollToTopDiv .p-button-group.p-button-success>.p-button:not(:disabled):hover,
+::ng-deep .scrollToTopDiv .p-splitbutton.p-button-success>.p-button:not(:disabled):hover {
+  color: #000000 !important;
+}
+
+.scrollToTopDiv {
+  position: fixed;
+  bottom: 8em;
+  right: 1em;
+  transition: all 1s;
+}
+
+.forMobile {
+  border: none;
+}
+
+.forMobile .scrollToTopDiv {
+  position: fixed;
+  bottom: 0em;
+  right: 0em;
+  left: 0em;
+}
+
+::ng-deep .forMobile .scrollToTopDiv .p-button {
+  border-radius: 20px 20px 0px 0px !important;
+  width: 4em !important;
+  height: 2.5em !important;
+}
+
+::ng-deep .forMobile .scrollToTopDiv .p-button .pi-angle-up {
+  font-weight: 900;
+}
+
+::ng-deep .forMobile .bookingOptionForMobileDiv .p-button {
+  border-radius: 100em !important;
+  width: 2.8em !important;
+  height: 2.8em !important;
+  background-color: #0b2254;
+  border: #0b2254;
+  color: #f3da23;
+  font-size: 20px;
+}
+
+.forMobile .bookingOptionForMobileDiv {
+  position: fixed;
+  bottom: 1em;
+  left: 1em;
+}
+
+::ng-deep .forMobile .botChatForMobileDiv .p-button {
+  border-radius: 100em !important;
+  width: 3em !important;
+  height: 3em !important;
+  background-color: #0b2254;
+  border: #0b2254;
+  color: #ffffff;
+  padding: 2em;
+}
+
+.forMobile .botChatForMobileDiv {
+  position: fixed;
+  bottom: 1em;
+  right: 1em;
+}
+
+::ng-deep .liveChatDiv .p-button {
+  border-radius: 100px !important;
+  background-color: #09014c;
+  color: #ffffff;
+  font-size: 40px;
+  border: none !important;
+  width: 2em;
+  height: 2em;
+}
+
+::ng-deep .liveChatDiv .p-button.p-button-success:not(:disabled):hover,
+::ng-deep .liveChatDiv .p-button-group.p-button-success>.p-button:not(:disabled):hover,
+::ng-deep .liveChatDiv .p-splitbutton.p-button-success>.p-button:not(:disabled):hover {
+  color: #000000 !important;
+}
+
+.liveChatDiv {
+  position: fixed;
+  bottom: 1em;
+  right: 1.5em;
+}
+
+::ng-deep .p-overlaypanel-flipped {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+::ng-deep .p-overlaypanel.p-overlaypanel-flipped:after,
+::ng-deep .p-overlaypanel.p-overlaypanel-flipped:before {
+  border-top-color: #000000;
+}
+
+.scrollToTop,
+.scrollToTopDiv {
+  z-index: 1000;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.liveChatPanelDiv {
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
+  border-radius: 10px;
+  width: 23em;
+  height: 31em;
+  z-index: 1003;
+  background-color: #FFFFFF;
+  box-shadow: 0px 0px 10px grey;
+}
+
+.liveChatHeader,
+.liveChatFooter {
+  height: 4em;
+  width: 23em;
+  color: #000000;
+}
+
+.liveChatContent {
+  text-align: start;
+}
+
+.liveChatClose i {
+  font-size: 1.2rem;
+}
+
+.liveChatInputFieldIcon i {
+  font-size: 1.2rem;
+}
+
+.liveChatInputFieldIcon .pi-paperclip {
+  color: grey;
+}
+
+.liveChatInputFieldIcon .pi-paperclip:hover,
+.liveChatContent,
+.liveChatDateDiv {
+  color: black;
+}
+
+::ng-deep .liveChatInputField .p-inputtext {
+  border: none !important;
+}
+
+.liveChatContent {
+  height: 23em;
+  width: 23em;
+  overflow: scroll;
+  background-color: rgb(244, 245, 247);
+  box-shadow: inset 0px -10px 10px rgb(211, 211, 211);
+}
+
+
+.liveChatContent::-webkit-scrollbar {
+  display: none;
+}
+
+.liveChatConversationIcon img {
+  width: 2em;
+  height: 2em;
+  margin-left: 1em;
+  margin-right: 0.5em;
+}
+
+.liveChatFirstConversation,
+.liveChatSecondConversation {
+  background-color: #ffffff;
+  border-radius: 0px 10px 10px 10px;
+  box-shadow: 0px 0px 10px rgb(213, 213, 213);
+}
+
+.liveChatConversationsWrapper {
+  width: 100%;
+}
+
+.liveChatConversationProperty {
+  background-color: rgb(232, 232, 232);
+  width: fit-content;
+  margin: 8px;
+  padding: 2px;
+  border-radius: 5px;
+}
+
+.liveChatConversationProperty:hover,
+.liveChatRequestDiv .liveChatConversationPropertyDiv .liveChatConversationProperty {
+  background-color: #09004d;
+  color: #ffffff;
+}
+
+.liveChatRequestDiv {
+  margin-bottom: 2em;
+}
+
+.liveChatRequestDiv .liveChatConversationPropertyDiv .liveChatConversationProperty {
+  border-radius: 10px 0px 10px 10px;
+  margin: 2px;
+}
+
+.liveChatFileInputField {
+  display: none;
+}
+
+::ng-deep .bookingDialog .p-dialog .p-dialog-header .p-dialog-header-icon .p-icon-wrapper {
+  color: #f3da23;
+}
+
+::ng-deep .bookingDialog .p-dialog .p-dialog-header .p-dialog-header-icon .p-icon-wrapper .p-icon {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.copyRight {
+  font-size: small;
+}
+
+.loader {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  margin: 0;
+  background: rgb(0, 0, 0, 0.5);
+  border-radius: 0px;
+  z-index: 10000;
+}
+
+
+@media screen and (max-width: 575px) {
+
+  .adBarWrapper {
+    height: 1.2em;
+  }
+
+  .adBar {
+    height: 1.2em;
+  }
+
+  ::ng-deep .scrollingText .p-button,
+  ::ng-deep .scrollingText .p-button-success {
+    padding: 0.21rem 1.5rem !important;
+  }
+
+  .scrollingText,
+  ::ng-deep .scrollingText .p-button,
+  ::ng-deep .scrollingText .p-button-success {
+    font-size: 10px;
+  }
+
+  .primaryNavbarWrapper {
+    padding: 0;
+    position: relative;
+  }
+
+  .primaryNavbarOptions,
+  .primaryNavbarBookNowDiv,
+  .secondaryNavbarWrapper,
+  .introWrapper .line,
+  .cardLeftSwappingDiv,
+  .cardRightSwappingDiv {
+    display: none !important;
+  }
+
+  .primaryNavbar {
+    justify-content: center !important;
+    height: 4em;
+  }
+
+  .primaryNavbarLogo {
+    width: 8em;
+    height: 4em;
+  }
+
+  .sliderImageDiv img {
+    width: 200%;
+    margin-left: 100%;
+  }
+
+  .introWrapper {
+    margin-top: 0;
+    line-height: 3em;
+  }
+
+  .introWrapper p {
+    line-height: 2em;
+  }
+
+
+  .card {
+    margin: 1.5em;
+  }
+
+  .zigZagIntroBackGroundWrapper {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  .zigZagIntroBackGroundDivOne,
+  .zigZagIntroBackGroundDivTwo {
+    height: 38em;
+    width: 100em;
+    margin-top: 0;
+  }
+
+  .zigZagIntroDivOne,
+  .zigZagIntroDivTwo {
+    display: block;
+  }
+
+  .zigZagIntroDivOne {
+    bottom: 34em;
+  }
+
+  .zigZagIntroDivTwo {
+    bottom: 38em;
+  }
+
+  .zigZagIntroTwoCardLeftButton,
+  .zigZagIntroTwoCardRightButton,
+  .zigZagIntroOneCardLeftButton,
+  .zigZagIntroOneCardRightButton,
+  .line {
+    display: none !important;
+  }
+
+  .zigZagIntroOneCard,
+  .zigZagIntroTwoCard,
+  .zigZagIntroOneCard img,
+  .zigZagIntroTwoCard img {
+    width: 15em;
+    border-radius: 20px;
+    height: 15em;
+  }
+
+  .zigZagIntroOneCardWrapper .zigZagIntroOneTitle {
+    font-size: 20px;
+    width: 18em;
+    height: 15em;
+    border-radius: 20px;
+    box-shadow: none;
+    color: #000000;
+  }
+
+  .zigZagIntroOneCardWrapper,
+  .zigZagIntroTwoCardWrapper {
+    padding: 0.5em;
+    margin: 10px;
+    background-color: #ffffff;
+    border-radius: 20px;
+  }
+
+  .zigZagIntroOneCardDiv {
+    height: 20em;
+  }
+
+  .zigZagIntroTwoCardDiv {
+    height: 18em;
+  }
+
+  .zigZagIntroOneCardContainer,
+  .zigZagIntroTwoCardContainer {
+    width: 100%;
+  }
+
+  .zigZagIntroBackGroundDivTwo {
+    margin-bottom: 5em;
+  }
+
+  .hidden {
+    line-height: 2em;
+  }
+
+  .noticeImgDiv {
+    width: 100%;
+    height: auto;
+  }
+
+  .noticeBoardDiv {
+    width: 52em;
+    margin-right: 1em;
+    margin-left: 1em;
+    display: block;
+  }
+
+  .noticeContentDiv {
+    width: 100%;
+    right: 0em;
+  }
+
+  .noticeContentDiv .hidden {
+    line-height: 2em;
+  }
+
+  .offersCardContainer {
+    width: 19em;
+  }
+
+  .offersWrapper {
+    margin-left: 1em;
+    margin-right: 1em;
+    height: 26em;
+  }
+
+  .offerBackGroundDiv {
+    height: 52em;
+    width: 100em;
+    margin-top: 5em;
+  }
+
+  .offersWrapperDiv {
+    bottom: 53em;
+  }
+
+  .offersCard {
+    width: 15em;
+    width: 100%;
+    height: 15em;
+  }
+
+  .offersCard img {
+    width: 15em;
+    height: 10em;
+  }
+
+  .offersContentWrapper .hidden {
+    line-height: 2em;
+  }
+
+  .offersCardLeftButton,
+  .offersCardRightButton {
+    display: none;
+  }
+
+  .footerWrapper {
+    padding-bottom: 4em;
+  }
+
+  .dividerWrapper,
+  .contactLinksWrapper {
+    display: none !important;
+  }
+
+  .socialLinksWrapper {
+    margin-bottom: 1em;
+  }
+
+  .dottedDividerWrapper {
+    display: flex !important;
+  }
+
+  .socialLink {
+    width: 2em;
+    height: 2em;
+  }
+
+  .socialLink i {
+    font-size: x-large;
+  }
+
+  .liveChatContent,
+  .liveChatFooter {
+    width: 100%;
+  }
+
+  .liveChatContent {
+    height: 58vh;
+  }
+
+  ::ng-deep .p-dialog .p-dialog-content {
+    padding: 0 !important;
+  }
+
+  ::ng-deep .liveChatInputField .p-inputtext {
+    width: 11em !important;
+  }
+
+  ::ng-deep .bookingDialogContentWrapper .instantBookingDiv div .p-inputwrapper .p-dropdown {
+    width: 100% !important;
+  }
+
+  .instantBookingWrapper {
+    display: none;
+  }
+
+  .addressesWrapper {
+    padding: 0;
+    justify-content: center !important;
+  }
+
+}
+
+
+@media screen and (min-width: 576px) and (max-width: 767px) {
+
+  .adBarWrapper {
+    height: 1.2em;
+  }
+
+  .adBar {
+    height: 1.2em;
+  }
+
+  ::ng-deep .scrollingText .p-button,
+  ::ng-deep .scrollingText .p-button-success {
+    padding: 0.21rem 1.5rem !important;
+  }
+
+  .scrollingText,
+  ::ng-deep .scrollingText .p-button,
+  ::ng-deep .scrollingText .p-button-success {
+    font-size: 10px;
+  }
+
+  .primaryNavbarWrapper {
+    padding: 0;
+    position: relative;
+  }
+
+  .primaryNavbarOptions,
+  .primaryNavbarBookNowDiv,
+  .secondaryNavbarWrapper,
+  .introWrapper .line,
+  .cardLeftSwappingDiv,
+  .cardRightSwappingDiv {
+    display: none !important;
+  }
+
+  .primaryNavbar {
+    justify-content: center !important;
+    height: 4em;
+  }
+
+  .primaryNavbarLogo {
+    width: 8em;
+    height: 4em;
+  }
+
+  .primaryNavbarOptions {
+    width: 5em;
+  }
+
+  .introWrapper {
+    margin-top: 0;
+    line-height: 3em;
+  }
+
+  .introWrapper p {
+    line-height: 2em;
+  }
+
+  .card {
+    margin: 1.5em;
+  }
+
+  .zigZagIntroBackGroundWrapper {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  .zigZagIntroBackGroundDivOne,
+  .zigZagIntroBackGroundDivTwo {
+    height: 40em;
+    width: 100em;
+    margin-top: 0;
+  }
+
+  .zigZagIntroBackGroundDivTwo {
+    margin-bottom: 7em;
+  }
+
+  .zigZagIntroDivOne,
+  .zigZagIntroDivTwo {
+    display: block;
+  }
+
+  .zigZagIntroDivOne {
+    bottom: 39em;
+  }
+
+  .zigZagIntroDivTwo {
+    bottom: 43em;
+  }
+
+  .zigZagIntroTwoCardLeftButton,
+  .zigZagIntroTwoCardRightButton,
+  .zigZagIntroOneCardLeftButton,
+  .zigZagIntroOneCardRightButton,
+  .line {
+    display: none !important;
+  }
+
+  .zigZagIntroOneCard,
+  .zigZagIntroTwoCard,
+  .zigZagIntroOneCard img,
+  .zigZagIntroTwoCard img {
+    width: 20em;
+    border-radius: 20px;
+    height: 20em;
+  }
+
+  .zigZagIntroOneCardWrapper .zigZagIntroOneTitle {
+    font-size: 20px;
+    width: 28em;
+    height: 18.8em;
+    border-radius: 20px;
+    box-shadow: none;
+    color: #000000;
+  }
+
+  .zigZagIntroOneCardWrapper,
+  .zigZagIntroTwoCardWrapper {
+    padding: 0.5em;
+    margin: 10px;
+    background-color: #ffffff;
+    border-radius: 20px;
+  }
+
+  .zigZagIntroOneCardDiv {
+    height: 26em;
+  }
+
+  .zigZagIntroTwoCardDiv {
+    height: 22.5em;
+  }
+
+  .zigZagIntroOneCardContainer,
+  .zigZagIntroTwoCardContainer {
+    width: 100%;
+  }
+
+  .hidden {
+    line-height: 3em;
+  }
+
+  .noticeImgDiv {
+    width: 100%;
+    height: auto;
+  }
+
+  .noticeBoardDiv {
+    width: 52em;
+    margin-right: 2em;
+    margin-left: 2em;
+    display: block;
+  }
+
+  .noticeContentDiv {
+    width: 100%;
+    right: 0em;
+  }
+
+  .offersCardContainer {
+    width: 27em;
+  }
+
+  .offersWrapper {
+    margin-left: 2em;
+    margin-right: 2em;
+    height: 30em;
+  }
+
+  .offerBackGroundDiv {
+    height: 34em;
+    width: 100em;
+    margin-top: 5em;
+  }
+
+  .offersWrapperDiv {
+    bottom: 35em;
+  }
+
+  .offersCard {
+    height: 15em;
+  }
+
+  .offersCard img {
+    width: 25em;
+    height: 15em;
+  }
+
+  .offersCardLeftButton,
+  .offersCardRightButton {
+    display: none;
+  }
+
+  .offersCardWrapper {
+    width: 27em;
+  }
+
+  .footerWrapper {
+    padding-bottom: 4em;
+  }
+
+  .dividerWrapper,
+  .contactLinksWrapper {
+    display: none !important;
+  }
+
+  .socialLinksWrapper {
+    margin-bottom: 1em;
+  }
+
+  .dottedDividerWrapper {
+    display: flex !important;
+  }
+
+  .socialLink {
+    width: 2em;
+    height: 2em;
+  }
+
+  .socialLink i {
+    font-size: x-large;
+  }
+
+  .liveChatContent,
+  .liveChatFooter {
+    width: 100%;
+  }
+
+  .liveChatContent {
+    height: 58vh;
+  }
+
+  ::ng-deep .p-dialog .p-dialog-content {
+    padding: 0 !important;
+  }
+
+  ::ng-deep .liveChatInputField .p-inputtext {
+    width: 11em !important;
+  }
+
+  ::ng-deep .bookingDialogContentWrapper .instantBookingDiv div .p-inputwrapper .p-dropdown {
+    width: 100% !important;
+  }
+
+  .instantBookingWrapper {
+    display: none;
+  }
+
+  .addressesWrapper {
+    padding: 0;
+    justify-content: center !important;
+  }
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 863px) {
+
+  .adBarWrapper {
+    height: 1.3em;
+  }
+
+  .adBar {
+    height: 1.3em;
+  }
+
+  ::ng-deep .scrollingText .p-button,
+  ::ng-deep .scrollingText .p-button-success {
+    padding: 0.25rem 1.5rem !important;
+  }
+
+  .scrollingText,
+  ::ng-deep .scrollingText .p-button,
+  ::ng-deep .scrollingText .p-button-success {
+    font-size: 12px;
+  }
+
+  .primaryNavbarWrapper {
+    padding: 0;
+    position: relative;
+  }
+
+  .primaryNavbarOptions,
+  .primaryNavbarBookNowDiv,
+  .secondaryNavbarWrapper,
+  .introWrapper .line,
+  .cardLeftSwappingDiv,
+  .cardRightSwappingDiv {
+    display: none !important;
+  }
+
+  .primaryNavbar {
+    justify-content: center !important;
+    height: 4em;
+  }
+
+  .primaryNavbarLogo {
+    width: 8em;
+    height: 4em;
+  }
+
+  .primaryNavbarOptions {
+    width: 21em;
+  }
+
+  .introWrapper {
+    margin-top: 0;
+    line-height: 3em;
+  }
+
+  .introWrapper p {
+    line-height: 2em;
+  }
+
+  .card {
+    margin: 1.5em;
+    width: 41em;
+    height: 48em;
+  }
+
+  .cardUpperDiv {
+    height: 38em;
+    width: 41em;
+  }
+
+  .cardLowerDiv {
+    height: 10em;
+    width: 41em;
+  }
+
+  .cardUpperDiv img {
+    width: 41em;
+    height: 38em;
+  }
+
+  .zigZagIntroBackGroundWrapper {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  .zigZagIntroBackGroundDivOne,
+  .zigZagIntroBackGroundDivTwo {
+    height: 65em;
+    width: 100em;
+  }
+
+  .zigZagIntroDivOne,
+  .zigZagIntroDivTwo {
+    display: block;
+  }
+
+  .zigZagIntroDivOne {
+    bottom: 62em;
+  }
+
+  .zigZagIntroDivTwo {
+    bottom: 75em;
+  }
+
+  .zigZagIntroTwoCardLeftButton,
+  .zigZagIntroTwoCardRightButton,
+  .zigZagIntroOneCardLeftButton,
+  .zigZagIntroOneCardRightButton,
+  .line {
+    display: none !important;
+  }
+
+  .zigZagIntroOneCard,
+  .zigZagIntroTwoCard,
+  .zigZagIntroOneCard img,
+  .zigZagIntroTwoCard img {
+    width: 38em;
+    border-radius: 20px;
+    height: 40em;
+  }
+
+  .zigZagIntroOneCardWrapper .zigZagIntroOneTitle {
+    font-size: 20px;
+    width: 38em;
+    height: 35em;
+    border-radius: 20px;
+    box-shadow: none;
+    color: #000000;
+  }
+
+  .zigZagIntroOneCardWrapper,
+  .zigZagIntroTwoCardWrapper {
+    padding: 0.5em;
+    margin: 10px;
+    background-color: #ffffff;
+    border-radius: 20px;
+  }
+
+  .zigZagIntroOneCardDiv {
+    height: 46em;
+  }
+
+  .zigZagIntroTwoCardDiv {
+    height: 42.5em;
+  }
+
+  .zigZagIntroOneCardContainer,
+  .zigZagIntroTwoCardContainer {
+    width: 100%;
+  }
+
+  .hidden {
+    line-height: 3em;
+  }
+
+  .noticeImgDiv {
+    width: 100%;
+    height: auto;
+  }
+
+  .noticeBoardDiv {
+    width: 52em;
+    margin-right: 2em;
+    margin-left: 2em;
+    display: block;
+  }
+
+  .noticeContentDiv {
+    width: 100%;
+    right: 0em;
+  }
+
+  .offersWrapper {
+    margin-left: 2em;
+    margin-right: 2em;
+    height: 35em;
+  }
+
+  .offerBackGroundDiv {
+    height: 50em;
+    width: 100em;
+    margin-top: 5em;
+  }
+
+  .offersWrapperDiv {
+    bottom: 50em;
+  }
+
+  .offersCard {
+    width: 58em;
+    height: 21em;
+  }
+
+  .offersCard img {
+    width: 35em;
+    height: 23em;
+  }
+
+  .offersCardLeftButton,
+  .offersCardRightButton {
+    display: none;
+  }
+
+  .footerWrapper {
+    padding-bottom: 4em;
+  }
+
+  .dividerWrapper,
+  .contactLinksWrapper {
+    display: none !important;
+  }
+
+  .socialLinksWrapper {
+    margin-bottom: 1em;
+  }
+
+  .dottedDividerWrapper {
+    display: flex !important;
+  }
+
+  .socialLink {
+    width: 2em;
+    height: 2em;
+  }
+
+  .socialLink i {
+    font-size: x-large;
+  }
+
+  .liveChatContent,
+  .liveChatFooter {
+    width: 100%;
+  }
+
+  .liveChatContent {
+    height: 58vh;
+  }
+
+  ::ng-deep .p-dialog .p-dialog-content {
+    padding: 0 !important;
+  }
+
+  ::ng-deep .liveChatInputField .p-inputtext {
+    width: 11em !important;
+  }
+
+  ::ng-deep .bookingDialogContentWrapper .instantBookingDiv div .p-inputwrapper .p-dropdown {
+    width: 100% !important;
+  }
+
+  .instantBookingWrapper {
+    display: none;
+  }
+
+  .addressesWrapper {
+    padding: 0;
+    justify-content: center !important;
+  }
+
+}
+
+@media screen and (min-width: 864px) and (max-width: 1023px) {
+
+  .adBarWrapper {
+    height: 1.3em;
+  }
+
+  .adBar {
+    height: 1.3em;
+  }
+
+  ::ng-deep .scrollingText .p-button,
+  ::ng-deep .scrollingText .p-button-success {
+    padding: 0.25rem 1.5rem !important;
+  }
+
+  .scrollingText,
+  ::ng-deep .scrollingText .p-button,
+  ::ng-deep .scrollingText .p-button-success {
+    font-size: 12px;
+  }
+
+  .primaryNavbarWrapper {
+    padding: 0;
+    position: relative;
+  }
+
+  .primaryNavbarOptions,
+  .primaryNavbarBookNowDiv,
+  .secondaryNavbarWrapper,
+  .cardLeftSwappingDiv,
+  .cardRightSwappingDiv {
+    display: none !important;
+  }
+
+  .primaryNavbar {
+    justify-content: center !important;
+    height: 4em;
+  }
+
+  .primaryNavbarLogo {
+    width: 8em;
+    height: 4em;
+  }
+
+  .primaryNavbarOptions {
+    width: 21em;
+  }
+
+  .introWrapper {
+    margin-top: 0;
+    line-height: 3em;
+  }
+
+  .introWrapper p {
+    line-height: 2em;
+  }
+
+  .card {
+    margin: 1.5em;
+    width: 41em;
+    height: 48em;
+  }
+
+  .cardUpperDiv {
+    height: 38em;
+    width: 41em;
+  }
+
+  .cardLowerDiv {
+    height: 10em;
+    width: 41em;
+  }
+
+  .cardUpperDiv img {
+    width: 41em;
+    height: 38em;
+  }
+
+  .zigZagIntroBackGroundWrapper {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  .zigZagIntroBackGroundDivOne,
+  .zigZagIntroBackGroundDivTwo {
+    height: 65em;
+    width: 100em;
+  }
+
+  .zigZagIntroDivOne,
+  .zigZagIntroDivTwo {
+    display: block;
+  }
+
+  .zigZagIntroDivOne {
+    bottom: 62em;
+  }
+
+  .zigZagIntroDivTwo {
+    bottom: 75em;
+  }
+
+  .zigZagIntroTwoCardLeftButton,
+  .zigZagIntroTwoCardRightButton,
+  .zigZagIntroOneCardLeftButton,
+  .zigZagIntroOneCardRightButton .line {
+    display: none !important;
+  }
+
+  .zigZagIntroOneCard,
+  .zigZagIntroTwoCard,
+  .zigZagIntroOneCard img,
+  .zigZagIntroTwoCard img {
+    width: 38em;
+    border-radius: 20px;
+    height: 40em;
+  }
+
+  .zigZagIntroOneCardWrapper .zigZagIntroOneTitle {
+    font-size: 20px;
+    width: 38em;
+    height: 35em;
+    border-radius: 20px;
+    box-shadow: none;
+    color: #000000;
+  }
+
+  .zigZagIntroOneCardWrapper,
+  .zigZagIntroTwoCardWrapper {
+    padding: 0.5em;
+    margin: 10px;
+    background-color: #ffffff;
+    border-radius: 20px;
+  }
+
+  .zigZagIntroOneCardDiv {
+    height: 46em;
+  }
+
+  .zigZagIntroTwoCardDiv {
+    height: 42.5em;
+  }
+
+  .zigZagIntroOneCardContainer,
+  .zigZagIntroTwoCardContainer {
+    width: 100%;
+  }
+
+  .hidden {
+    line-height: 3em;
+  }
+
+  .line {
+    display: none !important;
+  }
+
+  .noticeImgDiv {
+    width: 100%;
+    height: auto;
+  }
+
+  .noticeBoardDiv {
+    width: 52em;
+    margin-right: 1em;
+    margin-left: 1em;
+    display: block;
+  }
+
+  .noticeContentDiv {
+    width: 100%;
+    right: 0em;
+  }
+
+  .offersWrapper {
+    height: 52em;
+  }
+
+  .offerBackGroundDiv {
+    height: 60em;
+    width: 100em;
+    margin-top: 8em;
+  }
+
+  .offersWrapperDiv {
+    bottom: 60em;
+  }
+
+  .offersCard {
+    width: 58em;
+  }
+
+  .offersCardLeftButton,
+  .offersCardRightButton {
+    display: none;
+  }
+
+  .footerWrapper {
+    padding-bottom: 4em;
+  }
+
+  .dividerWrapper,
+  .contactLinksWrapper {
+    display: none !important;
+  }
+
+  .socialLinksWrapper {
+    margin-bottom: 1em;
+  }
+
+  .dottedDividerWrapper {
+    display: flex !important;
+  }
+
+  .socialLink {
+    width: 2em;
+    height: 2em;
+  }
+
+  .socialLink i {
+    font-size: x-large;
+  }
+
+  .liveChatContent,
+  .liveChatFooter {
+    width: 100%;
+  }
+
+  .liveChatContent {
+    height: 58vh;
+  }
+
+  ::ng-deep .p-dialog .p-dialog-content {
+    padding: 0 !important;
+  }
+
+  ::ng-deep .liveChatInputField .p-inputtext {
+    width: 11em !important;
+  }
+
+  ::ng-deep .bookingDialogContentWrapper .instantBookingDiv div .p-inputwrapper .p-dropdown {
+    width: 100% !important;
+  }
+
+  .instantBookingWrapper {
+    display: none;
+  }
+
+  .addressesWrapper {
+    padding: 0;
+    justify-content: center !important;
+  }
+}
+
+
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+
+  .primaryNavbarOptions {
+    width: 34em;
+  }
+
+  .mobileViewDashboardOptionsWrapper {
+    display: none !important;
+  }
+
+  ::ng-deep .primaryNavbarBookNow .p-button,
+  ::ng-deep .primaryNavbarBookNow .p-button-success,
+  ::ng-deep .zigZagButtonDiv .p-button,
+  ::ng-deep .zigZagButtonDiv .p-button-success {
+    width: 11em !important;
+  }
+
+  .card:hover {
+    height: 21em;
+    width: 14em;
+    margin: 1.5em;
+    transition: 0.5s;
+  }
+
+  .card:hover .cardUpperDiv img {
+    width: 14em;
+    height: 11em;
+    border-radius: 20px 20px 0px 0px;
+    transition: 0.5s;
+  }
+
+  .card:hover .cardUpperDiv {
+    width: 14em;
+    height: 11em;
+    border-radius: 20px 20px 0px 0px;
+    transition: 0.5s;
+  }
+
+  .card:hover .cardLowerDiv {
+    width: 14em;
+    height: 11em;
+    padding: 1em;
+    border-radius: 20px 20px 0px 0px;
+    transition: 0.5s;
+  }
+
+  .cardUpperDiv:hover img {
+    opacity: 0.5;
+  }
+
+  .zigZagIntroBackGroundDivTwo {
+    margin-bottom: 5em;
+  }
+
+  .zigZagIntroBackGroundDivOne,
+  .zigZagIntroBackGroundDivTwo {
+    width: 100em;
+    height: 25em;
+  }
+
+  .zigZagIntroDivOne {
+    bottom: 12em;
+  }
+
+  .zigZagIntroDivTwo {
+    bottom: 17em;
+  }
+
+  .noticeBoardDiv {
+    width: 58em;
+  }
+
+  .noticeImgDiv {
+    width: 40em;
+    height: 25em;
+  }
+
+  .offersWrapper {
+    height: 55em;
+  }
+
+  .offerBackGroundDiv {
+    height: 72em;
+    width: 200em;
+    margin-top: 8em;
+  }
+
+  .offersWrapperDiv {
+    bottom: 72em;
+  }
+
+  ::ng-deep .instantBookingDiv div .p-inputwrapper .p-dropdown {
+    width: 15em !important;
+  }
+
+  .addressesWrapper {
+    justify-content: center !important;
+  }
+
+  .liveChatContent,
+  .liveChatFooter {
+    width: 100%;
+  }
+
+  ::ng-deep .bookingDialogContentWrapper .instantBookingDiv div .p-inputwrapper .p-dropdown {
+    width: 100% !important;
+  }
+
+}
+
+
+@media screen and (min-width: 1440px) and (max-width: 1919px) {
+
+  .primaryNavbarOptions {
+    width: 52em;
+  }
+
+  .mobileViewDashboardOptionsWrapper {
+    display: none !important;
+  }
+
+  .card:hover {
+    height: 21em;
+    width: 14em;
+    margin: 1.5em;
+    transition: 0.5s;
+  }
+
+  .card:hover .cardUpperDiv img {
+    width: 14em;
+    height: 11em;
+    border-radius: 20px 20px 0px 0px;
+    transition: 0.5s;
+  }
+
+  .card:hover .cardUpperDiv {
+    width: 14em;
+    height: 11em;
+    border-radius: 20px 20px 0px 0px;
+    transition: 0.5s;
+  }
+
+  .card:hover .cardLowerDiv {
+    width: 14em;
+    height: 11em;
+    padding: 1em;
+    border-radius: 20px 20px 0px 0px;
+    transition: 0.5s;
+  }
+
+  .cardUpperDiv:hover img {
+    opacity: 0.5;
+  }
+
+  .zigZagIntroBackGroundDivOne,
+  .zigZagIntroBackGroundDivTwo {
+    width: 200em;
+  }
+
+  .zigZagIntroBackGroundDivTwo {
+    margin-bottom: 10em;
+  }
+
+  .zigZagIntroDivOne {
+    bottom: 12em;
+  }
+
+  .zigZagIntroDivTwo {
+    bottom: 20em;
+  }
+
+  .offersWrapper {
+    height: 55em;
+  }
+
+  .offerBackGroundDiv {
+    height: 72em;
+    width: 200em;
+    margin-top: 8em;
+  }
+
+  .offersWrapperDiv {
+    bottom: 72em;
+  }
+
+  .liveChatContent,
+  .liveChatFooter {
+    width: 100%;
+  }
+
+  ::ng-deep .bookingDialogContentWrapper .instantBookingDiv div .p-inputwrapper .p-dropdown {
+    width: 100% !important;
+  }
+
+  .addressesWrapper {
+    justify-content: center !important;
+  }
+}
+
+
+@media screen and (min-width: 1920px) and (max-width: 2559px) {
+
+  .primaryNavbarOptions {
+    width: 52em;
+  }
+
+  .mobileViewDashboardOptionsWrapper {
+    display: none !important;
+  }
+
+  .card:hover {
+    height: 21em;
+    width: 14em;
+    margin: 1.5em;
+    transition: 0.5s;
+  }
+
+  .card:hover .cardUpperDiv img {
+    width: 14em;
+    height: 11em;
+    border-radius: 20px 20px 0px 0px;
+    transition: 0.5s;
+  }
+
+  .card:hover .cardUpperDiv {
+    width: 14em;
+    height: 11em;
+    border-radius: 20px 20px 0px 0px;
+    transition: 0.5s;
+  }
+
+  .card:hover .cardLowerDiv {
+    width: 14em;
+    height: 11em;
+    padding: 1em;
+    border-radius: 20px 20px 0px 0px;
+    transition: 0.5s;
+  }
+
+  .cardUpperDiv:hover img {
+    opacity: 0.5;
+  }
+
+  .zigZagIntroBackGroundDivOne,
+  .zigZagIntroBackGroundDivTwo {
+    width: 200em;
+  }
+
+  .zigZagIntroBackGroundDivTwo {
+    margin-bottom: 7em;
+  }
+
+  .zigZagIntroDivOne {
+    bottom: 12em;
+  }
+
+  .zigZagIntroDivTwo {
+    bottom: 18em;
+  }
+
+  .offersWrapper {
+    height: 55em;
+  }
+
+  .offerBackGroundDiv {
+    height: 72em;
+    width: 200em;
+    margin-top: 8em;
+  }
+
+  .offersWrapperDiv {
+    bottom: 72em;
+  }
+
+  .liveChatContent,
+  .liveChatFooter {
+    width: 100%;
+  }
+
+  ::ng-deep .bookingDialogContentWrapper .instantBookingDiv div .p-inputwrapper .p-dropdown {
+    width: 100% !important;
+  }
+
+  .addressesWrapper {
+    justify-content: center !important;
+  }
+}
+
+
+@media screen and (min-width: 2560px) and (max-width: 3139px) {
+
+  .primaryNavbarOptions {
+    width: 54em;
+  }
+
+  .mobileViewDashboardOptionsWrapper {
+    display: none !important;
+  }
+
+  .card:hover {
+    height: 21em;
+    width: 14em;
+    margin: 1.5em;
+    transition: 0.5s;
+  }
+
+  .card:hover .cardUpperDiv img {
+    width: 14em;
+    height: 11em;
+    border-radius: 20px 20px 0px 0px;
+    transition: 0.5s;
+  }
+
+  .card:hover .cardUpperDiv {
+    width: 14em;
+    height: 11em;
+    border-radius: 20px 20px 0px 0px;
+    transition: 0.5s;
+  }
+
+  .card:hover .cardLowerDiv {
+    width: 14em;
+    height: 11em;
+    padding: 1em;
+    border-radius: 20px 20px 0px 0px;
+    transition: 0.5s;
+  }
+
+  .cardUpperDiv:hover img {
+    opacity: 0.5;
+  }
+
+  .zigZagIntroBackGroundDivOne,
+  .zigZagIntroBackGroundDivTwo {
+    width: 300em;
+  }
+
+  .zigZagIntroBackGroundDivTwo {
+    margin-bottom: 10em;
+  }
+
+  .zigZagIntroDivOne {
+    bottom: 10em;
+  }
+
+  .zigZagIntroDivTwo {
+    bottom: 19em;
+  }
+
+  .offersWrapper {
+    height: 55em;
+  }
+
+  .offerBackGroundDiv {
+    height: 72em;
+    width: 200em;
+    margin-top: 8em;
+  }
+
+  .offersWrapperDiv {
+    bottom: 70em;
+  }
+
+  .liveChatContent,
+  .liveChatFooter {
+    width: 100%;
+  }
+
+  ::ng-deep .bookingDialogContentWrapper .instantBookingDiv div .p-inputwrapper .p-dropdown {
+    width: 100% !important;
+  }
+
+  .addressesWrapper {
+    justify-content: center !important;
+  }
+}
+
+
+@media screen and (min-width: 3140px) and (max-width: 3839px) {
+
+  .primaryNavbarOptions {
+    width: 52em;
+  }
+
+  .mobileViewDashboardOptionsWrapper {
+    display: none !important;
+  }
+
+  .card:hover {
+    height: 21em;
+    width: 14em;
+    margin: 1.5em;
+    transition: 0.5s;
+  }
+
+  .card:hover .cardUpperDiv img {
+    width: 14em;
+    height: 11em;
+    border-radius: 20px 20px 0px 0px;
+    transition: 0.5s;
+  }
+
+  .card:hover .cardUpperDiv {
+    width: 14em;
+    height: 11em;
+    border-radius: 20px 20px 0px 0px;
+    transition: 0.5s;
+  }
+
+  .card:hover .cardLowerDiv {
+    width: 14em;
+    height: 11em;
+    padding: 1em;
+    border-radius: 20px 20px 0px 0px;
+    transition: 0.5s;
+  }
+
+  .cardUpperDiv:hover img {
+    opacity: 0.5;
+  }
+
+  .zigZagIntroDivOne {
+    bottom: 5em;
+  }
+
+  .zigZagIntroDivTwo {
+    bottom: 19em;
+  }
+
+  .offersWrapper {
+    height: 55em;
+  }
+
+  .offerBackGroundDiv {
+    height: 72em;
+    margin-top: 15em;
+  }
+
+  .offersWrapperDiv {
+    bottom: 76em;
+  }
+
+  .liveChatContent,
+  .liveChatFooter {
+    width: 100%;
+  }
+
+  ::ng-deep .bookingDialogContentWrapper .instantBookingDiv div .p-inputwrapper .p-dropdown {
+    width: 100% !important;
+  }
+
+  .addressesWrapper {
+    justify-content: center !important;
+  }
+}
+
+
+@media screen and (min-width: 3840px) and (max-width: 4519px) {
+
+  .primaryNavbarOptions {
+    width: 52em;
+  }
+
+  .mobileViewDashboardOptionsWrapper {
+    display: none !important;
+  }
+
+  .card:hover {
+    height: 21em;
+    width: 14em;
+    margin: 1.5em;
+    transition: 0.5s;
+  }
+
+  .card:hover .cardUpperDiv img {
+    width: 14em;
+    height: 11em;
+    border-radius: 20px 20px 0px 0px;
+    transition: 0.5s;
+  }
+
+  .card:hover .cardUpperDiv {
+    width: 14em;
+    height: 11em;
+    border-radius: 20px 20px 0px 0px;
+    transition: 0.5s;
+  }
+
+  .card:hover .cardLowerDiv {
+    width: 14em;
+    height: 11em;
+    padding: 1em;
+    border-radius: 20px 20px 0px 0px;
+    transition: 0.5s;
+  }
+
+  .cardUpperDiv:hover img {
+    opacity: 0.5;
+  }
+
+  .zigZagIntroDivOne {
+    bottom: 7em;
+  }
+
+  .zigZagIntroDivTwo {
+    bottom: 21em;
+  }
+
+  .offersWrapper {
+    height: 55em;
+  }
+
+  .offerBackGroundDiv {
+    height: 72em;
+    margin-top: 15em;
+  }
+
+  .offersWrapperDiv {
+    bottom: 76em;
+  }
+
+  .liveChatContent,
+  .liveChatFooter {
+    width: 100%;
+  }
+
+  ::ng-deep .bookingDialogContentWrapper .instantBookingDiv div .p-inputwrapper .p-dropdown {
+    width: 100% !important;
+  }
+
+  .addressesWrapper {
+    justify-content: center !important;
+  }
+}
+
+
+@media screen and (min-width: 4520px) and (max-width: 5119px) {
+
+  .primaryNavbarOptions {
+    width: 52em;
+  }
+
+  .mobileViewDashboardOptionsWrapper {
+    display: none !important;
+  }
+
+  .card:hover {
+    height: 21em;
+    width: 14em;
+    margin: 1.5em;
+    transition: 0.5s;
+  }
+
+  .card:hover .cardUpperDiv img {
+    width: 14em;
+    height: 11em;
+    border-radius: 20px 20px 0px 0px;
+    transition: 0.5s;
+  }
+
+  .card:hover .cardUpperDiv {
+    width: 14em;
+    height: 11em;
+    border-radius: 20px 20px 0px 0px;
+    transition: 0.5s;
+  }
+
+  .card:hover .cardLowerDiv {
+    width: 14em;
+    height: 11em;
+    padding: 1em;
+    border-radius: 20px 20px 0px 0px;
+    transition: 0.5s;
+  }
+
+  .cardUpperDiv:hover img {
+    opacity: 0.5;
+  }
+
+  .zigZagIntroDivOne {
+    bottom: 8em;
+  }
+
+  .zigZagIntroDivTwo {
+    bottom: 22em;
+  }
+
+  .offersWrapper {
+    height: 55em;
+  }
+
+  .offerBackGroundDiv {
+    height: 72em;
+    margin-top: 15em;
+  }
+
+  .offersWrapperDiv {
+    bottom: 76em;
+  }
+
+  .liveChatContent,
+  .liveChatFooter {
+    width: 100%;
+  }
+
+  ::ng-deep .bookingDialogContentWrapper .instantBookingDiv div .p-inputwrapper .p-dropdown {
+    width: 100% !important;
+  }
+
+  .addressesWrapper {
+    justify-content: center !important;
+  }
+}
+
+
+@media screen and (min-width: 5120px) {
+
+  .primaryNavbarOptions {
+    width: 52em;
+  }
+
+  .mobileViewDashboardOptionsWrapper {
+    display: none !important;
+  }
+
+  .card:hover {
+    height: 21em;
+    width: 14em;
+    margin: 1.5em;
+    transition: 0.5s;
+  }
+
+  .card:hover .cardUpperDiv img {
+    width: 14em;
+    height: 11em;
+    border-radius: 20px 20px 0px 0px;
+    transition: 0.5s;
+  }
+
+  .card:hover .cardUpperDiv {
+    width: 14em;
+    height: 11em;
+    border-radius: 20px 20px 0px 0px;
+    transition: 0.5s;
+  }
+
+  .card:hover .cardLowerDiv {
+    width: 14em;
+    height: 11em;
+    padding: 1em;
+    border-radius: 20px 20px 0px 0px;
+    transition: 0.5s;
+  }
+
+  .cardUpperDiv:hover img {
+    opacity: 0.5;
+  }
+
+  .zigZagIntroBackGroundDivOne {
+    margin-top: 8em;
+  }
+
+  .zigZagIntroDivOne {
+    bottom: 9em;
+  }
+
+  .zigZagIntroDivTwo {
+    bottom: 24em;
+  }
+
+  .offersWrapper {
+    height: 55em;
+  }
+
+  .offerBackGroundDiv {
+    height: 72em;
+    margin-top: 15em;
+  }
+
+  .offersWrapperDiv {
+    bottom: 76em;
+  }
+
+  .liveChatContent,
+  .liveChatFooter {
+    width: 100%;
+  }
+
+  ::ng-deep .bookingDialogContentWrapper .instantBookingDiv div .p-inputwrapper .p-dropdown {
+    width: 100% !important;
+  }
+
+  .addressesWrapper {
+    justify-content: center !important;
+  }
+}
+
+
+
+@keyframes slider {
+  0% {
+    left: 0%;
+  }
+
+  10% {
+    left: 0%;
+  }
+
+  20% {
+    left: -100%;
+  }
+
+  30% {
+    left: -100%;
+  }
+
+  40% {
+    left: -200%;
+  }
+
+  50% {
+    left: -200%;
+  }
+
+  60% {
+    left: -300%;
+  }
+
+  70% {
+    left: -300%;
+  }
+
+  80% {
+    left: -400%;
+  }
+
+  90% {
+    left: -400%;
+  }
+
+  100% {
+    left: -400%;
+  }
+}
+
+@keyframes cardSlider {
+  0% {
+    left: 0%;
+  }
+
+  10% {
+    left: 0%;
+  }
+
+  20% {
+    left: -100%;
+  }
+
+  30% {
+    left: -100%;
+  }
+
+  40% {
+    left: -200%;
+  }
+
+  50% {
+    left: -200%;
+  }
+
+  60% {
+    left: -300%;
+  }
+
+  70% {
+    left: -300%;
+  }
+
+  80% {
+    left: -400%;
+  }
+
+  90% {
+    left: -400%;
+  }
+
+  100% {
+    left: -400%;
+  }
+}
+
+@keyframes zigZagCardSlider {
+  0% {
+    left: 0%;
+  }
+
+  10% {
+    left: 0%;
+  }
+
+  20% {
+    left: -100%;
+  }
+
+  30% {
+    left: -100%;
+  }
+
+  40% {
+    left: -200%;
+  }
+
+  50% {
+    left: -200%;
+  }
+
+  60% {
+    left: -300%;
+  }
+
+  70% {
+    left: -300%;
+  }
+
+  80% {
+    left: -400%;
+  }
+
+  90% {
+    left: -400%;
+  }
+
+  100% {
+    left: -400%;
+  }
+}
+
+@keyframes offerCardSlider {
+  0% {
+    left: -0%;
+  }
+
+  10% {
+    left: -100%;
+  }
+
+  20% {
+    left: -200%;
+  }
+
+  30% {
+    left: -300%;
+  }
+
+  40% {
+    left: -400%;
+  }
+
+  50% {
+    left: -500%;
+  }
+
+  60% {
+    left: -500%;
+  }
+
+  70% {
+    left: -600%;
+  }
+
+  80% {
+    left: -700%;
+  }
+
+  90% {
+    left: -700%;
+  }
+
+  100% {
+    left: -700%;
+  }
+}
