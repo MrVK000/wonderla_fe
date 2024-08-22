@@ -29,12 +29,17 @@ export class DashboardComponent implements OnDestroy, OnInit {
   zigZagInterTwoCardData = zigZagInterTwoCardData;
   zigZagInterOneCardData = zigZagInterOneCardData;
 
+  startDate!: Date;
+  endDate!: Date;
+  todayDate: Date = new Date;
+  tomorrowDate: Date = new Date(this.todayDate);
+
   subs!: Subscription;
   isVisible: Boolean = false;
   isLoading: boolean = true;
   liveChatDate: Date = new Date;
   liveChatTime: Date = new Date;
-  selectedHotel!: LabelInterface;
+  selectedHotel: LabelInterface | null = null;
   showChatLater: boolean = false;
   parkData: LabelInterface[] = [];
   hotelData: LabelInterface[] = [];
@@ -45,6 +50,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
   showChatBotDialog: boolean = false;
   resortsData: LabelInterface[] = [];
   addresses: AddressInterface[] = [];
+  selectedAdultOption!: LabelInterface;
   liveChatInputFieldValue: string = '';
   locationsData: LabelInterface[] = [];
   socialLinks: SocialLinksInterface[] = [];
@@ -55,10 +61,28 @@ export class DashboardComponent implements OnDestroy, OnInit {
   liveChatConversationProperty: PropertyInterface[] = [];
   liveChatConversationRequestedProperty: PropertyInterface[] = [];
 
+  adultOptionData: LabelInterface[] = [
+    {
+      label: '1',
+      id: 0
+    },
+    {
+      label: '2',
+      id: 1
+    },
+    {
+      label: '3',
+      id: 2
+    },
+  ]
+
 
   constructor(public api: ApiService, private messageService: MessageService,) { }
 
   ngOnInit(): void {
+    this.tomorrowDate.setDate(this.todayDate.getDate() + 1);
+    // this.tomorrowDate = this.tomorrowDate.toDateString();
+
 
     this.generateCustomProperties();
 
@@ -296,6 +320,11 @@ export class DashboardComponent implements OnDestroy, OnInit {
     }
     else if (locationId == 1) {
       this.hotelData = this.resortsData;
+      this.selectedAdultOption = this.adultOptionData[1];
+      this.startDate=this.todayDate;
+      this.endDate=this.tomorrowDate;
+      // console.log('>>>this.startDate',this.startDate);
+      
     }
     else if (locationId == 2) {
       this.hotelData = this.outingData;

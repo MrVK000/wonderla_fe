@@ -24,7 +24,7 @@ export const primaryNavbarOptions = [
   {
     label: 'WONDERLA BHUBANESWAR',
     command: () =>{
-      window
+      location.reload();
     },
   },
   {

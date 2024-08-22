@@ -738,7 +738,8 @@
   color: #000000 !important;
 }
 
-::ng-deep .instantBookingDiv div .p-inputwrapper .p-dropdown {
+::ng-deep .instantBookingDiv .locationFieldDiv .p-inputwrapper .p-dropdown,
+::ng-deep .instantBookingDiv .propertyFieldDiv .p-inputwrapper .p-dropdown {
   width: 20em !important;
   border-radius: 0;
 }
@@ -755,6 +756,63 @@
 ::ng-deep .p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled).p-focus {
   background-color: #ffffff;
 }
+
+
+
+
+/* Customize the header */
+::ng-deep.p-datepicker .p-datepicker-header {
+  background-color: #FFC107 !important;
+  /* Yellow background */
+  color: #fff !important;
+  /* White text color */
+}
+
+/* Customize the day cells */
+::ng-deep.p-datepicker-calendar td {
+  color: #000 !important;
+  /* Black text color */
+}
+
+/* Highlight the selected day */
+::ng-deep.p-datepicker-calendar td.p-highlight {
+  background-color: #FFC107 !important;
+  /* Yellow background */
+  color: #000 !important;
+  /* Black text color */
+}
+
+/* Customize the input field with calendar icon */
+::ng-deep.ui-inputtext {
+  border: 1px solid #FFC107 !important;
+  /* Yellow border */
+  padding: 0.5rem !important;
+  /* Padding for input field */
+}
+
+::ng-deep.ui-inputtext:focus {
+  box-shadow: none !important;
+  /* Remove focus shadow */
+  border-color: #FFC107 !important;
+  /* Yellow border on focus */
+}
+
+/* Calendar icon styling */
+::ng-deep.ui-inputgroup .ui-inputtext+.ui-button {
+  background-color: #FFC107 !important;
+  /* Yellow background for button */
+  border: 1px solid #FFC107 !important;
+  /* Yellow border */
+}
+
+::ng-deep.ui-inputgroup .ui-inputtext+.ui-button .pi-calendar {
+  color: #fff !important;
+  /* White icon color */
+}
+
+
+
+
 
 .instruction {
   font-size: 10px;
@@ -2128,8 +2186,16 @@
     bottom: 72em;
   }
 
-  ::ng-deep .instantBookingDiv div .p-inputwrapper .p-dropdown {
-    width: 15em !important;
+  ::ng-deep .bookOptionDiv .p-button {
+    width: 100%;
+    min-width: 7em;
+    padding: 10px;
+
+  }
+
+  ::ng-deep .instantBookingDiv .locationFieldDiv .p-inputwrapper .p-dropdown,
+  ::ng-deep .instantBookingDiv .propertyFieldDiv .p-inputwrapper .p-dropdown {
+    width: 12em !important;
   }
 
   .addressesWrapper {

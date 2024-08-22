@@ -8,6 +8,7 @@ import { MessageService } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
 import { MenubarModule } from 'primeng/menubar';
+import { CalendarModule } from 'primeng/calendar';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
@@ -26,6 +27,7 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
     ButtonModule,
     DialogModule,
     MenubarModule,
+    CalendarModule,
     DropdownModule,
     InputTextModule,
     OverlayPanelModule,
@@ -42,13 +44,14 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
     ButtonModule,
     DialogModule,
     MenubarModule,
+    CalendarModule,
     DropdownModule,
     InputTextModule,
     OverlayPanelModule,
     ProgressSpinnerModule,
 
   ],
-  providers:[MessageService]
+  providers: [MessageService]
 
 })
 export class SharedModule { }

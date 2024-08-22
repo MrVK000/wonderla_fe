@@ -326,6 +326,30 @@
           <p-dropdown [options]="hotelData" [filter]="true" filterBy="label" [(ngModel)]="selectedHotel"
             optionLabel="label" placeholder="Select Your Hotel" (onChange)="propertyChanged($event)" />
         </div>
+
+        <div class="startDateDiv" *ngIf="selectedLocation?.id===1">
+          <p>Check In</p>
+          <p-calendar [(ngModel)]="startDate" [iconDisplay]="'input'" dateFormat="dd/mm/yy" [showIcon]="true"
+            inputId="icondisplay">
+          </p-calendar>
+        </div>
+
+        <div class="endDateDiv" *ngIf="selectedLocation?.id===1">
+          <p>Check Out</p>
+          <p-calendar [(ngModel)]="endDate" [iconDisplay]="'input'" dateFormat="dd/mm/yy" [showIcon]="true"
+            [minDate]="tomorrowDate" inputId="icondisplay">
+            <!-- <ng-template pTemplate="icon">
+              <i class="fa-solid fa-calendar-days"></i>
+            </ng-template> -->
+          </p-calendar>
+        </div>
+
+        <div class="adultFieldDiv" *ngIf="selectedLocation?.id===1">
+          <p>Adults</p>
+          <p-dropdown [options]="adultOptionData" filterBy="label" [(ngModel)]="selectedAdultOption"
+            optionLabel="label" placeholder="Select no of Adult " />
+        </div>
+
         <div class="bookOptionDiv pt-4 mt-4 flex justify-content-center align-items-center">
           <button pButton pRipple label="BOOK NOW" class="p-button-success" (click)="goToDashboard()"></button>
         </div>
@@ -529,20 +553,23 @@
         <div class="locationFieldDiv">
           <p>Location</p>
           <p-dropdown [options]="locationsData" [filter]="true" filterBy="label" [(ngModel)]="selectedLocation"
-            optionLabel="label" placeholder="Select Your Destination" />
+            optionLabel="label" placeholder="Select Your Destination" (onChange)="locationChanged($event)" />
         </div>
         <div class="propertyFieldDiv">
           <p>Property</p>
           <p-dropdown [options]="hotelData" [filter]="true" filterBy="label" [(ngModel)]="selectedHotel"
-            optionLabel="label" placeholder="Select Your Hotel" />
+            optionLabel="label" placeholder="Select Your Hotel" (onChange)="propertyChanged($event)" />
         </div>
         <div class="bookOptionDiv pt-4 mt-4 flex justify-content-center align-items-center">
-          <button pButton pRipple label="BOOK" class="p-button-success" (click)="goToDashboard()"></button>
+          <button pButton pRipple label="BOOK" [disabled]="selectedHotel==null" class="p-button-success"
+            (click)="goToDashboard()"></button>
         </div>
 
       </div>
     </div>
   </p-dialog>
+
+
 
 </div>
 <div class=" flex justify-content-center loader align-items-center" *ngIf="isLoading">
