@@ -23,6 +23,9 @@ export const primaryNavbarOptions = [
   },
   {
     label: 'WONDERLA BHUBANESWAR',
+    command: () =>{
+      window
+    },
   },
   {
     label: 'RESORT',

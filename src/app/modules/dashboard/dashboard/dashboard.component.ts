@@ -6,6 +6,7 @@ import { ApiService } from '../../../services/api.service';
 import { Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { cardData, offersCardData, primaryNavbarOptions, zigZagInterOneCardData, zigZagInterTwoCardData } from '../../../data/imgData';
 import { AddressInterface, ContactLinksInterface, LabelInterface, MobileMenuInterface, PropertyInterface, SocialLinksInterface } from '../../../interfaces/dashboardInterface';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-dashboard',
@@ -55,7 +56,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
   liveChatConversationRequestedProperty: PropertyInterface[] = [];
 
 
-  constructor(public api: ApiService) { }
+  constructor(public api: ApiService, private messageService: MessageService,) { }
 
   ngOnInit(): void {
 
@@ -65,62 +66,107 @@ export class DashboardComponent implements OnDestroy, OnInit {
     this.subs = this.api.getMobileMenu().subscribe((res) => {
       this.mobileViewDashboardOptions = res.data;
       this.isLoading = false;
-    });
+    },
+      (error) => {
+        this.isLoading = false;
+        console.error(error);
+        this.messageService?.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
+      });
 
     this.isLoading = true;
     this.subs = this.api.getLiveChatConversationProperty().subscribe((res) => {
       this.liveChatConversationProperty = res.data;
       this.isLoading = false;
-    });
+    },
+      (error) => {
+        console.error(error);
+        this.isLoading = false;
+        this.messageService?.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
+      });
 
 
     this.isLoading = true;
     this.subs = this.api.getOuting().subscribe((res) => {
       this.outingData = res.data;
       this.isLoading = false;
-    });
+    },
+      (error) => {
+        console.error(error);
+        this.isLoading = false;
+        this.messageService?.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
+      });
 
 
     this.isLoading = true;
     this.subs = this.api.getResort().subscribe((res) => {
       this.resortsData = res.data;
       this.isLoading = false;
-    });
+    },
+      (error) => {
+        console.error(error);
+        this.isLoading = false;
+        this.messageService?.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
+      });
 
 
     this.isLoading = true;
     this.subs = this.api.getPark().subscribe((res) => {
       this.parkData = res.data;
       this.isLoading = false;
-    });
+    },
+      (error) => {
+        console.error(error);
+        this.isLoading = false;
+        this.messageService?.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
+      });
 
 
     this.isLoading = true;
     this.subs = this.api.getLocations().subscribe((res) => {
       this.locationsData = res.data;
       this.isLoading = false;
-    });
+    },
+      (error) => {
+        console.error(error);
+        this.isLoading = false;
+        this.messageService?.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
+      });
 
 
     this.isLoading = true;
     this.subs = this.api.getContactLinks().subscribe((res) => {
       this.contactLinks = res.data;
       this.isLoading = false;
-    });
+    },
+      (error) => {
+        console.error(error);
+        this.isLoading = false;
+        this.messageService?.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
+      });
 
 
     this.isLoading = true;
     this.subs = this.api.getAddreses().subscribe((res) => {
       this.addresses = res.data;
       this.isLoading = false;
-    });
+    },
+      (error) => {
+        console.error(error);
+        this.isLoading = false;
+        this.messageService?.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
+      });
 
 
     this.isLoading = true;
     this.subs = this.api.getSocialLinks().subscribe((res) => {
       this.socialLinks = res.data;
       this.isLoading = false;
-    });
+    },
+      (error) => {
+        console.error(error);
+        this.isLoading = false;
+        this.messageService?.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
+      });
 
 
     const observer = new IntersectionObserver((entities) => {
@@ -199,7 +245,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
     this.showLiveChatPanel = true;
     this.liveChatDate = new Date;
     this.liveChatTime = new Date;
-    this.liveChatConversationRequestedProperty=[];
+    this.liveChatConversationRequestedProperty = [];
 
     setTimeout(() => {
       this.showChatLater = true;

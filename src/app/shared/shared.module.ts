@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 
+import { ToastModule } from 'primeng/toast';
 import { FormsModule } from '@angular/forms';
+import { MessageService } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
 import { MenubarModule } from 'primeng/menubar';
@@ -19,6 +21,7 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
     CommonModule,
 
     //primeng packages
+    ToastModule,
     FormsModule,
     ButtonModule,
     DialogModule,
@@ -34,6 +37,7 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
   exports: [
 
     //primeng packages
+    ToastModule,
     FormsModule,
     ButtonModule,
     DialogModule,
@@ -43,7 +47,8 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
     OverlayPanelModule,
     ProgressSpinnerModule,
 
-  ]
+  ],
+  providers:[MessageService]
 
 })
 export class SharedModule { }
