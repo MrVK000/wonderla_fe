@@ -66,16 +66,39 @@
 
 
   <div class="mobileViewDashboardOptionsWrapper flex align-items-center justify-content-around">
-
     <div
       class="mobileViewDashboardOptionsMenuDiv cursor-pointer flex align-items-center justify-content-center flex-column"
-      *ngFor="let option of mobileViewDashboardOptions">
+      *ngFor="let option of mobileViewDashboardOptions" (click)="mobileMenuOption(option.id,$event)">
       <i [class]="option.icon"></i>
       <p class="text-center">{{option.label}}</p>
     </div>
-
   </div>
 
+  <div class="flex justify-content-center">
+    <!-- <p-overlayPanel #mobileMenuPanel class="mobileMenuPanel">
+      <div class="flex justify-content-center mobileMenuPanelWrapper">
+        <p-panelMenu class="w-full" [model]="mobileViewMenuItems" [multiple]="true"></p-panelMenu>
+      </div>
+    </p-overlayPanel>
+     <p-overlayPanel #mobileMenuPanel class="mobileMenuPanel">
+      <div class="flex justify-content-center mobileMenuPanelWrapper">
+        <p-panelMenu class="w-full" [model]="mobileViewMenuItems" [multiple]="true" />
+      </div>
+    </p-overlayPanel>
+    <p-menu #mobileMenuPanel styleClass="w-full md:w-15rem">
+      <ng-template>
+        <p-panelMenu class="w-full" [model]="mobileViewMenuItems" [multiple]="true" />
+      </ng-template>
+    </p-menu> -->
+  </div>
+
+  <div *ngIf="showMobileMenuPanel" class="flex justify-content-center mobileMenuPanelWrapper">
+    <p-panelMenu class="w-full" [model]="mobileViewMenuItems" [multiple]="true"></p-panelMenu>
+  </div>
+
+  <!-- <div class="flex justify-content-center">
+    <p-panelMenu [model]="mobileViewMenuItems" [multiple]="true" />
+  </div> -->
 
   <div class="introWrapper">
     <h1 class="flex justify-content-center hidden">{{CONSTANTS.introOne}}</h1>
@@ -215,7 +238,6 @@
 
   <div class="offersWrapper">
 
-
     <div class="offerBackGroundDiv">
     </div>
 
@@ -314,7 +336,7 @@
 
     <div class="instantBookingWrapper">
 
-      <div class="instantBookingDiv flex justify-content-center">
+      <div class="instantBookingDiv flex justify-content-center mr-5 ml-5">
 
         <div class="locationFieldDiv">
           <p>Location</p>
@@ -330,7 +352,7 @@
         <div class="startDateDiv" *ngIf="selectedLocation?.id===1">
           <p>Check In</p>
           <p-calendar [(ngModel)]="startDate" [iconDisplay]="'input'" dateFormat="dd/mm/yy" [showIcon]="true"
-            inputId="icondisplay">
+            [minDate]="todayDate" inputId="icondisplay">
           </p-calendar>
         </div>
 
@@ -346,8 +368,8 @@
 
         <div class="adultFieldDiv" *ngIf="selectedLocation?.id===1">
           <p>Adults</p>
-          <p-dropdown [options]="adultOptionData" filterBy="label" [(ngModel)]="selectedAdultOption"
-            optionLabel="label" placeholder="Select no of Adult " />
+          <p-dropdown [options]="adultOptionData" filterBy="label" [(ngModel)]="selectedAdultOption" optionLabel="label"
+            placeholder="Select no of Adult " />
         </div>
 
         <div class="bookOptionDiv pt-4 mt-4 flex justify-content-center align-items-center">

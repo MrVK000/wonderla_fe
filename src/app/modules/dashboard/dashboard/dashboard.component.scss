@@ -86,7 +86,7 @@
   justify-content: center;
   position: sticky !important;
   top: 0;
-  z-index: 1000;
+  z-index: 100000;
   box-shadow: rgba(0, 0, 0, 0.38) 0px 2px 10px;
 }
 
@@ -221,6 +221,8 @@
 .mobileViewDashboardOptionsWrapper {
   color: #ffd352;
   background-color: #0b2254;
+  padding-bottom: 0.7em;
+  padding-top: 0.7em;
 }
 
 .mobileViewDashboardOptionsMenuDiv {
@@ -235,6 +237,11 @@
 
 .mobileViewDashboardOptionsMenuDiv:hover {
   background-color: #06132e;
+}
+
+.mobileMenuPanel {
+  position: relative;
+  margin-top: 10em;
 }
 
 .introWrapper {
@@ -1085,7 +1092,7 @@
 
   .primaryNavbarWrapper {
     padding: 0;
-    position: relative;
+    position: relative !important;
   }
 
   .primaryNavbarOptions,
@@ -1110,6 +1117,35 @@
   .sliderImageDiv img {
     width: 200%;
     margin-left: 100%;
+  }
+
+
+  ::ng-deep .p-overlaypanel {
+    width: 100% !important;
+  }
+
+  ::ng-deep .p-overlaypanel .p-overlaypanel-content {
+    padding: 0 !important;
+  }
+
+  .mobileMenuPanelWrapper .p-element {
+    background-color: #0b2254;
+  }
+
+  ::ng-deep .mobileMenuPanelWrapper p-panelMenu .p-panelmenu .p-panelmenu-panel .p-panelmenu-header .p-panelmenu-header-content {
+    border: 1px solid #0b2254 !important;
+  }
+
+  ::ng-deep .mobileMenuPanelWrapper p-panelMenu .p-panelmenu .p-panelmenu-panel .p-panelmenu-header .p-panelmenu-header-content .p-panelmenu-header-action {
+    background-color: #0b2254 !important;
+    border: 1px solid #0b2254 !important;
+    // color: #f6d72f !important;
+    color: #fadc12 !important;
+  }
+
+  ::ng-deep .p-overlaypanel:after,
+  ::ng-deep .p-overlaypanel:before {
+    display: none !important;
   }
 
   .introWrapper {
@@ -1349,7 +1385,7 @@
 
   .primaryNavbarWrapper {
     padding: 0;
-    position: relative;
+    position: relative !important;
   }
 
   .primaryNavbarOptions,
@@ -1373,6 +1409,35 @@
 
   .primaryNavbarOptions {
     width: 5em;
+  }
+
+
+  ::ng-deep .p-overlaypanel {
+    width: 100% !important;
+  }
+
+  ::ng-deep .p-overlaypanel .p-overlaypanel-content {
+    padding: 0 !important;
+  }
+
+  .mobileMenuPanelWrapper .p-element {
+    background-color: #0b2254;
+  }
+
+  ::ng-deep .mobileMenuPanelWrapper p-panelMenu .p-panelmenu .p-panelmenu-panel .p-panelmenu-header .p-panelmenu-header-content {
+    border: 1px solid #0b2254 !important;
+  }
+
+  ::ng-deep .mobileMenuPanelWrapper p-panelMenu .p-panelmenu .p-panelmenu-panel .p-panelmenu-header .p-panelmenu-header-content .p-panelmenu-header-action {
+    background-color: #0b2254 !important;
+    border: 1px solid #0b2254 !important;
+    // color: #f6d72f !important;
+    color: #fadc12 !important;
+  }
+
+  ::ng-deep .p-overlaypanel:after,
+  ::ng-deep .p-overlaypanel:before {
+    display: none !important;
   }
 
   .introWrapper {
@@ -1604,7 +1669,7 @@
 
   .primaryNavbarWrapper {
     padding: 0;
-    position: relative;
+    position: relative !important;
   }
 
   .primaryNavbarOptions,
@@ -1628,6 +1693,35 @@
 
   .primaryNavbarOptions {
     width: 21em;
+  }
+
+
+  ::ng-deep .p-overlaypanel {
+    width: 100% !important;
+  }
+
+  ::ng-deep .p-overlaypanel .p-overlaypanel-content {
+    padding: 0 !important;
+  }
+
+  .mobileMenuPanelWrapper .p-element {
+    background-color: #0b2254;
+  }
+
+  ::ng-deep .mobileMenuPanelWrapper p-panelMenu .p-panelmenu .p-panelmenu-panel .p-panelmenu-header .p-panelmenu-header-content {
+    border: 1px solid #0b2254 !important;
+  }
+
+  ::ng-deep .mobileMenuPanelWrapper p-panelMenu .p-panelmenu .p-panelmenu-panel .p-panelmenu-header .p-panelmenu-header-content .p-panelmenu-header-action {
+    background-color: #0b2254 !important;
+    border: 1px solid #0b2254 !important;
+    // color: #f6d72f !important;
+    color: #fadc12 !important;
+  }
+
+  ::ng-deep .p-overlaypanel:after,
+  ::ng-deep .p-overlaypanel:before {
+    display: none !important;
   }
 
   .introWrapper {
@@ -1864,7 +1958,7 @@
 
   .primaryNavbarWrapper {
     padding: 0;
-    position: relative;
+    position: relative !important;
   }
 
   .primaryNavbarOptions,
@@ -1887,6 +1981,35 @@
 
   .primaryNavbarOptions {
     width: 21em;
+  }
+
+
+  ::ng-deep .p-overlaypanel {
+    width: 100% !important;
+  }
+
+  ::ng-deep .p-overlaypanel .p-overlaypanel-content {
+    padding: 0 !important;
+  }
+
+  .mobileMenuPanelWrapper .p-element {
+    background-color: #0b2254;
+  }
+
+  ::ng-deep .mobileMenuPanelWrapper p-panelMenu .p-panelmenu .p-panelmenu-panel .p-panelmenu-header .p-panelmenu-header-content {
+    border: 1px solid #0b2254 !important;
+  }
+
+  ::ng-deep .mobileMenuPanelWrapper p-panelMenu .p-panelmenu .p-panelmenu-panel .p-panelmenu-header .p-panelmenu-header-content .p-panelmenu-header-action {
+    background-color: #0b2254 !important;
+    border: 1px solid #0b2254 !important;
+    // color: #f6d72f !important;
+    color: #fadc12 !important;
+  }
+
+  ::ng-deep .p-overlaypanel:after,
+  ::ng-deep .p-overlaypanel:before {
+    display: none !important;
   }
 
   .introWrapper {
