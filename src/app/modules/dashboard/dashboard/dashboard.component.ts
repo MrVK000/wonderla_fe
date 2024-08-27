@@ -16,12 +16,12 @@ import { MenuItem } from 'primeng/api';
 })
 export class DashboardComponent implements OnDestroy, OnInit {
 
+  @ViewChild('mobileMenuPanel') mobileMenuPanel!: OverlayPanel;
+  @ViewChild('instructionOverlayPanel') instructionOverlayPanel!: OverlayPanel;
+  @ViewChild('offersCardScrollContainer') offersCardScrollContainer!: ElementRef;
+  @ViewChild('cardSectionScrollContainer') cardSectionScrollContainer!: ElementRef;
   @ViewChild('zigZagOneCardScrollContainer') zigZagOneCardScrollContainer!: ElementRef;
   @ViewChild('zigZagTwoCardScrollContainer') zigZagTwoCardScrollContainer!: ElementRef;
-  @ViewChild('cardSectionScrollContainer') cardSectionScrollContainer!: ElementRef;
-  @ViewChild('offersCardScrollContainer') offersCardScrollContainer!: ElementRef;
-  @ViewChild('instructionOverlayPanel') instructionOverlayPanel!: OverlayPanel;
-  @ViewChild('mobileMenuPanel') mobileMenuPanel!: OverlayPanel;
 
   CONSTANTS = CONSTANT_VARIABLES;
 
