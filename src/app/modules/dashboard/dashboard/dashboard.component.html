@@ -50,16 +50,8 @@
   <div class="sliderWrapper">
     <div class="sliderImagesWrapper">
       <figure class="flex">
-        <div class="sliderImageDiv flex align-items-center justify-content-center"><img class="cursor-pointer"
-            src="../../../../assets/slider/Wondrela_Friendship_Day_Banner.avif"></div>
-        <div class="sliderImageDiv flex align-items-center justify-content-center"><img class="cursor-pointer"
-            src="../../../../assets/slider/Wonderla_Women_offer_24_B2_G2_Banner.avif"></div>
-        <div class="sliderImageDiv flex align-items-center justify-content-center"><img class="cursor-pointer"
-            src="../../../../assets/slider/Wonderla_Resort_Wednesday_offer_Banner.avif"></div>
-        <div class="sliderImageDiv flex align-items-center justify-content-center"><img class="cursor-pointer"
-            src="../../../../assets/slider/Krishna_Janmashtami_Banner.avif"></div>
-        <div class="sliderImageDiv flex align-items-center justify-content-center"><img class="cursor-pointer"
-            src="../../../../assets/slider/Wondrela_Friendship_Day_Banner.avif"></div>
+        <div class="sliderImageDiv flex align-items-center justify-content-center"
+          *ngFor="let image of sliderImageData"><img class="cursor-pointer" [src]="image.url"></div>
       </figure>
     </div>
   </div>
@@ -74,31 +66,10 @@
     </div>
   </div>
 
-  <div class="flex justify-content-center">
-    <!-- <p-overlayPanel #mobileMenuPanel class="mobileMenuPanel">
-      <div class="flex justify-content-center mobileMenuPanelWrapper">
-        <p-panelMenu class="w-full" [model]="mobileViewMenuItems" [multiple]="true"></p-panelMenu>
-      </div>
-    </p-overlayPanel>
-     <p-overlayPanel #mobileMenuPanel class="mobileMenuPanel">
-      <div class="flex justify-content-center mobileMenuPanelWrapper">
-        <p-panelMenu class="w-full" [model]="mobileViewMenuItems" [multiple]="true" />
-      </div>
-    </p-overlayPanel>
-    <p-menu #mobileMenuPanel styleClass="w-full md:w-15rem">
-      <ng-template>
-        <p-panelMenu class="w-full" [model]="mobileViewMenuItems" [multiple]="true" />
-      </ng-template>
-    </p-menu> -->
-  </div>
-
   <div *ngIf="showMobileMenuPanel" class="flex justify-content-center mobileMenuPanelWrapper">
     <p-panelMenu class="w-full" [model]="mobileViewMenuItems" [multiple]="true"></p-panelMenu>
   </div>
 
-  <!-- <div class="flex justify-content-center">
-    <p-panelMenu [model]="mobileViewMenuItems" [multiple]="true" />
-  </div> -->
 
   <div class="introWrapper">
     <h1 class="flex justify-content-center hidden">{{CONSTANTS.introOne}}</h1>
@@ -360,9 +331,6 @@
           <p>Check Out</p>
           <p-calendar [(ngModel)]="endDate" [iconDisplay]="'input'" dateFormat="dd/mm/yy" [showIcon]="true"
             [minDate]="tomorrowDate" inputId="icondisplay">
-            <!-- <ng-template pTemplate="icon">
-              <i class="fa-solid fa-calendar-days"></i>
-            </ng-template> -->
           </p-calendar>
         </div>
 

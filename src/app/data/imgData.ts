@@ -1,4 +1,21 @@
 
+export const sliderImageData = [
+  {
+    url: '../../../../assets/slider/Wondrela_Friendship_Day_Banner.avif'
+  },
+  {
+    url: '../../../../assets/slider/Wonderla_Women_offer_24_B2_G2_Banner.avif'
+  },
+  {
+    url: '../../../../assets/slider/Wonderla_College_ID_Banner.avif'
+  },
+  {
+    url: '../../../../assets/slider/Wonderla_Birthday_Offer_Banner.avif'
+  },
+  {
+    url: '../../../../assets/slider/Wondrela_Friendship_Day_Banner.avif'
+  },
+];
 
 export const primaryNavbarOptions = [
   {
@@ -23,7 +40,7 @@ export const primaryNavbarOptions = [
   },
   {
     label: 'WONDERLA BHUBANESWAR',
-    command: () =>{
+    command: () => {
       location.reload();
     },
   },
@@ -310,6 +327,6 @@ export const offersCardData = [
 
 ];
 
-export const hello={
-  name:'vk'
+export const hello = {
+  name: 'vk'
 }

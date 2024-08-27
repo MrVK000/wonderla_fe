@@ -4,7 +4,7 @@ import { DropdownChangeEvent } from 'primeng/dropdown';
 import CONSTANT_VARIABLES from '../../../data/constants';
 import { ApiService } from '../../../services/api.service';
 import { Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { cardData, offersCardData, primaryNavbarOptions, zigZagInterOneCardData, zigZagInterTwoCardData } from '../../../data/imgData';
+import { cardData, offersCardData, primaryNavbarOptions, sliderImageData, zigZagInterOneCardData, zigZagInterTwoCardData } from '../../../data/imgData';
 import { AddressInterface, ContactLinksInterface, LabelInterface, MobileMenuInterface, PropertyInterface, SocialLinksInterface } from '../../../interfaces/dashboardInterface';
 import { MessageService } from 'primeng/api';
 import { MenuItem } from 'primeng/api';
@@ -27,6 +27,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
   cardData = cardData;
   offersCardData = offersCardData;
+  sliderImageData = sliderImageData;
   primaryNavbarOptions = primaryNavbarOptions;
   zigZagInterTwoCardData = zigZagInterTwoCardData;
   zigZagInterOneCardData = zigZagInterOneCardData;
@@ -658,7 +659,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
   ];
 
-  showMobileMenuPanel:boolean=false;
+  showMobileMenuPanel: boolean = false;
 
 
   constructor(public api: ApiService, private messageService: MessageService,) { }
@@ -931,9 +932,9 @@ export class DashboardComponent implements OnDestroy, OnInit {
   mobileMenuOption(id: number, event: Event) {
     if (id === 1) {
       this.toggleAll();
-      this.showMobileMenuPanel=!this.showMobileMenuPanel;
+      this.showMobileMenuPanel = !this.showMobileMenuPanel;
       // this.mobileMenuPanel.toggle(event);
-      
+
     }
     else if (id === 2) {
       this.showBookingOptionDialog = true;
