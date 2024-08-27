@@ -927,7 +927,7 @@
 }
 
 ::ng-deep .p-overlaypanel-flipped {
-  background-color: #000000 !important;
+  background-color: hsl(0, 0%, 0%, 0.7) !important;
   color: #ffffff !important;
 }
 
@@ -1052,6 +1052,34 @@
 ::ng-deep .bookingDialog .p-dialog .p-dialog-header .p-dialog-header-icon .p-icon-wrapper .p-icon {
   width: 1.5em;
   height: 1.5em;
+}
+
+::ng-deep .primaryBookingDialog .p-dialog .p-dialog-header {
+  padding: 0;
+  background-color: #000000;
+}
+
+::ng-deep .primaryBookingDialog .p-dialog .p-dialog-content:last-of-type {
+  background-color: #000000;
+}
+
+.primaryBookingDialog .bookingDialogContentWrapper .flex,
+.primaryBookingDialog .bookingDialogContentWrapper .instructionDiv,
+.primaryBookingDialog .bookingDialogContentWrapper .instantBookingDiv {
+  color: #FFFFFF;
+}
+
+.primaryBookingDialog .bookingDialogContentWrapper .instantBookingDiv div {
+  width: 100%;
+}
+
+::ng-deep .primaryBookingDialog .p-dialog .p-dialog-header .p-dialog-header-icon:last-child:hover {
+  background-color: #000000;
+}
+
+::ng-deep .primaryBookingDialog .p-dialog .p-dialog-header .p-dialog-header-icon .p-icon-wrapper .p-icon {
+  width: 2em;
+  height: 2em;
 }
 
 .copyRight {
@@ -2310,7 +2338,6 @@
   }
 
   ::ng-deep .bookOptionDiv .p-button {
-    width: 100%;
     min-width: 7em;
     padding: 10px;
 
@@ -2390,7 +2417,7 @@
   }
 
   .zigZagIntroDivOne {
-    bottom: 12em;
+    bottom: 10em;
   }
 
   .zigZagIntroDivTwo {

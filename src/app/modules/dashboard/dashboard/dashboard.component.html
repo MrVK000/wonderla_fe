@@ -29,7 +29,7 @@
       <div class="primaryNavbarBookNowDiv flex align-items-center justify-content-center">
         <div class="primaryNavbarBookNow">
           <button pButton pRipple label="BOOK NOW" class="navigateToDashboard p-button-success"
-            (click)="goToDashboard()"></button>
+            (click)="showBookNowDialog=true"></button>
         </div>
       </div>
     </div>
@@ -556,6 +556,89 @@
         </div>
 
       </div>
+    </div>
+  </p-dialog>
+
+
+  <p-dialog class="primaryBookingDialog" position="top"  [(visible)]="showBookNowDialog" [modal]="true"
+    [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" [style]="{ width: '50vw',marginTop:'10%' }" [draggable]="false"
+    [resizable]="false">
+    <div class="bookingDialogContentWrapper">
+      <div class="instantBookingDiv flex justify-content-center">
+
+        <div class="locationFieldDiv">
+          <p>Location</p>
+          <p-dropdown [options]="locationsData" [appendTo]="'body'" [filter]="true" filterBy="label"
+            [(ngModel)]="selectedLocation" optionLabel="label" placeholder="Select Your Destination"
+            (onChange)="locationChanged($event)" />
+        </div>
+        <div class="propertyFieldDiv">
+          <p>Property</p>
+          <p-dropdown [options]="hotelData" [appendTo]="'body'" [filter]="true" filterBy="label"
+            [(ngModel)]="selectedHotel" optionLabel="label" placeholder="Select Your Hotel"
+            (onChange)="propertyChanged($event)" />
+        </div>
+
+      </div>
+
+      <div class="flex" *ngIf="selectedLocation?.id===1">
+        <div class="startDateDiv m-3 mt-0" *ngIf="selectedLocation?.id===1">
+          <p>Check In</p>
+          <p-calendar [(ngModel)]="startDate" [appendTo]="'body'" [iconDisplay]="'input'" dateFormat="dd/mm/yy"
+            [showIcon]="true" [minDate]="todayDate" inputId="icondisplay">
+          </p-calendar>
+        </div>
+
+        <div class="endDateDiv m-3 mt-0" *ngIf="selectedLocation?.id===1">
+          <p>Check Out</p>
+          <p-calendar [(ngModel)]="endDate" [appendTo]="'body'" [iconDisplay]="'input'" dateFormat="dd/mm/yy"
+            [showIcon]="true" [minDate]="tomorrowDate" inputId="icondisplay">
+          </p-calendar>
+        </div>
+
+        <div class="adultFieldDiv m-3 mt-0" *ngIf="selectedLocation?.id===1">
+          <p>Adults</p>
+          <p-dropdown [options]="adultOptionData" [appendTo]="'body'" filterBy="label" [(ngModel)]="selectedAdultOption"
+            optionLabel="label" placeholder="Select no of Adult " />
+        </div>
+      </div>
+
+      <div class="bookOptionDiv mt-2 mr-3 flex align-items-center justify-content-end">
+        <button pButton pRipple label="BOOK" [disabled]="selectedHotel==null" class="p-button-success"
+          (click)="goToDashboard()"></button>
+      </div>
+
+      <div class="instructionDiv flex ml-2 p-3 pb-0" (mouseenter)="showOverlayPanel($event)"
+        (mouseleave)="hideOverlayPanel()">
+        <b class="instruction cursor-pointer text-base">Why Book Direct?</b>
+      </div>
+
+      <div class="instructionOverlayPanelDiv">
+        <p-overlayPanel #instructionOverlayPanel class="instructionOverlayPanel">
+          <div class="flex flex-column w-25rem">
+            <div class="flex">
+              <b class="mr-3 mt-2 text-3xl">*</b>
+              <p class="mr-3 text-xs"> Get exclusive discount for website direct bookings</p>
+            </div>
+            <div class="flex">
+              <b class="mr-3 mt-2 text-3xl">*</b>
+              <p class="mr-3 text-xs"> Stay & Play offer multiple entry & exit from the
+                Wonderla Park same day( only for website direct booking)</p>
+            </div>
+            <div class="flex">
+              <b class="mr-3 mt-2 text-3xl">*</b>
+              <p class="mr-3 text-xs"> Complimentary access to the activity room and kids play
+                area.</p>
+            </div>
+            <div class="flex">
+              <b class="mr-3 mt-2 text-3xl">*</b>
+              <p class="mr-3 text-xs"> Free cancellation - 24 hours before check-in only for
+                direct bookings</p>
+            </div>
+          </div>
+        </p-overlayPanel>
+      </div>
+
     </div>
   </p-dialog>
 

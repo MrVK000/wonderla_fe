@@ -32,17 +32,16 @@ export class DashboardComponent implements OnDestroy, OnInit {
   zigZagInterTwoCardData = zigZagInterTwoCardData;
   zigZagInterOneCardData = zigZagInterOneCardData;
 
-  startDate!: Date;
   endDate!: Date;
+  startDate!: Date;
   todayDate: Date = new Date;
   tomorrowDate: Date = new Date(this.todayDate);
 
   subs!: Subscription;
-  isVisible: Boolean = false;
   isLoading: boolean = true;
+  isVisible: Boolean = false;
   liveChatDate: Date = new Date;
   liveChatTime: Date = new Date;
-  selectedHotel: LabelInterface | null = null;
   showChatLater: boolean = false;
   parkData: LabelInterface[] = [];
   hotelData: LabelInterface[] = [];
@@ -51,6 +50,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
   selectedLocation!: LabelInterface;
   showLiveChatPanel: boolean = false;
   showChatBotDialog: boolean = false;
+  showBookNowDialog: boolean = false;
   resortsData: LabelInterface[] = [];
   addresses: AddressInterface[] = [];
   selectedAdultOption!: LabelInterface;
@@ -59,6 +59,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
   socialLinks: SocialLinksInterface[] = [];
   showBookingOptionDialog: boolean = false;
   contactLinks: ContactLinksInterface[] = [];
+  selectedHotel: LabelInterface | null = null;
   customProperties: { [key: string]: string } = {};
   mobileViewDashboardOptions: MobileMenuInterface[] = [];
   liveChatConversationProperty: PropertyInterface[] = [];
