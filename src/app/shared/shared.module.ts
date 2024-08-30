@@ -1,5 +1,6 @@
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 
 
 import { MenuModule } from 'primeng/menu';
@@ -15,6 +16,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { PanelMenuModule } from 'primeng/panelmenu';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -22,6 +24,7 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
   imports: [
     CommonModule,
+    BrowserAnimationsModule,
 
     //primeng packages
     MenuModule,
@@ -42,6 +45,8 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
   exports: [
 
+    BrowserAnimationsModule,
+
     //primeng packages
     MenuModule,
     ToastModule,
@@ -57,7 +62,7 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
     ProgressSpinnerModule,
 
   ],
-  providers: [MessageService]
+  providers: [MessageService],
 
 })
 export class SharedModule { }

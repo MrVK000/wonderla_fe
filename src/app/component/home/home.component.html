@@ -1,6 +1,6 @@
 <div class="dashboardContainer">
 
-  <div class="adBarWrapper flex align-items-center justify-content-center">
+  <!-- <div class="adBarWrapper flex align-items-center justify-content-center">
     <div class="adBar flex justify-content-center">
       <div class="hotHeader">
         <div class="scrollingText flex align-items-center">{{CONSTANTS.scrollingTextContentOne}} <button
@@ -20,7 +20,7 @@
     <div class="primaryNavbar flex justify-content-between">
 
       <div class="primaryNavbarLogoDiv"><img class="primaryNavbarLogo"
-          src="../../../../assets/logo/Wonderla Navbar Logo.png" alt="Logo">
+          src="../../../../assets/logo/Wonderla Navbar Logo.png"  loading="lazy" alt="Logo">
       </div>
 
       <div class="primaryNavbarOptions flex align-items-center">
@@ -33,7 +33,7 @@
         </div>
       </div>
     </div>
-  </header>
+  </header> -->
 
 
   <div class="secondaryNavbarWrapper">
@@ -89,7 +89,7 @@
       <div class="cardWrapper" *ngFor="let card of cardData;let i = index">
         <div class="card cursor-pointer" [ngStyle]="{'background':card.cardColor}">
           <div class="cardUpperDiv">
-            <img [src]="card.imgUrl" [alt]="card.title">
+            <img [src]="card.imgUrl" loading="lazy" [alt]="card.title">
           </div>
           <div class="cardLowerDiv">
             <div class="cardTitle">{{card.title}}</div>
@@ -129,7 +129,7 @@
             <div class="zigZagIntroOneCardWrapper flex justify-content-center"
               *ngFor="let card of zigZagInterOneCardData;let i = index">
               <div class="zigZagIntroOneCard">
-                <img [src]="card.imgUrl" [alt]="card.title">
+                <img [src]="card.imgUrl" loading="lazy" [alt]="card.title">
               </div>
               <div class="zigZagIntroOneTitle">
                 <p>{{card.title}}</p>
@@ -159,7 +159,7 @@
             <div class="zigZagIntroTwoCardWrapper flex justify-content-center"
               *ngFor="let card of zigZagInterTwoCardData;let i = index">
               <div class="zigZagIntroTwoCard">
-                <img [src]="card.imgUrl" [alt]="card.title">
+                <img [src]="card.imgUrl" loading="lazy" [alt]="card.title">
               </div>
             </div>
           </div>
@@ -192,7 +192,7 @@
   <div class="noticeBoardWrapper flex justify-content-center">
     <div class="noticeBoardDiv">
       <div class="noticeImgDiv">
-        <img src="../../../../assets/noticeBoard/Merchandise_Notice.avif" alt="Merchandise">
+        <img src="../../../../assets/noticeBoard/Merchandise_Notice.avif" loading="lazy" alt="Merchandise">
       </div>
       <div class="noticeContentDiv">
         <h2 class="flex justify-content-center hidden">{{CONSTANTS.noticeBoardTitle}}</h2>
@@ -228,7 +228,7 @@
         <div class="offersCardDiv" #offersCardScrollContainer>
           <div class="offersCardWrapper flex justify-content-center" *ngFor="let card of offersCardData;let i = index">
             <div class="offersCard flex flex-column align-items-center">
-              <img [src]="card.imgUrl" [alt]="card.title">
+              <img [src]="card.imgUrl" loading="lazy" [alt]="card.title">
               <p class="flex justify-content-center"><b>{{card.title}}</b></p>
             </div>
           </div>
@@ -311,37 +311,39 @@
 
         <div class="locationFieldDiv">
           <p>Location</p>
-          <p-dropdown [options]="locationsData" [filter]="true" filterBy="label" [(ngModel)]="selectedLocation"
-            optionLabel="label" placeholder="Select Your Destination" (onChange)="locationChanged($event)" />
+          <p-dropdown [options]="sharedService.locationsData" #locationDropdown [filter]="true" filterBy="label"
+            [(ngModel)]="sharedService.selectedLocation" optionLabel="label" placeholder="Select Your Destination"
+            (onChange)="sharedService.locationChanged($event)" />
         </div>
         <div class="propertyFieldDiv">
           <p>Property</p>
-          <p-dropdown [options]="hotelData" [filter]="true" filterBy="label" [(ngModel)]="selectedHotel"
-            optionLabel="label" placeholder="Select Your Hotel" (onChange)="propertyChanged($event)" />
+          <p-dropdown [options]="sharedService.hotelData" [filter]="true" filterBy="label" [(ngModel)]="sharedService.selectedHotel"
+            optionLabel="label" placeholder="Select Your Hotel" (onChange)="sharedService.propertyChanged($event)" />
         </div>
 
-        <div class="startDateDiv" *ngIf="selectedLocation?.id===1">
+        <div class="startDateDiv" *ngIf="sharedService.selectedLocation?.id===1">
           <p>Check In</p>
-          <p-calendar [(ngModel)]="startDate" [iconDisplay]="'input'" dateFormat="dd/mm/yy" [showIcon]="true"
-            [minDate]="todayDate" inputId="icondisplay">
+          <p-calendar [(ngModel)]="sharedService.startDate" [iconDisplay]="'input'" dateFormat="dd/mm/yy" [showIcon]="true"
+            [minDate]="sharedService.todayDate" inputId="icondisplay">
           </p-calendar>
         </div>
 
-        <div class="endDateDiv" *ngIf="selectedLocation?.id===1">
+        <div class="endDateDiv" *ngIf="sharedService.selectedLocation?.id===1">
           <p>Check Out</p>
-          <p-calendar [(ngModel)]="endDate" [iconDisplay]="'input'" dateFormat="dd/mm/yy" [showIcon]="true"
-            [minDate]="tomorrowDate" inputId="icondisplay">
+          <p-calendar [(ngModel)]="sharedService.endDate" [iconDisplay]="'input'" dateFormat="dd/mm/yy" [showIcon]="true"
+            [minDate]="sharedService.tomorrowDate" inputId="icondisplay">
           </p-calendar>
         </div>
 
-        <div class="adultFieldDiv" *ngIf="selectedLocation?.id===1">
+        <div class="adultFieldDiv" *ngIf="sharedService.selectedLocation?.id===1">
           <p>Adults</p>
-          <p-dropdown [options]="adultOptionData" filterBy="label" [(ngModel)]="selectedAdultOption" optionLabel="label"
+          <p-dropdown [options]="sharedService.adultOptionData" filterBy="label" [(ngModel)]="sharedService.selectedAdultOption" optionLabel="label"
             placeholder="Select no of Adult " />
         </div>
 
         <div class="bookOptionDiv pt-4 mt-4 flex justify-content-center align-items-center">
-          <button pButton pRipple label="BOOK NOW" class="p-button-success" (click)="goToDashboard()"></button>
+          <button pButton pRipple label="BOOK NOW" class="p-button-success"
+            (click)="sharedService.selectedLocation?goToBookTicket():focusOnLocationDropdown()"></button>
         </div>
 
       </div>
@@ -383,7 +385,7 @@
 
       <div class="liveChatDiv">
         <button (click)="openLiveChatPanel()" pButton class="botChatForMobile flex justify-content-center"><img
-            src="../../../../assets/download.png" alt="Chat bot logo"></button>
+            src="../../../../assets/download.png" loading="lazy" alt="Chat bot logo"></button>
       </div>
 
       <div class="liveChatPanelDiv" *ngIf="showLiveChatPanel">
@@ -403,7 +405,7 @@
           </div>
           <div class="liveChatConversationDiv flex">
             <div class="liveChatConversationIcon">
-              <img src="../../../../assets/liveChatConversationIcon/botAvatar.png" alt="Bot Icon">
+              <img src="../../../../assets/liveChatConversationIcon/botAvatar.png" loading="lazy" alt="Bot Icon">
             </div>
             <div class="liveChatConversationsWrapper mr-3">
               <div class="liveChatFirstConversation p-3 pt-1 mb-2">
@@ -467,7 +469,8 @@
       </div>
       <div class="botChatForMobileDiv flex justify-content-center">
         <button pButton class="botChatForMobile flex justify-content-center align-items-center"
-          (click)="showChatBotDialog=true"><img src="../../../../assets/download.png" alt="Chat bot logo"></button>
+          (click)="showChatBotDialog=true"><img src="../../../../assets/download.png" loading="lazy"
+            alt="Chat bot logo"></button>
       </div>
     </div>
 
@@ -484,7 +487,7 @@
       </div>
       <div class="liveChatConversationDiv flex">
         <div class="liveChatConversationIcon">
-          <img src="../../../../assets/liveChatConversationIcon/botAvatar.png" alt="Bot Icon">
+          <img src="../../../../assets/liveChatConversationIcon/botAvatar.png" loading="lazy" alt="Bot Icon">
         </div>
         <div class="liveChatConversationsWrapper mr-3">
           <div class="liveChatFirstConversation p-3 pt-1 mb-2">
@@ -542,16 +545,16 @@
 
         <div class="locationFieldDiv">
           <p>Location</p>
-          <p-dropdown [options]="locationsData" [filter]="true" filterBy="label" [(ngModel)]="selectedLocation"
-            optionLabel="label" placeholder="Select Your Destination" (onChange)="locationChanged($event)" />
+          <p-dropdown [options]="sharedService.locationsData" [filter]="true" filterBy="label" [(ngModel)]="sharedService.selectedLocation"
+            optionLabel="label" placeholder="Select Your Destination" (onChange)="sharedService.locationChanged($event)" />
         </div>
         <div class="propertyFieldDiv">
           <p>Property</p>
-          <p-dropdown [options]="hotelData" [filter]="true" filterBy="label" [(ngModel)]="selectedHotel"
-            optionLabel="label" placeholder="Select Your Hotel" (onChange)="propertyChanged($event)" />
+          <p-dropdown [options]="sharedService.hotelData" [filter]="true" filterBy="label" [(ngModel)]="sharedService.selectedHotel"
+            optionLabel="label" placeholder="Select Your Hotel" (onChange)="sharedService.propertyChanged($event)" />
         </div>
         <div class="bookOptionDiv pt-4 mt-4 flex justify-content-center align-items-center">
-          <button pButton pRipple label="BOOK" [disabled]="selectedHotel==null" class="p-button-success"
+          <button pButton pRipple label="BOOK" [disabled]="sharedService.selectedHotel==null" class="p-button-success"
             (click)="goToDashboard()"></button>
         </div>
 
@@ -568,43 +571,43 @@
 
         <div class="locationFieldDiv">
           <p>Location</p>
-          <p-dropdown [options]="locationsData" [appendTo]="'body'" [filter]="true" filterBy="label"
-            [(ngModel)]="selectedLocation" optionLabel="label" placeholder="Select Your Destination"
-            (onChange)="locationChanged($event)" />
+          <p-dropdown [options]="sharedService.locationsData" [appendTo]="'body'" [filter]="true" filterBy="label"
+            [(ngModel)]="sharedService.selectedLocation" optionLabel="label" placeholder="Select Your Destination"
+            (onChange)="sharedService.locationChanged($event)" />
         </div>
         <div class="propertyFieldDiv">
           <p>Property</p>
-          <p-dropdown [options]="hotelData" [appendTo]="'body'" [filter]="true" filterBy="label"
-            [(ngModel)]="selectedHotel" optionLabel="label" placeholder="Select Your Hotel"
-            (onChange)="propertyChanged($event)" />
+          <p-dropdown [options]="sharedService.hotelData" [appendTo]="'body'" [filter]="true" filterBy="label"
+            [(ngModel)]="sharedService.selectedHotel" optionLabel="label" placeholder="Select Your Hotel"
+            (onChange)="sharedService.propertyChanged($event)" />
         </div>
 
       </div>
 
-      <div class="flex" *ngIf="selectedLocation?.id===1">
-        <div class="startDateDiv m-3 mt-0" *ngIf="selectedLocation?.id===1">
+      <div class="flex" *ngIf="sharedService.selectedLocation?.id===1">
+        <div class="startDateDiv m-3 mt-0" *ngIf="sharedService.selectedLocation?.id===1">
           <p>Check In</p>
-          <p-calendar [(ngModel)]="startDate" [appendTo]="'body'" [iconDisplay]="'input'" dateFormat="dd/mm/yy"
-            [showIcon]="true" [minDate]="todayDate" inputId="icondisplay">
+          <p-calendar [(ngModel)]="sharedService.startDate" [appendTo]="'body'" [iconDisplay]="'input'" dateFormat="dd/mm/yy"
+            [showIcon]="true" [minDate]="sharedService.todayDate" inputId="icondisplay">
           </p-calendar>
         </div>
 
-        <div class="endDateDiv m-3 mt-0" *ngIf="selectedLocation?.id===1">
+        <div class="endDateDiv m-3 mt-0" *ngIf="sharedService.selectedLocation?.id===1">
           <p>Check Out</p>
-          <p-calendar [(ngModel)]="endDate" [appendTo]="'body'" [iconDisplay]="'input'" dateFormat="dd/mm/yy"
-            [showIcon]="true" [minDate]="tomorrowDate" inputId="icondisplay">
+          <p-calendar [(ngModel)]="sharedService.endDate" [appendTo]="'body'" [iconDisplay]="'input'" dateFormat="dd/mm/yy"
+            [showIcon]="true" [minDate]="sharedService.tomorrowDate" inputId="icondisplay">
           </p-calendar>
         </div>
 
-        <div class="adultFieldDiv m-3 mt-0" *ngIf="selectedLocation?.id===1">
+        <div class="adultFieldDiv m-3 mt-0" *ngIf="sharedService.selectedLocation?.id===1">
           <p>Adults</p>
-          <p-dropdown [options]="adultOptionData" [appendTo]="'body'" filterBy="label" [(ngModel)]="selectedAdultOption"
+          <p-dropdown [options]="sharedService.adultOptionData" [appendTo]="'body'" filterBy="label" [(ngModel)]="sharedService.selectedAdultOption"
             optionLabel="label" placeholder="Select no of Adult " />
         </div>
       </div>
 
       <div class="bookOptionDiv mt-2 mr-3 flex align-items-center justify-content-end">
-        <button pButton pRipple label="BOOK" [disabled]="selectedHotel==null" class="p-button-success"
+        <button pButton pRipple label="BOOK" [disabled]="sharedService.selectedHotel==null" class="p-button-success"
           (click)="goToDashboard()"></button>
       </div>
 
@@ -648,5 +651,3 @@
 <div class=" flex justify-content-center loader align-items-center" *ngIf="isLoading">
   <p-progressSpinner ariaLabel="loading" />
 </div>
-
-<p-toast />

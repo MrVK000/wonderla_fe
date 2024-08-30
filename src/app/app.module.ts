@@ -1,34 +1,28 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule, isDevMode } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-import { CommonModule } from '@angular/common';
-import { HttpClientModule } from  '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LayoutComponent } from './component/layout/layout.component';
+import { HomeComponent } from './component/home/home.component';
 import { SharedModule } from './shared/shared.module';
-import { ServiceWorkerModule } from '@angular/service-worker';
-
-
+import { HttpClientModule } from '@angular/common/http';
+import { ResortComponent } from './component/resort/resort.component';
+import { ParkTicketComponent } from './component/park-ticket/park-ticket.component'; // Import this
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LayoutComponent,
+    HomeComponent,
+    ResortComponent,
+    ParkTicketComponent
   ],
-  schemas:[CUSTOM_ELEMENTS_SCHEMA],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CommonModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
     SharedModule,
-    ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: !isDevMode(),
-      // Register the ServiceWorker as soon as the application is stable
-      // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
-    }),
+    HttpClientModule,
   ],
   providers: [
     provideClientHydration()

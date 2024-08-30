@@ -1,16 +1,37 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
+import { LayoutComponent } from './component/layout/layout.component';
+import { HomeComponent } from './component/home/home.component';
+import { ResortComponent } from './component/resort/resort.component';
+import { ParkTicketComponent } from './component/park-ticket/park-ticket.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' }, //default route
-  // { path: 'home', component: HomeComponent },
-  { path: 'dashboard', loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule) },
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      // {
+      //   path: '',
+      //   component: HomeComponent
+      // },
+      // {
+      //   path: 'bengaluru-resort',
+      //   component: ResortComponent
+      // },
+      {
+        path: '',
+        component: HomeComponent
+      },
+    ]
+  },
+  {
+    path: 'park-ticket',
+    component: ParkTicketComponent
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes),CommonModule,BrowserModule,],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

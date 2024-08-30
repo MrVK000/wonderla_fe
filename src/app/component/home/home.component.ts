@@ -1,21 +1,23 @@
 import { Subscription } from 'rxjs';
 import { OverlayPanel } from 'primeng/overlaypanel';
-import { DropdownChangeEvent } from 'primeng/dropdown';
-import CONSTANT_VARIABLES from '../../../data/constants';
-import { ApiService } from '../../../services/api.service';
+import { Dropdown, DropdownChangeEvent } from 'primeng/dropdown';
 import { Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { cardData, offersCardData, primaryNavbarOptions, sliderImageData, zigZagInterOneCardData, zigZagInterTwoCardData } from '../../../data/imgData';
-import { AddressInterface, ContactLinksInterface, LabelInterface, MobileMenuInterface, PropertyInterface, SocialLinksInterface } from '../../../interfaces/dashboardInterface';
 import { MessageService } from 'primeng/api';
 import { MenuItem } from 'primeng/api';
+import { cardData, offersCardData, sliderImageData, zigZagInterTwoCardData, zigZagInterOneCardData } from '../../data/imgData';
+import { LabelInterface, AddressInterface, SocialLinksInterface, ContactLinksInterface, MobileMenuInterface, PropertyInterface } from '../../interfaces/dashboardInterface';
+import { ApiService } from '../../services/api.service';
+import CONSTANT_VARIABLES from '../../data/constants';
+import { SharedService } from '../../shared/shared.service';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.scss',
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.scss'
 })
-export class DashboardComponent implements OnDestroy, OnInit {
+export class HomeComponent implements OnDestroy, OnInit {
 
+  @ViewChild('locationDropdown') locationDropdown!: Dropdown;
   @ViewChild('mobileMenuPanel') mobileMenuPanel!: OverlayPanel;
   @ViewChild('instructionOverlayPanel') instructionOverlayPanel!: OverlayPanel;
   @ViewChild('offersCardScrollContainer') offersCardScrollContainer!: ElementRef;
@@ -28,57 +30,38 @@ export class DashboardComponent implements OnDestroy, OnInit {
   cardData = cardData;
   offersCardData = offersCardData;
   sliderImageData = sliderImageData;
-  primaryNavbarOptions = primaryNavbarOptions;
   zigZagInterTwoCardData = zigZagInterTwoCardData;
   zigZagInterOneCardData = zigZagInterOneCardData;
 
-  endDate!: Date;
-  startDate!: Date;
-  todayDate: Date = new Date;
-  tomorrowDate: Date = new Date(this.todayDate);
+
 
   subs!: Subscription;
-  isLoading: boolean = true;
+  isLoading: boolean = !true;
   isVisible: Boolean = false;
   liveChatDate: Date = new Date;
   liveChatTime: Date = new Date;
   showChatLater: boolean = false;
-  parkData: LabelInterface[] = [];
-  hotelData: LabelInterface[] = [];
-  outingData: LabelInterface[] = [];
+
   liveChatLastTime: Date = new Date;
-  selectedLocation!: LabelInterface;
+
   showLiveChatPanel: boolean = false;
   showChatBotDialog: boolean = false;
   showBookNowDialog: boolean = false;
-  resortsData: LabelInterface[] = [];
+
   addresses: AddressInterface[] = [];
-  selectedAdultOption!: LabelInterface;
+
   liveChatInputFieldValue: string = '';
-  locationsData: LabelInterface[] = [];
+
   socialLinks: SocialLinksInterface[] = [];
   showBookingOptionDialog: boolean = false;
   contactLinks: ContactLinksInterface[] = [];
-  selectedHotel: LabelInterface | null = null;
+
   customProperties: { [key: string]: string } = {};
   mobileViewDashboardOptions: MobileMenuInterface[] = [];
   liveChatConversationProperty: PropertyInterface[] = [];
   liveChatConversationRequestedProperty: PropertyInterface[] = [];
 
-  adultOptionData: LabelInterface[] = [
-    {
-      label: '1',
-      id: 0
-    },
-    {
-      label: '2',
-      id: 1
-    },
-    {
-      label: '3',
-      id: 2
-    },
-  ]
+
 
   mobileViewMenuItems: MenuItem[] = [
     {
@@ -663,14 +646,13 @@ export class DashboardComponent implements OnDestroy, OnInit {
   showMobileMenuPanel: boolean = false;
 
 
-  constructor(public api: ApiService, private messageService: MessageService,) { }
+  constructor(public api: ApiService, private messageService: MessageService, public sharedService: SharedService) { }
 
   ngOnInit(): void {
-    this.tomorrowDate.setDate(this.todayDate.getDate() + 1);
-    // this.tomorrowDate = this.tomorrowDate.toDateString();
-
+    this.sharedService.tomorrowDate.setDate(this.sharedService.todayDate.getDate() + 1);
 
     this.generateCustomProperties();
+
 
     this.isLoading = true;
     this.subs = this.api.getMobileMenu().subscribe((res) => {
@@ -681,6 +663,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
         this.isLoading = false;
         console.error(error);
         this.messageService?.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
+        this.sharedService.clearToast();
       });
 
     this.isLoading = true;
@@ -692,54 +675,59 @@ export class DashboardComponent implements OnDestroy, OnInit {
         console.error(error);
         this.isLoading = false;
         this.messageService?.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
+        this.sharedService.clearToast();
       });
 
 
     this.isLoading = true;
     this.subs = this.api.getOuting().subscribe((res) => {
-      this.outingData = res.data;
+      this.sharedService.outingData = res.data;
       this.isLoading = false;
     },
       (error) => {
         console.error(error);
         this.isLoading = false;
         this.messageService?.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
+        this.sharedService.clearToast();
       });
 
 
     this.isLoading = true;
     this.subs = this.api.getResort().subscribe((res) => {
-      this.resortsData = res.data;
+      this.sharedService.resortsData = res.data;
       this.isLoading = false;
     },
       (error) => {
         console.error(error);
         this.isLoading = false;
         this.messageService?.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
+        this.sharedService.clearToast();
       });
 
 
     this.isLoading = true;
     this.subs = this.api.getPark().subscribe((res) => {
-      this.parkData = res.data;
+      this.sharedService.parkData = res.data;
       this.isLoading = false;
     },
       (error) => {
         console.error(error);
         this.isLoading = false;
         this.messageService?.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
+        this.sharedService.clearToast();
       });
 
 
     this.isLoading = true;
     this.subs = this.api.getLocations().subscribe((res) => {
-      this.locationsData = res.data;
+      this.sharedService.locationsData = res.data;
       this.isLoading = false;
     },
       (error) => {
         console.error(error);
         this.isLoading = false;
         this.messageService?.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
+        this.sharedService.clearToast();
       });
 
 
@@ -752,6 +740,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
         console.error(error);
         this.isLoading = false;
         this.messageService?.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
+        this.sharedService.clearToast();
       });
 
 
@@ -764,6 +753,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
         console.error(error);
         this.isLoading = false;
         this.messageService?.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
+        this.sharedService.clearToast();
       });
 
 
@@ -776,6 +766,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
         console.error(error);
         this.isLoading = false;
         this.messageService?.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
+        this.sharedService.clearToast();
       });
 
 
@@ -833,13 +824,6 @@ export class DashboardComponent implements OnDestroy, OnInit {
     });
   }
 
-  showOverlayPanel(event: MouseEvent): void {
-    this.instructionOverlayPanel.show(event);
-  }
-
-  hideOverlayPanel(): void {
-    this.instructionOverlayPanel.hide();
-  }
 
   @HostListener('window:scroll') onWindowScroll() {
     const yOffset = window.pageYOffset || document.documentElement.scrollTop;
@@ -899,32 +883,6 @@ export class DashboardComponent implements OnDestroy, OnInit {
     this.generateCustomProperties();
   }
 
-  locationChanged(event: DropdownChangeEvent) {
-    const locationId = event.value.id;
-    if (locationId == 0) {
-      this.hotelData = this.parkData;
-    }
-    else if (locationId == 1) {
-      this.hotelData = this.resortsData;
-      this.selectedAdultOption = this.adultOptionData[1];
-      this.startDate = this.todayDate;
-      this.endDate = this.tomorrowDate;
-      // console.log('>>>this.startDate',this.startDate);
-
-    }
-    else if (locationId == 2) {
-      this.hotelData = this.outingData;
-    }
-    this.selectedHotel = this.hotelData[0] as LabelInterface;
-  }
-
-  propertyChanged(event: DropdownChangeEvent) {
-    console.log('>>>>property', event);
-
-  }
-
-
-
 
   goToDashboard() { }
   goToExplore() { }
@@ -943,6 +901,14 @@ export class DashboardComponent implements OnDestroy, OnInit {
     else if (id === 3) {
       window.location.href = 'tel:8281998877';
     }
+  }
+
+  showOverlayPanel(event: MouseEvent): void {
+    this.instructionOverlayPanel.show(event);
+  }
+
+  hideOverlayPanel(): void {
+    this.instructionOverlayPanel.hide();
   }
 
 
@@ -970,11 +936,14 @@ export class DashboardComponent implements OnDestroy, OnInit {
   }
 
 
+  focusOnLocationDropdown() {
+    this.locationDropdown.focus(); // Focuses the dropdown
+    this.locationDropdown.show();
+  }
 
 
 
-
-
+  goToBookTicket() { }
 
 
 
@@ -991,7 +960,3 @@ export class DashboardComponent implements OnDestroy, OnInit {
 
 
 }
-
-
-
-

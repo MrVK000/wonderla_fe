@@ -9,5 +9,25 @@ body
   margin: 0;
 }
 
+::ng-deep p-toast div
+{
+  z-index: 2000;
+}
 
+
+.hidden {
+  position: relative;
+  line-height: 2em;
+  opacity: 0;
+  top: 0;
+  transition: top 2s;
+  margin-top: 0;
+}
+
+.show {
+  margin: 0;
+  position: relative;
+  top: 1em;
+  opacity: 1;
+}
 

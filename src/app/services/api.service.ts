@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 export class ApiService {
 
   baseUrl: string = 'http://localhost:8000/';
+  // baseUrl: string = 'https://wonderla-be-5mh1.vercel.app/';
 
   park: string = 'park/get';
   outing: string = 'outing/get';

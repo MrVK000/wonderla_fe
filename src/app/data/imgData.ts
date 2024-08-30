@@ -20,21 +20,27 @@ export const sliderImageData = [
 export const primaryNavbarOptions = [
   {
     label: 'PARKS',
+    isHovered: false,
     items: [
       {
         label: 'Wonderla Kochi',
+        isNew: false,
       },
       {
         label: 'Wonderla Bengaluru',
+        isNew: false,
       },
       {
         label: 'Wonderla Hydrabad',
+        isNew: false,
       },
       {
         label: 'Wonderla Bhubaneswar',
+        isNew: true,
       },
       {
         label: 'Wonderla Resort, Bengaluru',
+        isNew: false,
       }
     ]
   },
@@ -49,6 +55,7 @@ export const primaryNavbarOptions = [
   },
   {
     label: 'PARK TIMINGS AND TICKETS',
+    isHovered: false,
     items: [
       {
         label: 'WONDERLA KOCHI TIMINGS AND TICKETS',
@@ -69,6 +76,7 @@ export const primaryNavbarOptions = [
   },
   {
     label: 'QUICK LINKS',
+    isHovered: false,
     items: [
       {
         label: 'PLAN YOUR VISIT',

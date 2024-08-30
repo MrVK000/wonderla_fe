@@ -1,0 +1,581 @@
+.layoutContainer {
+  width: 100%;
+  // position: absolute;
+}
+
+.scrolled {
+  position: fixed;
+}
+
+.extraMargin {
+  margin-top: 6em;
+}
+
+.removeElement {
+  display: none;
+}
+
+.removeMargin {
+  top: 8em !important;
+}
+
+.adBarWrapper {
+  background-color: #0a2354;
+  width: 100%;
+  height: 1.9em;
+}
+
+.adBar {
+  width: 100%;
+  max-width: 85em;
+  background-color: #0a2354;
+  height: 1.9em;
+}
+
+.hotHeader {
+  overflow: hidden;
+  background-color: #0a2354;
+  width: max-content;
+}
+
+.scrollingText {
+  width: max-content;
+  color: #ffffff;
+  margin: 0px 10px;
+  animation: righttoleft 50s infinite linear;
+}
+
+@keyframes righttoleft {
+  from {
+    transform: translateX(80%);
+  }
+
+  to {
+    transform: translateX(-120%);
+  }
+}
+
+::ng-deep .scrollingText .p-button,
+::ng-deep .scrollingText .p-button-success {
+  padding: 0.38rem 1.5rem !important;
+  border-radius: 0 !important;
+  color: black !important;
+  background-color: #f9de0a !important;
+  border: 0px !important;
+}
+
+.scrollingText button {
+  margin-right: 2em;
+  margin-left: 2em;
+}
+
+.scrollingText {
+  font-size: 14px;
+}
+
+::ng-deep .p-button.p-button-success:not(:disabled):hover,
+::ng-deep .p-button-group.p-button-success>.p-button:not(:disabled):hover,
+::ng-deep .p-splitbutton.p-button-success>.p-button:not(:disabled):hover {
+  background-color: #ffffff !important;
+}
+
+::ng-deep .p-menubar .p-menubar-root-list>.p-menuitem>.p-menuitem-content {
+  font-size: 12px !important;
+  font-weight: 900 !important;
+}
+
+::ng-deep .p-menubar .p-menubar-root-list>.p-menuitem>.p-menuitem-content .p-menuitem-link {
+  padding: 0.75rem 0.5rem;
+}
+
+.primaryNavbarLogo {
+  width: 12em;
+  height: 5.5em;
+}
+
+.primaryNavbarWrapper {
+  background-color: #ffffff;
+  padding-left: 2em;
+  padding-right: 2em;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  // position: sticky !important;
+  top: 0;
+  z-index: 1010;
+  box-shadow: rgba(0, 0, 0, 0.38) 0px 2px 10px;
+}
+
+::ng-deep .p-menubar .p-submenu-list {
+  position: fixed !important;
+  z-index: 1000 !important;
+  width: max-content;
+}
+
+::ng-deep .p-menubar .p-submenu-list,
+::ng-deep .p-menubar ul {
+  width: max-content;
+}
+
+::ng-deep .p-menubar {
+  border: #ffffff;
+  background-color: #ffffff;
+}
+
+.p-menubar ul .primaryNavbarOptions ul {
+  list-style: none;
+}
+
+
+.primaryNavbar {
+  width: 100%;
+  max-width: 80em;
+  height: 6em;
+}
+
+
+.primaryNavbarOptions ul li {
+  display: inline-block;
+  position: relative;
+}
+
+.primaryNavbarOptions ul li a {
+  display: block;
+  color: #000000;
+  text-decoration: none;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 800;
+  margin: 14px;
+  margin-top: 24px;
+}
+
+.primaryNavbarOptions ul li .dropdown li {
+  display: block;
+}
+
+.primaryNavbarOptions ul li .dropdown {
+  width: 100%;
+  position: absolute;
+  z-index: 999;
+  display: none !important;
+}
+
+.primaryNavbarOptions ul {
+  padding: 0px;
+}
+
+.primaryNavbarOptions ul li :hover .dropdown {
+  display: block;
+}
+
+
+.primaryNavbarOptions ul li a .pi-angle-down {
+  font-size: 10px;
+  font-weight: 800;
+}
+
+
+.primaryNavbarOptions {
+  width: 63%;
+  height: 6em;
+  overflow: hidden;
+}
+
+.primaryNavbarOptions ul {
+  width: max-content;
+  height: 6em;
+}
+
+
+// .primaryNavbarOptionMenu {
+//   padding: 10px;
+// }
+
+.primaryNavbarOption {
+  height: 100%;
+}
+
+.navbarOption:hover {
+  font-size: small !important;
+  transition: 1s all;
+  color: #0b2254;
+  // margin-left: 20px;
+}
+
+
+.pi-chevron-down:before {
+  font-size: x-small;
+  font-weight: 900;
+}
+
+
+.primaryNavbarOptionMenu {
+  border: 1px solid;
+  position: absolute;
+  top: 10.5em;
+  z-index: 2;
+  background: white;
+}
+
+.firstMenuOption {
+  background-color: #0b2254;
+  border: none;
+  padding: 10px 20px;
+}
+
+.firstMenuOption P {
+  color: #ffcf3a;
+}
+
+.firstMenuOption i {
+  color: #ffffff;
+}
+
+.firstMenuOption p:hover {
+  text-decoration: underline;
+}
+
+.firstMenuOption span {
+  margin: 4px;
+  background: #fb8500;
+  color: white;
+  padding: 4px 6px;
+}
+
+
+::ng-deep .primaryNavbarBookNow .p-button,
+::ng-deep .primaryNavbarBookNow .p-button-success,
+::ng-deep .zigZagButtonDiv .p-button,
+::ng-deep .zigZagButtonDiv .p-button-success {
+  padding: 0.5rem 2.3rem !important;
+  border-radius: 0 !important;
+  color: #edd24e !important;
+  background-color: #0b2254 !important;
+  border: 0px !important;
+}
+
+::ng-deep .primaryNavbarBookNow .p-button.p-button-success:not(:disabled):hover,
+::ng-deep .primaryNavbarBookNow .p-button-group.p-button-success>.p-button:not(:disabled):hover,
+::ng-deep .primaryNavbarBookNow .p-splitbutton.p-button-success>.p-button:not(:disabled):hover {
+  border: 2px solid #000000 !important;
+  color: #000000 !important;
+}
+
+
+
+::ng-deep .primaryBookingDialog .p-dialog .p-dialog-header {
+  padding: 0;
+  background-color: #000000;
+}
+
+::ng-deep .primaryBookingDialog .p-dialog .p-dialog-content:last-of-type {
+  background-color: #000000;
+}
+
+.primaryBookingDialog .bookingDialogContentWrapper .flex,
+.primaryBookingDialog .bookingDialogContentWrapper .instructionDiv,
+.primaryBookingDialog .bookingDialogContentWrapper .instantBookingDiv {
+  color: #FFFFFF;
+}
+
+.primaryBookingDialog .bookingDialogContentWrapper .instantBookingDiv div {
+  width: 100%;
+}
+
+::ng-deep .primaryBookingDialog .p-dialog .p-dialog-header .p-dialog-header-icon:last-child:hover {
+  background-color: #000000;
+}
+
+::ng-deep .primaryBookingDialog .p-dialog .p-dialog-header .p-dialog-header-icon .p-icon-wrapper .p-icon {
+  width: 2em;
+  height: 2em;
+}
+
+::ng-deep .primaryBookingDialog
+{
+  width: 2px;
+}
+
+
+
+@media screen and (max-width: 575px) {
+
+  .adBarWrapper {
+    height: 1.2em;
+  }
+
+  .adBar {
+    height: 1.2em;
+  }
+
+  ::ng-deep .scrollingText .p-button,
+  ::ng-deep .scrollingText .p-button-success {
+    padding: 0.21rem 1.5rem !important;
+  }
+
+  .scrollingText,
+  ::ng-deep .scrollingText .p-button,
+  ::ng-deep .scrollingText .p-button-success {
+    font-size: 10px;
+  }
+
+  .primaryNavbarWrapper {
+    padding: 0;
+    position: relative !important;
+  }
+
+  .primaryNavbarOptions,
+  .primaryNavbarBookNowDiv,
+  .secondaryNavbarWrapper,
+  .introWrapper .line,
+  .cardLeftSwappingDiv,
+  .cardRightSwappingDiv {
+    display: none !important;
+  }
+
+  .primaryNavbar {
+    justify-content: center !important;
+    height: 4em;
+  }
+
+  .primaryNavbarLogo {
+    width: 8em;
+    height: 4em;
+  }
+
+  .sliderImageDiv img {
+    width: 200%;
+    margin-left: 100%;
+  }
+
+}
+
+
+@media screen and (min-width: 576px) and (max-width: 767px) {
+
+  .adBarWrapper {
+    height: 1.2em;
+  }
+
+  .adBar {
+    height: 1.2em;
+  }
+
+  ::ng-deep .scrollingText .p-button,
+  ::ng-deep .scrollingText .p-button-success {
+    padding: 0.21rem 1.5rem !important;
+  }
+
+  .scrollingText,
+  ::ng-deep .scrollingText .p-button,
+  ::ng-deep .scrollingText .p-button-success {
+    font-size: 10px;
+  }
+
+  .primaryNavbarWrapper {
+    padding: 0;
+    position: relative !important;
+  }
+
+  .primaryNavbarOptions,
+  .primaryNavbarBookNowDiv,
+  .secondaryNavbarWrapper,
+  .introWrapper .line,
+  .cardLeftSwappingDiv,
+  .cardRightSwappingDiv {
+    display: none !important;
+  }
+
+  .primaryNavbar {
+    justify-content: center !important;
+    height: 4em;
+  }
+
+  .primaryNavbarLogo {
+    width: 8em;
+    height: 4em;
+  }
+
+  .primaryNavbarOptions {
+    width: 5em;
+  }
+
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 863px) {
+
+  .adBarWrapper {
+    height: 1.3em;
+  }
+
+  .adBar {
+    height: 1.3em;
+  }
+
+  ::ng-deep .scrollingText .p-button,
+  ::ng-deep .scrollingText .p-button-success {
+    padding: 0.25rem 1.5rem !important;
+  }
+
+  .scrollingText,
+  ::ng-deep .scrollingText .p-button,
+  ::ng-deep .scrollingText .p-button-success {
+    font-size: 12px;
+  }
+
+  .primaryNavbarWrapper {
+    padding: 0;
+    position: relative !important;
+  }
+
+  .primaryNavbarOptions,
+  .primaryNavbarBookNowDiv,
+  .secondaryNavbarWrapper,
+  .introWrapper .line,
+  .cardLeftSwappingDiv,
+  .cardRightSwappingDiv {
+    display: none !important;
+  }
+
+  .primaryNavbar {
+    justify-content: center !important;
+    height: 4em;
+  }
+
+  .primaryNavbarLogo {
+    width: 8em;
+    height: 4em;
+  }
+
+  .primaryNavbarOptions {
+    width: 21em;
+  }
+
+}
+
+@media screen and (min-width: 864px) and (max-width: 1023px) {
+
+  .adBarWrapper {
+    height: 1.3em;
+  }
+
+  .adBar {
+    height: 1.3em;
+  }
+
+  ::ng-deep .scrollingText .p-button,
+  ::ng-deep .scrollingText .p-button-success {
+    padding: 0.25rem 1.5rem !important;
+  }
+
+  .scrollingText,
+  ::ng-deep .scrollingText .p-button,
+  ::ng-deep .scrollingText .p-button-success {
+    font-size: 12px;
+  }
+
+  .primaryNavbarWrapper {
+    padding: 0;
+    position: relative !important;
+  }
+
+  .primaryNavbarOptions,
+  .primaryNavbarBookNowDiv,
+  .secondaryNavbarWrapper,
+  .cardLeftSwappingDiv,
+  .cardRightSwappingDiv {
+    display: none !important;
+  }
+
+  .primaryNavbar {
+    justify-content: center !important;
+    height: 4em;
+  }
+
+  .primaryNavbarLogo {
+    width: 8em;
+    height: 4em;
+  }
+
+  .primaryNavbarOptions {
+    width: 21em;
+  }
+
+}
+
+
+@media screen and (min-width: 1024px) and (max-width: 1439px) {
+  .primaryNavbarOptions {
+    width: 34em;
+  }
+
+  ::ng-deep .primaryNavbarBookNow .p-button,
+  ::ng-deep .primaryNavbarBookNow .p-button-success {
+    width: 11em !important;
+  }
+}
+
+
+@media screen and (min-width: 1440px) and (max-width: 1919px) {
+
+  .primaryNavbarOptions {
+    width: 51em;
+  }
+
+}
+
+
+@media screen and (min-width: 1920px) and (max-width: 2559px) {
+
+  .primaryNavbarOptions {
+    width: 51em;
+  }
+
+}
+
+
+@media screen and (min-width: 2560px) and (max-width: 3139px) {
+
+  .primaryNavbarOptions {
+    width: 51em;
+  }
+
+}
+
+
+@media screen and (min-width: 3140px) and (max-width: 3839px) {
+
+  .primaryNavbarOptions {
+    width: 51em;
+  }
+
+}
+
+
+@media screen and (min-width: 3840px) and (max-width: 4519px) {
+
+  .primaryNavbarOptions {
+    width: 51em;
+  }
+
+}
+
+
+@media screen and (min-width: 4520px) and (max-width: 5119px) {
+
+  .primaryNavbarOptions {
+    width: 51em;
+  }
+
+}
+
+
+@media screen and (min-width: 5120px) {
+
+  .primaryNavbarOptions {
+    width: 51em;
+  }
+
+}
