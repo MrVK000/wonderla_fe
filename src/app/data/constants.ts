@@ -19,7 +19,23 @@ const CONSTANT_VARIABLES = {
   socialLinkTitle: 'Get In Touch',
   copyRightsContent: 'Sitemap© Wonderla - All Rights Reserved. Designed by Simplotel.',
   parkTicketInterParaOne: "Enter a realm of enchantment, where happiness comes alive!",
-  parkTicketInterParaTwo: "Experience the wonder of Wonderla - India’s premier amusement park chain."
+  parkTicketInterParaTwo: "Experience the wonder of Wonderla - India’s premier amusement park chain.",
+
+  parkTicketDateTitle: "Plan Your Visit",
+  parkTicketDateParagraph: "Prepare for 7 hours of continuous enjoyment, with exhilarating ups and downs and fantastic thrills at every turn! Brace yourself to be blown away by the incredible rides that lie ahead!",
+  parkTicketDateHoursOfFun: "Hours of Fun",
+  parkTicketDateDays: "book 3 days prior",
+  parkTicketDateBetweenDaysAndGrab: "to avail early bird offer",
+  parkTicketDateAnd: "and",
+  parkTicketDateGrab: "grab 10% off",
+  parkTicketDateWeekends: "Weekdays",
+  parkTicketDateWeekendsAndHolidays: "Weekends & Holidays",
+  parkTicketDateParkTimings: "Park Timings",
+  parkTicketDateParkTimingsTimeOne: "11:00 AM - 06:00 PM",
+  parkTicketDateParkTimingsTimeTwo: "11:00 AM - 07:00 PM",
+  parkTicketDateWaterPark: "Water Park",
+  parkTicketDateWaterParkTimeOne: "12:30 PM - 05:00 PM",
+  parkTicketDateWaterParkTimeTwo: "12:00 PM - 06:00 PM",
 };
 
 

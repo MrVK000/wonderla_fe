@@ -50,6 +50,8 @@ export class SharedService {
       id: 2
     },
   ]
+  activeIndex: number = 1;
+  progressbarValue: number = 0;
 
   constructor(public messageService: MessageService, public router: Router,) { }
 
@@ -99,6 +101,68 @@ export class SharedService {
   logoClicked() {
     window.location.reload();
   }
+
+
+  onActiveIndexChange(index: number, isStepClicked: boolean) {
+    if (index < this.activeIndex && isStepClicked) {
+      this.activeIndex = index;
+      this.progressbarValue = index * 20;
+    }
+    else if (!isStepClicked) {
+      this.activeIndex = index;
+      this.progressbarValue = index * 20;
+    }
+  }
+
+
+
+
+
+
+  generateCalendar(month: number, year: number): Date[] {
+    const dates: Date[] = [];
+
+    // First day of the month
+    const firstDay = new Date(year, month, 1);
+    // Last day of the month
+    const lastDay = new Date(year, month + 1, 0);
+
+    // Days from the previous month to fill the first week
+    const startDay = firstDay.getDay();
+    for (let i = startDay; i > 0; i--) {
+      const prevDate = new Date(year, month, 1 - i);
+      dates.push(prevDate);
+    }
+
+    // Days of the current month
+    for (let i = 1; i <= lastDay.getDate(); i++) {
+      dates.push(new Date(year, month, i));
+    }
+
+    // Days from the next month to fill the last week
+    const endDay = lastDay.getDay();
+    for (let i = 1; i < 7 - endDay; i++) {
+      const nextDate = new Date(year, month + 1, i);
+      dates.push(nextDate);
+    }
+
+    return dates;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

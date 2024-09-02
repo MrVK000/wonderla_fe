@@ -1,8 +1,8 @@
 .container {
   background-color: #eff3ff;
-  height: 100vh;
   position: absolute;
   width: 100%;
+  min-height: 100vh;
 }
 
 .wrapper {
@@ -71,7 +71,6 @@
   margin: 0 40px;
   z-index: 0;
   position: relative;
-  bottom: 5em;
   bottom: 73px;
 }
 
@@ -88,112 +87,9 @@
 }
 
 
-.contentWrapper {
-  display: flex;
-  justify-content: center;
+::ng-deep .p-sidebar-right {
+  width: 25rem;
 }
-
-
-.contentWrapper>div {
-  background-color: #f9faff;
-  border-radius: 30px;
-  width: 34em;
-  height: 36em;
-  margin: 10px;
-  border: 1px solid rgb(128, 128, 128, 0.3);
-}
-
-
-.infoDiv {
-  background-image: url(../../../assets/parkTicketBackground/wonderla-booking-animation.gif);
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding: 20px;
-}
-
-.firstTitle {
-  font-size: 60px;
-  font-weight: 700;
-  font-family: 'Neology', sans-serif;
-}
-
-.locationImg {
-  width: 40px;
-  height: auto;
-  font-weight: 900;
-}
-
-
-
-.secondTitle {
-  font-size: 60px;
-  font-weight: 100;
-  font-family: 'Geraldton', sans-serif;
-}
-
-.firstTitle,
-.secondTitle {
-  margin: 0 20px;
-}
-
-.infoParagraphOne,
-.infoParagraphTwo {
-  font-size: 14px;
-  margin: 4px 20px;
-}
-
-.locationDiv {
-  padding: 2em;
-}
-
-.location {
-  margin: 10px;
-  padding: 1em;
-  border-radius: 30px;
-  background-color: #ffffff;
-  border: 1px solid rgb(128, 128, 128, 0.3);
-}
-
-.location:hover {
-  background-color: #eff3ff;
-}
-
-.locationImageDiv {
-  width: 5em;
-  height: auto;
-  margin: 0 20px;
-  border-radius: 100px;
-  border: 10px solid #dee4ec;
-}
-
-.locationImage {
-  width: 100%;
-  height: auto;
-}
-
-
-.locationLabel {
-  font-size: 30px;
-  font-weight: 700;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 .loader {
@@ -203,4 +99,80 @@
 .parkTicketLoading {
   width: 200px;
   height: auto;
+}
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 575px) {
+  .wrapper {
+    width: 20em;
+  }
+
+
+  .logoDiv img {
+    width: 8em;
+    height: auto;
+  }
+
+  .sideBarToggleWrapper {
+    bottom: 4em;
+  }
+
+  .progressbarDiv {
+    margin: 0 24px;
+    bottom: 65px;
+  }
+
+  .stepLabel {
+    font-size: 12px;
+  }
+
+  ::ng-deep .p-sidebar-right {
+    width: 15rem;
+  }
+}
+
+
+
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  .wrapper {
+    width: 36em;
+  }
+
+  .logoDiv img {
+    width: 8em;
+    height: auto;
+  }
+
+  .sideBarToggleWrapper {
+    bottom: 4em;
+  }
+
+  .progressbarDiv {
+    margin: 0 36px;
+    bottom: 65px;
+  }
+
+  .stepLabel {
+    font-size: 12px;
+  }
+
+  ::ng-deep .p-sidebar-right {
+    width: 12rem;
+  }
+
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .wrapper {
+    width: 45em;
+  }
 }

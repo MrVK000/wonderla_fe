@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="infoDiv">
+        <h2 class="firstTitle">Select Your <span><img class="locationImg"
+                    src="../../../assets/parkTicketLocationIcon/parkTicketLocationImage.svg" alt=""></span>
+        </h2>
+        <p class="secondTitle">fun destination</p>
+        <p class="infoParagraphOne">{{sharedService.CONSTANTS.parkTicketInterParaOne}}</p>
+        <p class="infoParagraphTwo">{{sharedService.CONSTANTS.parkTicketInterParaTwo}}</p>
+    </div>
+    <div class="locationDiv">
+        <div class="location flex cursor-pointer" *ngFor="let location of parkLocationData;let i = index"
+            (click)="locationSelected(i)">
+            <div class="locationImageDiv flex justify-content-center align-items-center"><img class="locationImage"
+                    [src]="location.url" alt="Location Image">
+            </div>
+            <div class="locationLabel flex justify-content-center align-items-center ">
+                <p class="locationLabel m-0">{{location.label}}</p>
+            </div>
+        </div>
+
+    </div>
+</div>

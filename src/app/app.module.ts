@@ -8,7 +8,13 @@ import { HomeComponent } from './component/home/home.component';
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ResortComponent } from './component/resort/resort.component';
-import { ParkTicketComponent } from './component/park-ticket/park-ticket.component'; // Import this
+import { ParkTicketComponent } from './component/park-ticket/park-ticket.component';
+import { LocationComponent } from './component/location/location.component';
+import { DateComponent } from './component/date/date.component';
+import { AddonsComponent } from './component/addons/addons.component';
+import { RulesComponent } from './component/rules/rules.component';
+import { BillingComponent } from './component/billing/billing.component'; // Import this
+import { ticketsComponent } from './component/ticktes/tickets.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +22,13 @@ import { ParkTicketComponent } from './component/park-ticket/park-ticket.compone
     LayoutComponent,
     HomeComponent,
     ResortComponent,
-    ParkTicketComponent
+    ParkTicketComponent,
+    LocationComponent,
+    DateComponent,
+    ticketsComponent,
+    AddonsComponent,
+    RulesComponent,
+    BillingComponent
   ],
   imports: [
     BrowserModule,
