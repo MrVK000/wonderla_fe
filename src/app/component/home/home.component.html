@@ -1,45 +1,10 @@
 <div class="dashboardContainer">
 
-  <!-- <div class="adBarWrapper flex align-items-center justify-content-center">
-    <div class="adBar flex justify-content-center">
-      <div class="hotHeader">
-        <div class="scrollingText flex align-items-center">{{CONSTANTS.scrollingTextContentOne}} <button
-            class="navigateToDashboard" pButton pRipple label="EXPLORE" class="p-button-success"
-            (click)="goToDashboard()"></button> {{CONSTANTS.scrollingTextContentTwo}}
-          <button class="navigateToDashboard" pButton pRipple label="EXPLORE" class="p-button-success"
-            (click)="goToDashboard()"></button> {{CONSTANTS.scrollingTextContentThree}} <button
-            class="navigateToDashboard" pButton pRipple label="BOOK NOW" class="p-button-success"
-            (click)="goToDashboard()"></button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <header class="primaryNavbarWrapper">
-    <div class="primaryNavbar flex justify-content-between">
-
-      <div class="primaryNavbarLogoDiv"><img class="primaryNavbarLogo"
-          src="../../../../assets/logo/Wonderla Navbar Logo.png"  loading="lazy" alt="Logo">
-      </div>
-
-      <div class="primaryNavbarOptions flex align-items-center">
-        <p-menubar [model]="primaryNavbarOptions" />
-      </div>
-      <div class="primaryNavbarBookNowDiv flex align-items-center justify-content-center">
-        <div class="primaryNavbarBookNow">
-          <button pButton pRipple label="BOOK NOW" class="navigateToDashboard p-button-success"
-            (click)="showBookNowDialog=true"></button>
-        </div>
-      </div>
-    </div>
-  </header> -->
-
-
   <div class="secondaryNavbarWrapper">
     <div class="flex justify-content-center">
       <div class="secondaryNavbar flex">
-        <div class="cursor-pointer secondaryNavOption" *ngFor="let option of CONSTANTS.secondaryNavbarOptions">
+        <div class="cursor-pointer secondaryNavOption"
+          *ngFor="let option of sharedService.CONSTANTS.secondaryNavbarOptions">
           <div class="m-2">{{option}}</div>
         </div>
       </div>
@@ -51,7 +16,16 @@
     <div class="sliderImagesWrapper">
       <figure class="flex">
         <div class="sliderImageDiv flex align-items-center justify-content-center"
-          *ngFor="let image of sliderImageData"><img class="cursor-pointer" [src]="image.url"></div>
+          *ngFor="let image of sharedService.sliderImageData"><img class="cursor-pointer" [src]="image.url"></div>
+      </figure>
+    </div>
+  </div>
+
+  <div class="mobileSliderWrapper">
+    <div class="mobileSliderImagesWrapper">
+      <figure class="flex">
+        <div class="mobileSliderImageDiv flex align-items-center justify-content-center"
+          *ngFor="let image of sharedService.mobileSliderImageData"><img class="cursor-pointer" [src]="image.url"></div>
       </figure>
     </div>
   </div>
@@ -62,7 +36,7 @@
       class="mobileViewDashboardOptionsMenuDiv cursor-pointer flex align-items-center justify-content-center flex-column"
       *ngFor="let option of mobileViewDashboardOptions" (click)="mobileMenuOption(option.id,$event)">
       <i [class]="option.icon"></i>
-      <p class="text-center">{{option.label}}</p>
+      <p class="text-center mb-0">{{option.label}}</p>
     </div>
   </div>
 
@@ -72,11 +46,11 @@
 
 
   <div class="introWrapper">
-    <h1 class="flex justify-content-center hidden">{{CONSTANTS.introOne}}</h1>
-    <h2 class="flex justify-content-center hidden">{{CONSTANTS.introTwo}}</h2>
+    <h1 class="flex justify-content-center hidden">{{sharedService.CONSTANTS.introOne}}</h1>
+    <h2 class="flex justify-content-center hidden">{{sharedService.CONSTANTS.introTwo}}</h2>
     <b class="flex justify-content-center hidden line">________</b>
-    <p class="flex justify-content-center pt-5">{{CONSTANTS.IntroParagraphOne}}</p>
-    <p class="flex justify-content-center ">{{CONSTANTS.IntroParagraphTwo}}</p>
+    <p class="flex justify-content-center pt-5">{{sharedService.CONSTANTS.IntroParagraphOne}}</p>
+    <p class="flex justify-content-center ">{{sharedService.CONSTANTS.IntroParagraphTwo}}</p>
   </div>
 
 
@@ -86,7 +60,7 @@
     </div>
 
     <div #cardSectionScrollContainer class="cardContainer">
-      <div class="cardWrapper" *ngFor="let card of cardData;let i = index">
+      <div class="cardWrapper" *ngFor="let card of sharedService.cardData;let i = index">
         <div class="card cursor-pointer" [ngStyle]="{'background':card.cardColor}">
           <div class="cardUpperDiv">
             <img [src]="card.imgUrl" loading="lazy" [alt]="card.title">
@@ -115,9 +89,9 @@
 
         <div class="zigZagIntroOneContentWrapper">
           <div class="zigZagIntroOneContent">
-            <h2 class="flex justify-content-center hidden mt-0">{{CONSTANTS.zigZagInterOneTitle}}</h2>
+            <h2 class="flex justify-content-center hidden mt-0">{{sharedService.CONSTANTS.zigZagInterOneTitle}}</h2>
             <b class="flex justify-content-center hidden pb-5 line">________</b>
-            <p class="flex justify-content-center">{{CONSTANTS.zigZagInterOneContent}}</p>
+            <p class="flex justify-content-center">{{sharedService.CONSTANTS.zigZagInterOneContent}}</p>
           </div>
         </div>
 
@@ -127,7 +101,7 @@
           </div>
           <div class="zigZagIntroOneCardDiv" #zigZagOneCardScrollContainer>
             <div class="zigZagIntroOneCardWrapper flex justify-content-center"
-              *ngFor="let card of zigZagInterOneCardData;let i = index">
+              *ngFor="let card of sharedService.zigZagInterOneCardData;let i = index">
               <div class="zigZagIntroOneCard">
                 <img [src]="card.imgUrl" loading="lazy" [alt]="card.title">
               </div>
@@ -157,7 +131,7 @@
           </div>
           <div class="zigZagIntroTwoCardDiv" #zigZagTwoCardScrollContainer>
             <div class="zigZagIntroTwoCardWrapper flex justify-content-center"
-              *ngFor="let card of zigZagInterTwoCardData;let i = index">
+              *ngFor="let card of sharedService.zigZagInterTwoCardData;let i = index">
               <div class="zigZagIntroTwoCard">
                 <img [src]="card.imgUrl" loading="lazy" [alt]="card.title">
               </div>
@@ -172,10 +146,10 @@
 
         <div class="zigZagIntroTwoContentWrapper">
           <div class="zigZagIntroTwoContent">
-            <h2 class="flex justify-content-center hidden">{{CONSTANTS.zigZagInterTwoTitle}}</h2>
+            <h2 class="flex justify-content-center hidden">{{sharedService.CONSTANTS.zigZagInterTwoTitle}}</h2>
             <b class="flex justify-content-center hidden pb-5 line">________</b>
-            <p class="flex justify-content-center">{{CONSTANTS.zigZagInterTwoContent1}}</p>
-            <p class="flex justify-content-center">{{CONSTANTS.zigZagInterTwoContent2}}</p>
+            <p class="flex justify-content-center">{{sharedService.CONSTANTS.zigZagInterTwoContent1}}</p>
+            <p class="flex justify-content-center">{{sharedService.CONSTANTS.zigZagInterTwoContent2}}</p>
             <div class="zigZagButtonDiv flex justify-content-center">
               <button pButton pRipple label="DIVE IN" class=" p-button-success" (click)="goToDashboard()"></button>
             </div>
@@ -195,9 +169,10 @@
         <img src="../../../../assets/noticeBoard/Merchandise_Notice.avif" loading="lazy" alt="Merchandise">
       </div>
       <div class="noticeContentDiv">
-        <h2 class="flex justify-content-center hidden">{{CONSTANTS.noticeBoardTitle}}</h2>
+        <h2 class="flex justify-content-center hidden">{{sharedService.CONSTANTS.noticeBoardTitle}}</h2>
         <b class="flex justify-content-center hidden line">________</b>
-        <p class="noticeBoardContent flex justify-content-center hidden">{{CONSTANTS.noticeBoardContent}}</p>
+        <p class="noticeBoardContent flex justify-content-center hidden">{{sharedService.CONSTANTS.noticeBoardContent}}
+        </p>
         <div class="noticeBoardButtonDiv flex justify-content-center align-items-center">
           <button pButton pRipple label="KNOW MORE" class="noticeBoardButton p-button-success mt-2"
             (click)="goToDashboard()"></button>
@@ -216,7 +191,7 @@
 
       <div class="offersContentWrapper flex justify-content-center">
         <div class="offersContent text-center">
-          <h2 class="flex justify-content-center hidden">{{CONSTANTS.offersTitle}}</h2>
+          <h2 class="flex justify-content-center hidden">{{sharedService.CONSTANTS.offersTitle}}</h2>
           <b class="flex justify-content-center hidden pb-5 line">________</b>
         </div>
       </div>
@@ -226,7 +201,8 @@
           <p-button icon="pi pi-angle-left" (click)="swapCard('right','offersCardScrollContainer')" />
         </div>
         <div class="offersCardDiv" #offersCardScrollContainer>
-          <div class="offersCardWrapper flex justify-content-center" *ngFor="let card of offersCardData;let i = index">
+          <div class="offersCardWrapper flex justify-content-center"
+            *ngFor="let card of sharedService.offersCardData;let i = index">
             <div class="offersCard flex flex-column align-items-center">
               <img [src]="card.imgUrl" loading="lazy" [alt]="card.title">
               <p class="flex justify-content-center"><b>{{card.title}}</b></p>
@@ -244,7 +220,7 @@
 
 
   <footer class="footerWrapper">
-    <p class="flex justify-content-center p-5">{{CONSTANTS.footerHeader}}</p>
+    <p class="flex justify-content-center p-5">{{sharedService.CONSTANTS.footerHeader}}</p>
 
     <div class="addressesWrapper flex justify-content-between flex-wrap">
       <div class="addressDiv m-5 mb-1 mt-1 p-5 pt-0 pb-0" *ngFor="let address of addresses">
@@ -276,7 +252,7 @@
     <div class="socialLinksWrapper">
 
       <div class="socialLinkTitle flex justify-content-center">
-        <h4>{{CONSTANTS.socialLinkTitle}}</h4>
+        <h4>{{sharedService.CONSTANTS.socialLinkTitle}}</h4>
       </div>
 
       <div class="socialLinksDiv flex justify-content-center link" [ngStyle]="customProperties">
@@ -302,7 +278,7 @@
     <div class="dottedDividerWrapper"> </div>
 
     <div class="copyRightsWrapper">
-      <p class="flex justify-content-center copyRight">{{CONSTANTS.copyRightsContent}}</p>
+      <p class="flex justify-content-center copyRight">{{sharedService.CONSTANTS.copyRightsContent}}</p>
     </div>
 
     <div class="instantBookingWrapper">
@@ -317,28 +293,29 @@
         </div>
         <div class="propertyFieldDiv">
           <p>Property</p>
-          <p-dropdown [options]="sharedService.hotelData" [filter]="true" filterBy="label" [(ngModel)]="sharedService.selectedHotel"
-            optionLabel="label" placeholder="Select Your Hotel" (onChange)="sharedService.propertyChanged($event)" />
+          <p-dropdown [options]="sharedService.hotelData" [filter]="true" filterBy="label"
+            [(ngModel)]="sharedService.selectedHotel" optionLabel="label" placeholder="Select Your Hotel"
+            (onChange)="sharedService.propertyChanged($event)" />
         </div>
 
         <div class="startDateDiv" *ngIf="sharedService.selectedLocation?.id===1">
           <p>Check In</p>
-          <p-calendar [(ngModel)]="sharedService.startDate" [iconDisplay]="'input'" dateFormat="dd/mm/yy" [showIcon]="true"
-            [minDate]="sharedService.todayDate" inputId="icondisplay">
+          <p-calendar [(ngModel)]="sharedService.startDate" [iconDisplay]="'input'" dateFormat="dd/mm/yy"
+            [showIcon]="true" [minDate]="sharedService.todayDate" inputId="icondisplay">
           </p-calendar>
         </div>
 
         <div class="endDateDiv" *ngIf="sharedService.selectedLocation?.id===1">
           <p>Check Out</p>
-          <p-calendar [(ngModel)]="sharedService.endDate" [iconDisplay]="'input'" dateFormat="dd/mm/yy" [showIcon]="true"
-            [minDate]="sharedService.tomorrowDate" inputId="icondisplay">
+          <p-calendar [(ngModel)]="sharedService.endDate" [iconDisplay]="'input'" dateFormat="dd/mm/yy"
+            [showIcon]="true" [minDate]="sharedService.tomorrowDate" inputId="icondisplay">
           </p-calendar>
         </div>
 
         <div class="adultFieldDiv" *ngIf="sharedService.selectedLocation?.id===1">
           <p>Adults</p>
-          <p-dropdown [options]="sharedService.adultOptionData" filterBy="label" [(ngModel)]="sharedService.selectedAdultOption" optionLabel="label"
-            placeholder="Select no of Adult " />
+          <p-dropdown [options]="sharedService.adultOptionData" filterBy="label"
+            [(ngModel)]="sharedService.selectedAdultOption" optionLabel="label" placeholder="Select no of Adult " />
         </div>
 
         <div class="bookOptionDiv pt-4 mt-4 flex justify-content-center align-items-center">
@@ -385,7 +362,8 @@
 
       <div class="liveChatDiv">
         <button (click)="openLiveChatPanel()" pButton class="botChatForMobile flex justify-content-center"><img
-            src="../../../../assets/download.png" loading="lazy" alt="Chat bot logo"></button>
+            class="chatBotImg" src="../../../assets/homeBotSvg/download.png" loading="lazy"
+            alt="Chat bot logo"></button>
       </div>
 
       <div class="liveChatPanelDiv" *ngIf="showLiveChatPanel">
@@ -463,13 +441,13 @@
       <div class="scrollToTopDiv flex justify-content-center" *ngIf="isVisible">
         <p-button class="scrollToTop" (click)="scrollToTop()" icon="pi pi-angle-up" />
       </div>
-      <div class="bookingOptionForMobileDiv flex justify-content-center" *ngIf="isVisible">
-        <p-button class="bookingOptionForMobile" (click)="showBookingOptionDialog=true"
-          icon="fa-solid fa-calendar-days" />
+      <div class="bookingOptionForMobileDiv flex justify-content-center" *ngIf="isVisible"
+        (click)="showBookingOptionDialog=true">
+        <p-button class="bookingOptionForMobile" icon="fa-solid fa-calendar-days" />
       </div>
       <div class="botChatForMobileDiv flex justify-content-center">
         <button pButton class="botChatForMobile flex justify-content-center align-items-center"
-          (click)="showChatBotDialog=true"><img src="../../../../assets/download.png" loading="lazy"
+          (click)="showChatBotDialog=true"><img src="../../../assets/homeBotSvg/download.png" loading="lazy"
             alt="Chat bot logo"></button>
       </div>
     </div>
@@ -545,32 +523,6 @@
 
         <div class="locationFieldDiv">
           <p>Location</p>
-          <p-dropdown [options]="sharedService.locationsData" [filter]="true" filterBy="label" [(ngModel)]="sharedService.selectedLocation"
-            optionLabel="label" placeholder="Select Your Destination" (onChange)="sharedService.locationChanged($event)" />
-        </div>
-        <div class="propertyFieldDiv">
-          <p>Property</p>
-          <p-dropdown [options]="sharedService.hotelData" [filter]="true" filterBy="label" [(ngModel)]="sharedService.selectedHotel"
-            optionLabel="label" placeholder="Select Your Hotel" (onChange)="sharedService.propertyChanged($event)" />
-        </div>
-        <div class="bookOptionDiv pt-4 mt-4 flex justify-content-center align-items-center">
-          <button pButton pRipple label="BOOK" [disabled]="sharedService.selectedHotel==null" class="p-button-success"
-            (click)="goToDashboard()"></button>
-        </div>
-
-      </div>
-    </div>
-  </p-dialog>
-
-
-  <p-dialog class="primaryBookingDialog" position="top" [(visible)]="showBookNowDialog" [modal]="true"
-    [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" [style]="{ width: '50vw',marginTop:'10%' }"
-    [draggable]="false" [resizable]="false">
-    <div class="bookingDialogContentWrapper">
-      <div class="instantBookingDiv flex justify-content-center">
-
-        <div class="locationFieldDiv">
-          <p>Location</p>
           <p-dropdown [options]="sharedService.locationsData" [appendTo]="'body'" [filter]="true" filterBy="label"
             [(ngModel)]="sharedService.selectedLocation" optionLabel="label" placeholder="Select Your Destination"
             (onChange)="sharedService.locationChanged($event)" />
@@ -581,73 +533,13 @@
             [(ngModel)]="sharedService.selectedHotel" optionLabel="label" placeholder="Select Your Hotel"
             (onChange)="sharedService.propertyChanged($event)" />
         </div>
-
-      </div>
-
-      <div class="flex" *ngIf="sharedService.selectedLocation?.id===1">
-        <div class="startDateDiv m-3 mt-0" *ngIf="sharedService.selectedLocation?.id===1">
-          <p>Check In</p>
-          <p-calendar [(ngModel)]="sharedService.startDate" [appendTo]="'body'" [iconDisplay]="'input'" dateFormat="dd/mm/yy"
-            [showIcon]="true" [minDate]="sharedService.todayDate" inputId="icondisplay">
-          </p-calendar>
+        <div class="bookOptionDiv pt-4 mt-4 flex justify-content-center align-items-center">
+          <button pButton pRipple label="BOOK" [disabled]="sharedService.selectedHotel==null" class="p-button-success"
+            (click)="sharedService.bookTicket()"></button>
         </div>
 
-        <div class="endDateDiv m-3 mt-0" *ngIf="sharedService.selectedLocation?.id===1">
-          <p>Check Out</p>
-          <p-calendar [(ngModel)]="sharedService.endDate" [appendTo]="'body'" [iconDisplay]="'input'" dateFormat="dd/mm/yy"
-            [showIcon]="true" [minDate]="sharedService.tomorrowDate" inputId="icondisplay">
-          </p-calendar>
-        </div>
-
-        <div class="adultFieldDiv m-3 mt-0" *ngIf="sharedService.selectedLocation?.id===1">
-          <p>Adults</p>
-          <p-dropdown [options]="sharedService.adultOptionData" [appendTo]="'body'" filterBy="label" [(ngModel)]="sharedService.selectedAdultOption"
-            optionLabel="label" placeholder="Select no of Adult " />
-        </div>
       </div>
-
-      <div class="bookOptionDiv mt-2 mr-3 flex align-items-center justify-content-end">
-        <button pButton pRipple label="BOOK" [disabled]="sharedService.selectedHotel==null" class="p-button-success"
-          (click)="goToDashboard()"></button>
-      </div>
-
-      <div class="instructionDiv flex ml-2 p-3 pb-0" (mouseenter)="showOverlayPanel($event)"
-        (mouseleave)="hideOverlayPanel()">
-        <b class="instruction cursor-pointer text-base">Why Book Direct?</b>
-      </div>
-
-      <div class="instructionOverlayPanelDiv">
-        <p-overlayPanel #instructionOverlayPanel class="instructionOverlayPanel">
-          <div class="flex flex-column w-25rem">
-            <div class="flex">
-              <b class="mr-3 mt-2 text-3xl">*</b>
-              <p class="mr-3 text-xs"> Get exclusive discount for website direct bookings</p>
-            </div>
-            <div class="flex">
-              <b class="mr-3 mt-2 text-3xl">*</b>
-              <p class="mr-3 text-xs"> Stay & Play offer multiple entry & exit from the
-                Wonderla Park same day( only for website direct booking)</p>
-            </div>
-            <div class="flex">
-              <b class="mr-3 mt-2 text-3xl">*</b>
-              <p class="mr-3 text-xs"> Complimentary access to the activity room and kids play
-                area.</p>
-            </div>
-            <div class="flex">
-              <b class="mr-3 mt-2 text-3xl">*</b>
-              <p class="mr-3 text-xs"> Free cancellation - 24 hours before check-in only for
-                direct bookings</p>
-            </div>
-          </div>
-        </p-overlayPanel>
-      </div>
-
     </div>
   </p-dialog>
 
-
-
-</div>
-<div class=" flex justify-content-center loader align-items-center" *ngIf="isLoading">
-  <p-progressSpinner ariaLabel="loading" />
 </div>

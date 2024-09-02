@@ -25,18 +25,11 @@ export class HomeComponent implements OnDestroy, OnInit {
   @ViewChild('zigZagOneCardScrollContainer') zigZagOneCardScrollContainer!: ElementRef;
   @ViewChild('zigZagTwoCardScrollContainer') zigZagTwoCardScrollContainer!: ElementRef;
 
-  CONSTANTS = CONSTANT_VARIABLES;
 
-  cardData = cardData;
-  offersCardData = offersCardData;
-  sliderImageData = sliderImageData;
-  zigZagInterTwoCardData = zigZagInterTwoCardData;
-  zigZagInterOneCardData = zigZagInterOneCardData;
 
 
 
   subs!: Subscription;
-  isLoading: boolean = !true;
   isVisible: Boolean = false;
   liveChatDate: Date = new Date;
   liveChatTime: Date = new Date;
@@ -46,7 +39,6 @@ export class HomeComponent implements OnDestroy, OnInit {
 
   showLiveChatPanel: boolean = false;
   showChatBotDialog: boolean = false;
-  showBookNowDialog: boolean = false;
 
   addresses: AddressInterface[] = [];
 
@@ -654,117 +646,119 @@ export class HomeComponent implements OnDestroy, OnInit {
     this.generateCustomProperties();
 
 
-    this.isLoading = true;
+    this.sharedService.isLoading = true;
     this.subs = this.api.getMobileMenu().subscribe((res) => {
       this.mobileViewDashboardOptions = res.data;
-      this.isLoading = false;
+      this.sharedService.isLoading = false;
     },
       (error) => {
-        this.isLoading = false;
+        this.sharedService.isLoading = false;
         console.error(error);
         this.messageService?.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
         this.sharedService.clearToast();
       });
 
-    this.isLoading = true;
+    this.sharedService.isLoading = true;
     this.subs = this.api.getLiveChatConversationProperty().subscribe((res) => {
       this.liveChatConversationProperty = res.data;
-      this.isLoading = false;
+      this.sharedService.isLoading = false;
     },
       (error) => {
         console.error(error);
-        this.isLoading = false;
+        this.sharedService.isLoading = false;
         this.messageService?.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
         this.sharedService.clearToast();
       });
 
 
-    this.isLoading = true;
+    this.sharedService.isLoading = true;
     this.subs = this.api.getOuting().subscribe((res) => {
       this.sharedService.outingData = res.data;
-      this.isLoading = false;
+      this.sharedService.isLoading = false;
     },
       (error) => {
         console.error(error);
-        this.isLoading = false;
+        this.sharedService.isLoading = false;
         this.messageService?.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
         this.sharedService.clearToast();
       });
 
 
-    this.isLoading = true;
+    this.sharedService.isLoading = true;
     this.subs = this.api.getResort().subscribe((res) => {
       this.sharedService.resortsData = res.data;
-      this.isLoading = false;
+      this.sharedService.isLoading = false;
     },
       (error) => {
         console.error(error);
-        this.isLoading = false;
+        this.sharedService.isLoading = false;
         this.messageService?.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
         this.sharedService.clearToast();
       });
 
 
-    this.isLoading = true;
+    this.sharedService.isLoading = true;
     this.subs = this.api.getPark().subscribe((res) => {
       this.sharedService.parkData = res.data;
-      this.isLoading = false;
+      this.sharedService.isLoading = false;
     },
       (error) => {
         console.error(error);
-        this.isLoading = false;
+        this.sharedService.isLoading = false;
         this.messageService?.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
         this.sharedService.clearToast();
       });
 
 
-    this.isLoading = true;
+    this.sharedService.isLoading = true;
     this.subs = this.api.getLocations().subscribe((res) => {
       this.sharedService.locationsData = res.data;
-      this.isLoading = false;
+      console.log('>>>>location', this.sharedService.locationsData);
+
+      this.sharedService.isLoading = false;
     },
       (error) => {
         console.error(error);
-        this.isLoading = false;
+        this.sharedService.isLoading = false;
         this.messageService?.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
         this.sharedService.clearToast();
       });
 
 
-    this.isLoading = true;
+    this.sharedService.isLoading = true;
     this.subs = this.api.getContactLinks().subscribe((res) => {
       this.contactLinks = res.data;
-      this.isLoading = false;
+      this.sharedService.isLoading = false;
     },
       (error) => {
         console.error(error);
-        this.isLoading = false;
+        this.sharedService.isLoading = false;
         this.messageService?.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
         this.sharedService.clearToast();
       });
 
 
-    this.isLoading = true;
+    this.sharedService.isLoading = true;
     this.subs = this.api.getAddreses().subscribe((res) => {
       this.addresses = res.data;
-      this.isLoading = false;
+      this.sharedService.isLoading = false;
     },
       (error) => {
         console.error(error);
-        this.isLoading = false;
+        this.sharedService.isLoading = false;
         this.messageService?.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
         this.sharedService.clearToast();
       });
 
 
-    this.isLoading = true;
+    this.sharedService.isLoading = true;
     this.subs = this.api.getSocialLinks().subscribe((res) => {
       this.socialLinks = res.data;
-      this.isLoading = false;
+      this.sharedService.isLoading = false;
     },
       (error) => {
         console.error(error);
-        this.isLoading = false;
+        this.sharedService.isLoading = false;
         this.messageService?.add({ severity: 'error', summary: 'Error', detail: 'Something went wrong' });
         this.sharedService.clearToast();
       });

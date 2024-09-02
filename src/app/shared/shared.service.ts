@@ -2,11 +2,25 @@ import { Injectable } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { LabelInterface } from '../interfaces/dashboardInterface';
 import { DropdownChangeEvent } from 'primeng/dropdown';
+import { cardData, mobileSliderImageData, offersCardData, sliderImageData, zigZagInterOneCardData, zigZagInterTwoCardData } from '../data/imgData';
+import CONSTANT_VARIABLES from '../data/constants';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SharedService {
+
+  isLoading: boolean = false;
+
+  mobileSliderImageData = mobileSliderImageData;
+  CONSTANTS = CONSTANT_VARIABLES;
+
+  cardData = cardData;
+  offersCardData = offersCardData;
+  sliderImageData = sliderImageData;
+  zigZagInterTwoCardData = zigZagInterTwoCardData;
+  zigZagInterOneCardData = zigZagInterOneCardData;
 
   endDate!: Date;
   startDate!: Date;
@@ -37,7 +51,7 @@ export class SharedService {
     },
   ]
 
-  constructor(public messageService: MessageService,) { }
+  constructor(public messageService: MessageService, public router: Router,) { }
 
   clearToast() {
     setTimeout(() => {
@@ -47,7 +61,6 @@ export class SharedService {
 
 
   locationChanged(event: DropdownChangeEvent) {
-    console.log('>>>>>selectedLocation', this.selectedLocation);
 
     const locationId = event.value.id;
     if (locationId == 0) {
@@ -58,22 +71,34 @@ export class SharedService {
       this.selectedAdultOption = this.adultOptionData[1];
       this.startDate = this.todayDate;
       this.endDate = this.tomorrowDate;
-      // console.log('>>>this.startDate',this.startDate);
-
     }
     else if (locationId == 2) {
       this.hotelData = this.outingData;
     }
-    this.selectedHotel = this.hotelData[0] as LabelInterface;
+    this.selectedHotel = this.hotelData[0];
+    // console.log('>>>', event, this.selectedHotel,this.hotelData);
   }
 
 
 
   propertyChanged(event: DropdownChangeEvent) {
     console.log('>>>>property', event);
-
   }
 
+
+  showBookNowDialog: boolean = false;
+
+  bookTicket() {
+    this.showBookNowDialog = false;
+    if (this.selectedHotel?.id === 0) {
+      this.router.navigate(['/park-ticket']);
+    }
+  }
+
+
+  logoClicked() {
+    window.location.reload();
+  }
 
 
 

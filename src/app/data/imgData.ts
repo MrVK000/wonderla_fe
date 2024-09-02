@@ -17,6 +17,24 @@ export const sliderImageData = [
   },
 ];
 
+export const mobileSliderImageData = [
+  {
+    url: '../../assets/homeMobileSlider/Wonderla_Birthday_Aug_Banner.avif'
+  },
+  {
+    url: '../../assets/homeMobileSlider/Wonderla_Resort_Wednesday_offer_Banner.avif'
+  },
+  {
+    url: '../../assets/homeMobileSlider/Wonderla_College_ID__Banner.avif'
+  },
+  {
+    url: '../../assets/homeMobileSlider/Wonderla_Women_offer_24_B2_G2_Banner.avif'
+  },
+  {
+    url: '../../assets/homeMobileSlider/Wonderla_Birthday_Aug_Banner.avif'
+  },
+];
+
 export const primaryNavbarOptions = [
   {
     label: 'PARKS',

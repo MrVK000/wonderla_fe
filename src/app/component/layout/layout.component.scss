@@ -1,6 +1,6 @@
 .layoutContainer {
   width: 100%;
-  // position: absolute;
+  position: absolute;
 }
 
 .scrolled {
@@ -292,14 +292,21 @@
   height: 2em;
 }
 
-::ng-deep .primaryBookingDialog
-{
+::ng-deep .primaryBookingDialog {
   width: 2px;
 }
 
 
+::ng-deep .p-inputwrapper .p-dropdown,
+::ng-deep .p-inputwrapper .p-calendar .p-inputtext {
+  border-radius: 0;
+}
 
 @media screen and (max-width: 575px) {
+
+  .extraMargin {
+    margin-top: 0;
+  }
 
   .adBarWrapper {
     height: 1.2em;
@@ -344,15 +351,15 @@
     height: 4em;
   }
 
-  .sliderImageDiv img {
-    width: 200%;
-    margin-left: 100%;
-  }
-
 }
 
 
 @media screen and (min-width: 576px) and (max-width: 767px) {
+
+  .extraMargin {
+    margin-top: 0;
+  }
+
 
   .adBarWrapper {
     height: 1.2em;
@@ -406,6 +413,11 @@
 
 @media screen and (min-width: 768px) and (max-width: 863px) {
 
+  .extraMargin {
+    margin-top: 0;
+  }
+
+
   .adBarWrapper {
     height: 1.3em;
   }
@@ -456,6 +468,11 @@
 }
 
 @media screen and (min-width: 864px) and (max-width: 1023px) {
+
+  .extraMargin {
+    margin-top: 0;
+  }
+
 
   .adBarWrapper {
     height: 1.3em;

@@ -1,4 +1,76 @@
+<div class="container flex justify-content-center">
+    <div class="wrapper">
 
-<div class="container">
+        <div class="logoWrapper flex justify-content-center">
+            <div class="logoDiv cursor-pointer" (click)="sharedService.logoClicked();">
+                <img src="../../../assets/logo/logo_new.svg" alt="logo" loading="lazy">
+            </div>
+        </div>
 
+        <div class="sideBarToggleWrapper flex justify-content-end">
+            <div class="sideBarToggleDiv">
+                <img src="../../../assets/parkTicketSidebarToggle/toggle.svg" alt="toggle">
+            </div>
+        </div>
+
+        <div class="stepsWrapper flex justify-content-center">
+            <div class="stepsWrapperDiv">
+                <div class="stepsDiv flex justify-content-around">
+                    <div class="steps flex justify-content-center align-items-center m-2 cursor-pointer flex-column"
+                        [ngClass]="[isStepGreaterThanIndex(i)?'':'disabledSteps ',isStepCompleted(i)?'completedSteps':'']"
+                        *ngFor="let step of stepsData;let i = index" (click)="onActiveIndexChange(i,true)">
+                        <img class="stepsImg" [ngClass]="[isStepGreaterThanIndex(i)?'':'disabledStepsImg ',]"
+                            src="../../../assets/parkTicketStepsImage/image (5).png" alt="">
+                    </div>
+                </div>
+                <div class="stepLabelDiv flex justify-content-around ">
+                    <div class="stepLabel" *ngFor="let step of stepsData">
+                        <p class="mt-1">{{step.label}}</p>
+                    </div>
+                </div>
+                <div class="progressbarDiv">
+                    <p-progressBar [value]="progressbarValue" />
+                </div>
+            </div>
+        </div>
+
+
+        <div class="contentWrapper">
+            <div class="infoDiv">
+                <h2 class="firstTitle">Select Your <span><img class="locationImg"
+                            src="../../../assets/parkTicketLocationIcon/parkTicketLocationImage.svg" alt=""></span>
+                </h2>
+                <p class="secondTitle">fun destination</p>
+                <p class="infoParagraphOne">{{sharedService.CONSTANTS.parkTicketInterParaOne}}</p>
+                <p class="infoParagraphTwo">{{sharedService.CONSTANTS.parkTicketInterParaTwo}}</p>
+            </div>
+            <div class="locationDiv">
+                <div class="location flex cursor-pointer" *ngFor="let location of parkLocationData;let i = index"
+                    (click)="locationSelected(i)">
+                    <div class="locationImageDiv flex justify-content-center align-items-center"><img
+                            class="locationImage" [src]="location.url" alt="Location Image">
+                    </div>
+                    <div class="locationLabel flex justify-content-center align-items-center ">
+                        <p class="locationLabel m-0">{{location.label}}</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+    </div>
+</div>
+
+
+<div class=" flex justify-content-center loader align-items-center" *ngIf="isLoading">
+    <img class="parkTicketLoading" src="../../../assets/parkTicketLoading/Loading Gif.gif" alt="Loading gif">
 </div>

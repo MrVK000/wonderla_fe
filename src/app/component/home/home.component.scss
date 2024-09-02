@@ -23,10 +23,20 @@
   transition: color 1s;
 }
 
+.mobileSliderWrapper {
+  display: none;
+}
+
+.sliderImagesWrapper {
+  display: block;
+}
+
+.mobileSliderWrapper,
 .sliderImagesWrapper {
   overflow: hidden;
 }
 
+.mobileSliderWrapper figure,
 .sliderImagesWrapper figure {
   position: relative;
   width: 500%;
@@ -35,10 +45,12 @@
   animation: 30s slider infinite;
 }
 
+.mobileSliderWrapper figure .mobileSliderImageDiv,
 .sliderImagesWrapper figure .sliderImageDiv {
   width: 20%;
 }
 
+.mobileSliderImageDiv img,
 .sliderImageDiv img {
   width: 100%;
 }
@@ -535,7 +547,7 @@
 }
 
 .instantBookingDiv div {
-  margin: 1em;
+  margin: 5px;
   margin-top: 0;
   text-align: start;
 }
@@ -557,8 +569,10 @@
 ::ng-deep .instantBookingDiv .locationFieldDiv .p-inputwrapper .p-dropdown,
 ::ng-deep .instantBookingDiv .propertyFieldDiv .p-inputwrapper .p-dropdown {
   width: 20em !important;
-  border-radius: 0;
+  width: 20em !important;
 }
+
+
 
 ::ng-deep .instantBookingDiv div .p-inputwrapper .p-dropdown p-overlay .p-overlay .p-overlay-content .p-dropdown-panel .p-dropdown-header .p-dropdown-filter-container .p-inputtext {
   border: 2px solid #000000 !important;
@@ -681,6 +695,10 @@
   font-weight: 900;
 }
 
+::ng-deep .forMobile .bookingOptionForMobileDiv {
+  z-index: 1005;
+}
+
 ::ng-deep .forMobile .bookingOptionForMobileDiv .p-button {
   border-radius: 100em !important;
   width: 2.8em !important;
@@ -719,8 +737,8 @@
   color: #ffffff;
   font-size: 40px;
   border: none !important;
-  width: 2em;
-  height: 2em;
+  width: 1.5em;
+  height: 1.5em;
 }
 
 ::ng-deep .liveChatDiv .p-button.p-button-success:not(:disabled):hover,
@@ -731,8 +749,13 @@
 
 .liveChatDiv {
   position: fixed;
-  bottom: 1em;
-  right: 1.5em;
+  bottom: 1.2em;
+  right: 1.3em;
+}
+
+.chatBotImg {
+  width: 27.3px;
+  height: 27.5px;
 }
 
 ::ng-deep .p-overlaypanel-flipped {
@@ -868,18 +891,16 @@
   font-size: small;
 }
 
-.loader {
-  width: 100%;
-  height: 100vh;
-  position: fixed;
-  margin: 0;
-  background: rgb(0, 0, 0, 0.5);
-  border-radius: 0px;
-  z-index: 10000;
-}
-
 
 @media screen and (max-width: 575px) {
+
+  .mobileSliderWrapper {
+    display: block;
+  }
+
+  .sliderImagesWrapper {
+    display: none;
+  }
 
   .secondaryNavbarWrapper,
   .introWrapper .line,
@@ -887,12 +908,6 @@
   .cardRightSwappingDiv {
     display: none !important;
   }
-
-  .sliderImageDiv img {
-    width: 200%;
-    margin-left: 100%;
-  }
-
 
   ::ng-deep .p-overlaypanel {
     width: 100% !important;
@@ -1138,6 +1153,14 @@
 
 @media screen and (min-width: 576px) and (max-width: 767px) {
 
+  .mobileSliderWrapper {
+    display: block;
+  }
+
+  .sliderImagesWrapper {
+    display: none;
+  }
+
   .secondaryNavbarWrapper,
   .introWrapper .line,
   .cardLeftSwappingDiv,
@@ -1380,6 +1403,14 @@
 
 
 @media screen and (min-width: 768px) and (max-width: 863px) {
+
+  .mobileSliderWrapper {
+    display: block;
+  }
+
+  .sliderImagesWrapper {
+    display: none;
+  }
 
   .secondaryNavbarWrapper,
   .introWrapper .line,
@@ -1629,6 +1660,14 @@
 
 @media screen and (min-width: 864px) and (max-width: 1023px) {
 
+  .mobileSliderWrapper {
+    display: block;
+  }
+
+  .sliderImagesWrapper {
+    display: none;
+  }
+
   .secondaryNavbarWrapper,
   .cardLeftSwappingDiv,
   .cardRightSwappingDiv {
@@ -1654,7 +1693,6 @@
   ::ng-deep .mobileMenuPanelWrapper p-panelMenu .p-panelmenu .p-panelmenu-panel .p-panelmenu-header .p-panelmenu-header-content .p-panelmenu-header-action {
     background-color: #0b2254 !important;
     border: 1px solid #0b2254 !important;
-    // color: #f6d72f !important;
     color: #fadc12 !important;
   }
 
@@ -1844,10 +1882,6 @@
 
   .liveChatContent {
     height: 58vh;
-  }
-
-  ::ng-deep .p-dialog .p-dialog-content {
-    padding: 0 !important;
   }
 
   ::ng-deep .liveChatInputField .p-inputtext {

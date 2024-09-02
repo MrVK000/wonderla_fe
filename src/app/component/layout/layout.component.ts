@@ -18,9 +18,7 @@ export class LayoutComponent {
   CONSTANTS = CONSTANT_VARIABLES;
   primaryNavbarOptions: any = primaryNavbarOptions;
 
-  showBookNowDialog: boolean = false;
-
-  constructor(public sharedService: SharedService, public router: Router) { }
+  constructor(public sharedService: SharedService, public router: Router,) { }
 
 
   @HostListener('window:scroll', ['$event']) onWindowScroll(event: Event) {
@@ -57,10 +55,7 @@ export class LayoutComponent {
 
   goToDashboard() { }
 
-  bookTicket() {
-    this.showBookNowDialog=false;
-    this.router.navigate(['/park-ticket']);
-  }
+
 
 
 

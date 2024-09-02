@@ -18,6 +18,8 @@ const CONSTANT_VARIABLES = {
   footerHeader: 'Wonderla Amusement Parks & Resort',
   socialLinkTitle: 'Get In Touch',
   copyRightsContent: 'Sitemap© Wonderla - All Rights Reserved. Designed by Simplotel.',
+  parkTicketInterParaOne: "Enter a realm of enchantment, where happiness comes alive!",
+  parkTicketInterParaTwo: "Experience the wonder of Wonderla - India’s premier amusement park chain."
 };
 
 
