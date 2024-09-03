@@ -12,7 +12,24 @@ export class DateComponent {
 
   currentDate: Date = new Date();
   days: Date[] = [];
-
+  calendarInfo = [
+    {
+      label: 'Available',
+      color: '#53e79d'
+    },
+    {
+      label: 'Fast Filling',
+      color: '#ffc36d'
+    },
+    {
+      label: 'Sold Out',
+      color: '#fe7676'
+    },
+    {
+      label: 'Closed',
+      color: '#cdcdcd'
+    },
+  ]
 
 
 
@@ -23,7 +40,6 @@ export class DateComponent {
     //Add 'implements OnInit' to the class.
     this.sharedService.onActiveIndexChange(1, false);
     this.generateCalendar();
-
   }
 
 
@@ -32,7 +48,6 @@ export class DateComponent {
     const year = this.currentDate.getFullYear();
     this.days = this.sharedService.generateCalendar(month, year);
     console.log('>>>>>days', this.days);
-
   }
 
 

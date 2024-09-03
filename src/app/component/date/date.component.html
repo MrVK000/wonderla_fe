@@ -44,6 +44,16 @@
             </div>
         </div>
     </div>
-    <div class="calendarDiv">
+    <div class="calendarDiv flex justify-content-center align-items-center flex-column">
+        <div class="calendarDiv"></div>
+        <div class="calendarInfoDiv flex">
+            <div class="calendarInfo flex justify-content-center align-items-center w-full" *ngFor="let info of calendarInfo">
+                <span [ngStyle]="{'background':info.color}"></span>
+                <p class="m-0 ml-2">{{info.label}}</p>
+            </div>
+        </div>
+        <div class="confirmButtonDiv">
+            <p-button label="CONFIRM" />
+        </div>
     </div>
 </div>

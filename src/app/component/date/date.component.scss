@@ -74,10 +74,65 @@ hr {
     color: #2a3784;
 }
 
+.calendarDiv {
+    width: 100%;
+    padding: 20px;
+}
+
+
+.calendarDiv>div {
+    border: 1px solid rgb(128, 128, 128, 0.3);
+    border-radius: 30px;
+    width: 100%;
+    margin: 10px;
+}
+
+.calendarDiv {
+    height: 30em;
+}
+
+.calendarInfoDiv {
+    height: 8em;
+}
+
+.confirmButtonDiv {
+    height: 7em;
+}
+
+
+
+.calendarInfo span {
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+}
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+::ng-deep .p-element .p-ripple {
+    width: 100%;
+    background-color: #2f47ab;
+    height: 3.5em;
+    border-radius: 30px;
+}
 
 
 
