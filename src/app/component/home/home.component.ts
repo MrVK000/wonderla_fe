@@ -646,9 +646,11 @@ export class HomeComponent implements OnDestroy, OnInit {
     this.generateCustomProperties();
 
 
+
+
     this.sharedService.isLoading = true;
     this.subs = this.api.getMobileMenu().subscribe((res) => {
-      this.mobileViewDashboardOptions = res.data;
+      this.mobileViewDashboardOptions = res;
       this.sharedService.isLoading = false;
     },
       (error) => {
@@ -660,7 +662,7 @@ export class HomeComponent implements OnDestroy, OnInit {
 
     this.sharedService.isLoading = true;
     this.subs = this.api.getLiveChatConversationProperty().subscribe((res) => {
-      this.liveChatConversationProperty = res.data;
+      this.liveChatConversationProperty = res;
       this.sharedService.isLoading = false;
     },
       (error) => {
@@ -673,7 +675,7 @@ export class HomeComponent implements OnDestroy, OnInit {
 
     this.sharedService.isLoading = true;
     this.subs = this.api.getOuting().subscribe((res) => {
-      this.sharedService.outingData = res.data;
+      this.sharedService.outingData = res;
       this.sharedService.isLoading = false;
     },
       (error) => {
@@ -686,7 +688,7 @@ export class HomeComponent implements OnDestroy, OnInit {
 
     this.sharedService.isLoading = true;
     this.subs = this.api.getResort().subscribe((res) => {
-      this.sharedService.resortsData = res.data;
+      this.sharedService.resortsData = res;
       this.sharedService.isLoading = false;
     },
       (error) => {
@@ -699,7 +701,7 @@ export class HomeComponent implements OnDestroy, OnInit {
 
     this.sharedService.isLoading = true;
     this.subs = this.api.getPark().subscribe((res) => {
-      this.sharedService.parkData = res.data;
+      this.sharedService.parkData = res;
       this.sharedService.isLoading = false;
     },
       (error) => {
@@ -712,9 +714,7 @@ export class HomeComponent implements OnDestroy, OnInit {
 
     this.sharedService.isLoading = true;
     this.subs = this.api.getLocations().subscribe((res) => {
-      this.sharedService.locationsData = res.data;
-      console.log('>>>>location', this.sharedService.locationsData);
-
+      this.sharedService.locationsData = res;
       this.sharedService.isLoading = false;
     },
       (error) => {
@@ -727,7 +727,7 @@ export class HomeComponent implements OnDestroy, OnInit {
 
     this.sharedService.isLoading = true;
     this.subs = this.api.getContactLinks().subscribe((res) => {
-      this.contactLinks = res.data;
+      this.contactLinks = res;
       this.sharedService.isLoading = false;
     },
       (error) => {
@@ -740,7 +740,7 @@ export class HomeComponent implements OnDestroy, OnInit {
 
     this.sharedService.isLoading = true;
     this.subs = this.api.getAddreses().subscribe((res) => {
-      this.addresses = res.data;
+      this.addresses = res;
       this.sharedService.isLoading = false;
     },
       (error) => {
@@ -753,7 +753,7 @@ export class HomeComponent implements OnDestroy, OnInit {
 
     this.sharedService.isLoading = true;
     this.subs = this.api.getSocialLinks().subscribe((res) => {
-      this.socialLinks = res.data;
+      this.socialLinks = res;
       this.sharedService.isLoading = false;
     },
       (error) => {
