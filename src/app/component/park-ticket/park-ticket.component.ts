@@ -35,6 +35,54 @@ export class ParkTicketComponent {
 
   showSidebar: boolean = false;
 
+  sidebarDate = [
+    {
+      label: 'Parks & Resort',
+      isopen: false,
+      types: [
+        {
+          label: 'Park',
+          isopen: false,
+          types: [
+            {
+              label: 'Kochi',
+            },
+            {
+              label: 'Bengaluru',
+            },
+            {
+              label: 'Hyderbad',
+            },
+          ]
+        },
+        {
+          label: 'Resort',
+          isopen: false,
+          types: [
+            {
+              label: 'Bengaluru',
+            },
+          ]
+        }
+      ]
+    },
+    {
+      label: 'My Bookings'
+    },
+    {
+      label: 'Offers'
+    },
+    {
+      label: 'Dress Code'
+    },
+    {
+      label: 'Getting To Wonderla'
+    },
+    {
+      label: 'Contact Us'
+    },
+  ]
+
 
 
   constructor(private router: Router, public sharedService: SharedService) { }

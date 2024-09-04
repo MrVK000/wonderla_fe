@@ -50,7 +50,7 @@ export class SharedService {
       id: 2
     },
   ]
-  activeIndex: number = 1;
+  activeIndex: number = 0;
   progressbarValue: number = 0;
 
   constructor(public messageService: MessageService, public router: Router,) { }

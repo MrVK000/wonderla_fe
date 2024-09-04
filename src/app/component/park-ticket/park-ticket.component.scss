@@ -89,7 +89,55 @@
 
 ::ng-deep .p-sidebar-right {
   width: 25rem;
+  background-color: #eff3ff;
+  color: #000000;
 }
+
+::ng-deep.p-sidebar .p-sidebar-header {
+  padding: 0.5em 1em;
+  margin: 1em 1.5em;
+  background-color: #e5e8fb;
+}
+
+
+.sidebarHeader {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+
+::ng-deep.p-sidebar .p-sidebar-header .p-sidebar-close,
+.p-sidebar .p-sidebar-header .p-sidebar-icon {
+  border: 3px solid rgb(128, 128, 128, 0.3);
+  padding: 16px;
+}
+
+
+.sidebarContent {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+
+.sidebarParentLabel {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+
+.firstChildLabelImage {
+  width: 8px;
+}
+
+
+.firstChild {
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #e5e8fb;
+}
+
+
+
 
 
 .loader {
@@ -101,10 +149,9 @@
   height: auto;
 }
 
-
-
-
-
+.secondChildItemLabel {
+  margin-left: 3em;
+}
 
 
 
@@ -137,6 +184,11 @@
   ::ng-deep .p-sidebar-right {
     width: 15rem;
   }
+
+  ::ng-deep.p-sidebar .p-sidebar-content {
+    padding: 0 !important;
+  }
+
 }
 
 
@@ -166,6 +218,10 @@
 
   ::ng-deep .p-sidebar-right {
     width: 12rem;
+  }
+
+  ::ng-deep.p-sidebar .p-sidebar-content {
+    padding: 0 !important;
   }
 
 

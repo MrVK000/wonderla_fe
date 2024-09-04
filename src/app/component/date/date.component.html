@@ -1,7 +1,8 @@
 <div class="container">
     <div class="infoDiv">
         <div class="titleDiv flex">
-            <img class="backArrow mr-3" src="../../../assets/parkTicketDate/back-arrow.svg" alt="">
+            <img class="backArrow mr-3 cursor-pointer" (click)="backToLocation()" src="../../../assets/parkTicketDate/back-arrow.svg"
+                alt="">
             <h2 class="title m-0">{{sharedService.CONSTANTS.parkTicketDateTitle}}</h2>
         </div>
         <div class="paragraphDiv">
@@ -44,16 +45,75 @@
             </div>
         </div>
     </div>
-    <div class="calendarDiv flex justify-content-center align-items-center flex-column">
-        <div class="calendarDiv"></div>
+    <div class="calendarWrapper flex justify-content-center align-items-center flex-column">
+
+        <div class="calendarDiv">
+            <!-- <div class="calendar">
+                <div class="header">
+                  <button (click)="previousMonth()">Previous</button>
+                  <span>{{ currentMonth.format('MMMM YYYY') }}</span>
+                  <button (click)="nextMonth()">Next</button>
+                </div>
+              
+                <div class="week-days">
+                  <div *ngFor="let day of weekDays" class="week-day">{{ day }}</div>
+                </div>
+              
+                <div class="days">
+                  <div *ngFor="let day of daysInMonth" class="day">
+                    {{ day.date() }}
+                  </div>
+                </div>
+              </div> -->
+
+            <div class="calendar">
+                <div class="header flex justify-content-around">
+                    <p class="month">{{ currentDate | date: 'MMMM yyyy' }}</p>
+                    <!-- <p class="month">{{ getCurrentDate }}</p> -->
+                    <div class="navigathioDiv">
+                        <img class="cursor-pointer" (click)="previousMonth()"
+                            src="../../../assets/parkTicketDate/left.svg" alt="Left">
+                        <img class="cursor-pointer" (click)="nextMonth()" src="../../../assets/parkTicketDate/right.svg"
+                            alt="Right">
+                    </div>
+                </div>
+                <div class="weekDays flex justify-content-around">
+                    <div *ngFor="let day of weekDays" class="week-day">{{ day }}</div>
+                </div>
+                <div class="calendarCells">
+                    <div *ngFor="let day of days" class="day cursor-pointer"
+                        [ngClass]="{'current-month': showColorForThisMonth()&&day.getMonth() === currentDate.getMonth(),'selectedDate':selectedDate==day}"
+                        (click)="dateSelected(day)">
+                        <span class="cursor-pointer"><b>{{ day.getDate() }}</b></span>
+                        <span class="daySpan"></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
         <div class="calendarInfoDiv flex">
-            <div class="calendarInfo flex justify-content-center align-items-center w-full" *ngFor="let info of calendarInfo">
+            <div class="calendarInfo flex justify-content-center align-items-center w-full pr-1"
+                *ngFor="let info of calendarInfo">
                 <span [ngStyle]="{'background':info.color}"></span>
                 <p class="m-0 ml-2">{{info.label}}</p>
             </div>
         </div>
         <div class="confirmButtonDiv">
-            <p-button label="CONFIRM" />
+            <p-button class="confirm" label="CONFIRM" (onClick)="confirmDate()" />
         </div>
     </div>
 </div>
+
+
+<p-dialog [(visible)]="showPopup" [modal]="true" [style]="{ width: '25rem' }" [draggable]="false" [resizable]="false">
+    <div class="flex align-items-center justify-content-center gap-2">
+        <img class="warningImage" src="../../../assets/parkTicketDate/my-booking-popup.png" alt="Warning">
+    </div>
+    <div class="dialogInfo">
+        <p class="text-center"><b>{{sharedService.CONSTANTS.parkDialogInfo}}</b></p>
+    </div>
+    <div class="dialogButtonDiv flex justify-content-center">
+        <p-button class="dialogButton" label="OK" severity="secondary" (onClick)="showPopup = false" />
+    </div>
+</p-dialog>

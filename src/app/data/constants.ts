@@ -36,6 +36,7 @@ const CONSTANT_VARIABLES = {
   parkTicketDateWaterPark: "Water Park",
   parkTicketDateWaterParkTimeOne: "12:30 PM - 05:00 PM",
   parkTicketDateWaterParkTimeTwo: "12:00 PM - 06:00 PM",
+  parkDialogInfo:'Please select a date to continue..!'
 };
 
 

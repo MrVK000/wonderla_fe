@@ -57,10 +57,40 @@
     </div>
 </div>
 <p-sidebar [(visible)]="showSidebar" position="right">
-    <h3>Sidebar</h3>
-    <p>
-        Lorem ipsum dolor sit amet...
-    </p>
+    <ng-template pTemplate="header">
+        <div class="flex align-items-center gap-2">
+            <p class="sidebarHeader">Menu</p>
+        </div>
+    </ng-template>
+    <div class="sidebarContentDiv m-5">
+        <div class="sidebarContent ml-2" *ngFor="let item of sidebarDate">
+            <div class="parent flex justify-content-between align-items-center cursor-pointer"
+                (click)="item.isopen=!item.isopen">
+                <p class="sidebarParentLabel">{{item.label}}</p>
+                <i class="pi pi-chevron-down" *ngIf="item.isopen&&item.types"></i>
+                <i class="pi pi-chevron-right" *ngIf="!item.isopen&&item.types"></i>
+            </div>
+            <div class="firstChildDiv" *ngIf="item.isopen">
+                <div class="firstChild"
+                    *ngFor="let firstChildItem of item.types" (click)="firstChildItem.isopen=!firstChildItem.isopen">
+                    <div class=" flex justify-content-between align-items-center cursor-pointer">
+                        <div class="firstChildLabelDiv flex justify-content-between align-items-center cursor-pointer">
+                            <i class="fa fa-angle-double-right mr-2"></i>
+                            <p>{{firstChildItem.label}}</p>
+                        </div>
+                        <i class="pi pi-chevron-down" *ngIf="firstChildItem.isopen&&firstChildItem.types"></i>
+                        <i class="pi pi-chevron-right" *ngIf="!firstChildItem.isopen&&firstChildItem.types"></i>
+                    </div>
+                    <div class="secondChildDiv" *ngIf="firstChildItem.isopen">
+                        <div class="secondChild flex justify-content-between align-items-center cursor-pointer"
+                            *ngFor="let secondChildItem of firstChildItem.types">
+                            <p class="secondChildItemLabel">{{secondChildItem.label}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </p-sidebar>
 
 <div class=" flex justify-content-center loader align-items-center" *ngIf="isLoading">
