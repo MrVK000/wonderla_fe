@@ -2,11 +2,21 @@
   background-color: #eff3ff;
   position: absolute;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
 }
 
 .wrapper {
   width: 70em;
+}
+
+.container {
+  overflow: scroll !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+.container::-webkit-scrollbar {
+  display: none !important;
 }
 
 .logoWrapper {
@@ -187,6 +197,10 @@
 
   ::ng-deep.p-sidebar .p-sidebar-content {
     padding: 0 !important;
+  }
+
+  ::ng-deep.p-sidebar .p-sidebar-header {
+    margin: 0;
   }
 
 }

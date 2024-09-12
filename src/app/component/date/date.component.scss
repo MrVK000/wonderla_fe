@@ -3,7 +3,6 @@
     justify-content: center;
 }
 
-
 .container>div {
     background-color: #ffffff;
     border-radius: 30px;
@@ -13,7 +12,6 @@
     min-height: 20em;
 }
 
-
 .infoDiv {
     padding: 3em;
 }
@@ -22,20 +20,15 @@
     width: 20px;
 }
 
-
 .title {
     font-size: 34px;
     font-weight: 900;
-}
-
-.title {
-    font-family: math
+    font-family: math;
 }
 
 .paragraph {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-
 
 .clock {
     width: 30px;
@@ -45,7 +38,6 @@
     font-size: 18px;
     font-weight: 500;
 }
-
 
 .weekendDiv {
     background-color: #eff3ff;
@@ -69,7 +61,6 @@ hr {
     color: grey;
 }
 
-
 .offer b {
     color: #2a3784;
 }
@@ -78,7 +69,6 @@ hr {
     width: 100%;
     padding: 20px;
 }
-
 
 .calendarDiv,
 .calendarInfoDiv,
@@ -89,14 +79,9 @@ hr {
     margin: 10px;
 }
 
-
-
 .calendarInfoDiv {
     padding: 20px;
 }
-
-
-
 
 .calendarInfo span {
     width: 20px;
@@ -104,54 +89,13 @@ hr {
     border-radius: 20px;
 }
 
-
-
-//////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-// .calendar {
-//     width: 300px;
-//     border: 1px solid #ccc;
-//     padding: 10px;
-//   }
-
-//   .header {
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     margin-bottom: 10px;
-//   }
-
-//   .week-days {
-//     display: flex;
-//   }
-
-//   .week-day, .day {
-//     width: 14.28%;
-//     text-align: center;
-//     padding: 5px;
-//   }
-
-//   .days {
-//     display: flex;
-//     flex-wrap: wrap;
-//   }
-
-//   .day {
-//     border: 1px solid #eee;
-//     margin: 2px;
-//   }
-
-
-
-
+.week-day {
+    font-weight: 600;
+    font-size: 20px;
+}
 
 .calendar {
     width: 100%;
-    // display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 2px;
 }
@@ -176,7 +120,6 @@ hr {
     margin: 10px 20px;
 }
 
-
 .month {
     font-size: 24px;
 }
@@ -191,12 +134,12 @@ hr {
     border: 1px solid #ddd;
 }
 
-
 .daySpan {
     background-color: #53e79d;
     height: 6px;
     width: 26px;
     border-radius: 4px;
+    display: block;
 }
 
 .day:hover {
@@ -222,6 +165,23 @@ hr {
     background-color: #0064ff;
 }
 
+.otherMonth {
+    background-color: #ffffff !important;
+}
+
+.otherMonth:hover {
+    background-color: #ffffff !important;
+}
+
+.calendarForMobile {
+    display: none !important;
+}
+
+::ng-deep.p-calendar .p-button {
+    background-color: #2f47ab;
+    border: #2f47ab;
+}
+
 ::ng-deep.p-dialog .p-dialog-header {
     padding-bottom: 0;
 }
@@ -239,23 +199,12 @@ hr {
     height: auto;
 }
 
-
-
-//////////////////////////////////////////////////////////////////////////////////////////
-
-
 ::ng-deep .confirm .p-ripple {
     width: 100%;
     background-color: #2f47ab;
     height: 3.5em;
     border-radius: 30px;
 }
-
-
-
-
-
-
 
 
 @media screen and (max-width: 575px) {
@@ -266,16 +215,31 @@ hr {
 
     .container>div {
         width: 18em;
-        margin: 10px;
+        margin: 0px;
+        min-height: auto;
     }
 
     .infoDiv {
         padding: 10px;
-        padding-bottom: 4em;
+        padding-bottom: 10px;
+        border-radius: 30px 30px 0 0 !important;
+    }
+
+    .calendarWrapper {
+        border-radius: 0 0 30px 30px !important;
     }
 
     .paragraphDiv {
         display: none;
+    }
+
+    .weekendDiv {
+        display: none;
+    }
+
+    .calendarDiv {
+        padding: 10px;
+        border-radius: 10px;
     }
 
     .calendarInfoDiv,
@@ -283,6 +247,9 @@ hr {
         display: none !important;
     }
 
+    .calendarForMobile {
+        display: block !important;
+    }
 }
 
 @media screen and (min-width: 576px) and (max-width: 767px) {
@@ -304,7 +271,6 @@ hr {
         display: none;
     }
 
-
     ::ng-deep.p-sidebar .p-sidebar-header+.p-sidebar-content {
         padding-left: 0;
     }
@@ -323,11 +289,9 @@ hr {
 
     .infoDiv {
         padding: 40px;
-
     }
 
     .paragraph {
         width: 80%;
     }
-
 }

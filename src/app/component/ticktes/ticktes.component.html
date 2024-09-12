@@ -1,1 +1,114 @@
-<p>tickets works!</p>
+<div class="container">
+    <div class="infoDiv">
+        <div class="titleDiv flex">
+            <img class="backArrow mr-3 cursor-pointer" (click)="backToDate()"
+                src="../../../assets/parkTicketDate/back-arrow.svg" alt="">
+            <h2 class="title m-0 cursor-pointer" (click)="backToDate()">
+                {{sharedService.CONSTANTS.parkTicketTicketsTitle}}</h2>
+        </div>
+        <div class="paragraphDiv">
+            <p class="paragraph">{{sharedService.CONSTANTS.parkTicketTicketsparagraph}}</p>
+        </div>
+
+        <div class="couponDiv">
+            <h2 class="text-center trendingTitle">{{sharedService.CONSTANTS.parkTicketTicketsTrendingTicket}}</h2>
+            <div class="carouselDiv">
+                <p-carousel [value]="couponData" [numVisible]="1" [numScroll]="1" [circular]="true"
+                    [responsiveOptions]="responsiveOptions" autoplayInterval="3000">
+                    <ng-template let-coupon pTemplate="item">
+
+
+                        <div class="ticketsWrapper flex">
+                            <div class="leftTicketDiv">
+                                <img class="leftTicket" src="../../../assets/parkTicketTickets/coupons-left.png"
+                                    alt="ticket">
+                                <div class="ticketContent text-center flex align-items-center ">
+                                    <div>
+                                        <p class="couponTitle">Tickets</p>
+                                        <p>----------</p>
+                                        <p class="couponCode">{{coupon.code}}</p>
+                                        <p class="couponDescription">{{coupon.description}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rightTicketDiv">
+                                <img class="rightTicket" src="../../../assets/parkTicketTickets/coupons-right.png"
+                                    alt="ticket">
+                            </div>
+                        </div>
+
+                    </ng-template>
+                </p-carousel>
+            </div>
+            <p class="text-center paragraph availOffer">{{sharedService.CONSTANTS.parkTicketTicketsAvailOffer}}</p>
+        </div>
+
+    </div>
+    <div class="ticketsDiv">
+
+        <div class="ticketsContentDiv">
+            <div class="ticketsContent " *ngFor="let ticket of ticketData;let i = index" (click)="ticketClicked(i)">
+
+                <div class="upperDiv flex justify-content-between align-items-center cursor-pointer">
+                    <div class="ticketTitleDiv flex justify-content-between align-items-center p-2">
+                        <div class="ticketProfileImgDiv mr-2 flex justify-content-between align-items-center"
+                            [ngStyle]="{'background':ticket.background}">
+                            <img class="ticketProfileImg"
+                                [ngStyle]="i === 0 ? { 'width': '10em','margin-top':'1.5em','position':'relative','left':'-10px' } : i==1?{'width': '14em','margin-top':'3em','position':'relative','left':'-10px'}:{}"
+                                [src]="ticket.imgUrl" alt="gif">
+                        </div>
+                        <div class="titleWrapper">
+                            <h3 class="ticketTitle m-0 mb-1"><b>{{ticket.title}}</b></h3>
+                            <p class="ticketDescription">{{ticket.description}}</p>
+                        </div>
+                    </div>
+
+                    <div class="priceDiv flex mr-2">
+                        <img class="userImg m-2 mt-1" src="../../../assets/parkTicketTickets/user.svg" alt="user">
+                        <b class="price">0</b>
+                    </div>
+                </div>
+
+                <div class="lowerDiv" *ngIf="ticket.isOpen"></div>
+
+            </div>
+
+
+            <p-inputGroup class="mt-5 mb-5">
+                <input type="text" pInputText placeholder="Enter Coupon Code" />
+                <button type="button" pButton label="APPLY"></button>
+            </p-inputGroup>
+
+
+            <p-inputGroup class="mt-5 mb-5">
+                <input type="text" pInputText placeholder="Enter GSTN For GST Bill" />
+                <button type="button" pButton label="APPLY"></button>
+            </p-inputGroup>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+        <div class="ticketsFooterDiv flex justify-content-between">
+            <div class="totalDiv">
+                <b>₹{{totlaTicketAmount}}</b>
+                <p class="allTax">{{sharedService.CONSTANTS.parkTicketTicketsTax}}</p>
+            </div>
+            <div class="confirmButtonDiv">
+                <button pButton class="flex justify-content-center"><b>{{sharedService.CONSTANTS.confirm}}</b></button>
+            </div>
+        </div>
+    </div>
+</div>

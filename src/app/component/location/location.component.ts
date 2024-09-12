@@ -28,22 +28,19 @@ export class LocationComponent {
     },
   ]
 
-  selectedLocation = {};
-
-
 
   constructor(private router: Router, public sharedService: SharedService) { }
 
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    // this.sharedService.onActiveIndexChange(0, false);
+    this.sharedService.onActiveIndexChange(0, false);
   }
 
 
   locationSelected(i: number) {
     this.sharedService.onActiveIndexChange(1, false);
-    this.selectedLocation = this.parkLocationData[i];
+    this.sharedService.parkTicketDetails.location = this.parkLocationData[i]?.label;
   }
 
 

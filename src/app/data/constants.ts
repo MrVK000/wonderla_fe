@@ -1,4 +1,10 @@
 const CONSTANT_VARIABLES = {
+
+
+  confirm:'CONFIRM',
+
+
+
   scrollingTextContentOne: "Wonderla Bhubaneswar is now open!",
   scrollingTextContentTwo: "Discover Thrilling Adventures at Wonderla Parks - Don't Miss Out on Our Exciting Offers!",
   scrollingTextContentThree: "Wonderla Resort - Book 3 days in advance and get 10% off on Weekdays & Many more",
@@ -36,8 +42,19 @@ const CONSTANT_VARIABLES = {
   parkTicketDateWaterPark: "Water Park",
   parkTicketDateWaterParkTimeOne: "12:30 PM - 05:00 PM",
   parkTicketDateWaterParkTimeTwo: "12:00 PM - 06:00 PM",
-  parkDialogInfo:'Please select a date to continue..!'
+  parkDialogInfo: 'Please select a date to continue..!',
+  parkTicketSelectDate: 'Select a Date of Visit',
+  parkTicketTicketsTitle: 'Grab your Tickets',
+  parkTicketTicketsparagraph: 'Wonderla provides regular tickets, fast track tickets for queue skipping, and Special Offer tickets designed exclusively for students, Birthday Celebrations and Women, Make your choice',
+  parkTicketTicketsTrendingTicket: 'Trending Coupons',
+  parkTicketTicketsAvailOffer:'Click on the above coupon to avail the offer',
+  parkTicketTicketsTax: 'Excl. all taxes',
+  
+  
+  
+  parkTicket: '',
 };
+
 
 
 export default CONSTANT_VARIABLES;

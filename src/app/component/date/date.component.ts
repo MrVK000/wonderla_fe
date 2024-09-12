@@ -33,55 +33,28 @@ export class DateComponent {
     },
   ]
 
-
   selectedDate!: Date;
-
+  minDate!: Date;
+  maxDate!: Date;
+  showPopup: boolean = false;
+  weekDays: string[] = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
 
   constructor(private router: Router, public sharedService: SharedService,) { }
 
   ngOnInit(): void {
-
     this.sharedService.onActiveIndexChange(1, false);
-
-
-
-
-    // this.currentMonth = moment(); // Current month
-    // this.generateCalendar(this.currentMonth);
-
-
-
-
 
     const month = this.currentDate.getMonth();
     const year = this.currentDate.getFullYear();
     this.days = this.generateCalendar(month, year);
 
-
-
-
+    const today = new Date();
+    this.minDate = today;
+    const max = new Date(today);
+    max.setMonth(today.getMonth() + 2);
+    this.maxDate = max;
 
   }
-
-
-  // generateCalendar() {
-  //   const month = this.currentDate.getMonth();
-  //   const year = this.currentDate.getFullYear();
-  //   this.days = this.sharedService.generateCalendar(month, year);
-  //   console.log('>>>>>days', this.days);
-  // }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   generateCalendar(month: number, year: number): Date[] {
@@ -116,9 +89,7 @@ export class DateComponent {
 
 
 
-
   previousMonth(): void {
-    // this.currentMonth = this.currentMonth.subtract(1, 'month');
     const newDate = new Date(this.currentDate);
     newDate.setMonth(this.currentDate.getMonth() - 1);
     this.currentDate = newDate;
@@ -128,7 +99,6 @@ export class DateComponent {
   }
 
   nextMonth(): void {
-    // this.currentMonth = this.currentMonth.add(1, 'month');
     const newDate = new Date(this.currentDate);
     newDate.setMonth(this.currentDate.getMonth() + 1);
     this.currentDate = newDate;
@@ -137,50 +107,9 @@ export class DateComponent {
     this.days = this.generateCalendar(month, year);
   }
 
-
-
-  get getCurrentDate() {
-    console.log('>>>>', this.currentDate);
-
-    return this.currentDate;
-  }
-
-
-
-  // currentMonth!: moment.Moment;
-  // daysInMonth: moment.Moment[] = [];
-  weekDays: string[] = moment.weekdaysShort();
-
-
-
-
-  // generateCalendar(month: moment.Moment): void {
-  //   this.daysInMonth = []; // Clear the array
-
-  //   const startOfMonth = month.clone().startOf('month');
-  //   const endOfMonth = month.clone().endOf('month');
-
-  //   // Add the days of the month to the daysInMonth array
-  //   for (let i = startOfMonth.date(); i <= endOfMonth.date(); i++) {
-  //     this.daysInMonth.push(moment(startOfMonth).date(i));
-  //   }
-  // }
-
-  // previousMonth(): void {
-  //   this.currentMonth = this.currentMonth.subtract(1, 'month');
-  //   this.generateCalendar(this.currentMonth);
-  // }
-
-  // nextMonth(): void {
-  //   this.currentMonth = this.currentMonth.add(1, 'month');
-  //   this.generateCalendar(this.currentMonth);
-  // }
-
-
-
-
   confirmDate() {
     if (this.selectedDate) {
+      this.sharedService.parkTicketDetails.date = this.selectedDate.toString();
       this.sharedService.onActiveIndexChange(2, false);
     }
     else {
@@ -189,12 +118,18 @@ export class DateComponent {
   }
 
 
-  showColorForThisMonth() {
+  showColorForThisMonth(day: any) {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const givenDate = new Date(day);
+    givenDate.setHours(0, 0, 0, 0);
+
     const firstMonth = new Date();
     const secondMonth = new Date();
     firstMonth.setMonth(new Date().getMonth() + 1);
     secondMonth.setMonth(new Date().getMonth() + 2);
-    return new Date().getMonth() == this.currentDate.getMonth() || firstMonth.getMonth() == this.currentDate.getMonth() || secondMonth.getMonth() == this.currentDate.getMonth();
+    return (new Date().getMonth() == this.currentDate.getMonth() || firstMonth.getMonth() == this.currentDate.getMonth() || secondMonth.getMonth() == this.currentDate.getMonth()) && givenDate > today;
   }
 
 
@@ -203,14 +138,8 @@ export class DateComponent {
       this.selectedDate = day;
   }
 
-
-  showPopup: boolean = false;
-
-
   backToLocation() {
     this.sharedService.onActiveIndexChange(0, false)
   }
-
-
 
 }
