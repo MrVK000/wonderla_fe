@@ -47,36 +47,51 @@ export class ticketsComponent {
       icon: '../../../assets/parkTicketTickets/user.svg',
       background: '#cdd6ff',
       isOpen: false,
+      totalSelectedTickets: 0,
       child: [
         {
-          title: '',
-          price: '',
-          profileImg: '',
-          selcted: 0,
+          title: 'Adult',
+          price: '1202.54',
+          profileImg: '../../../assets/parkTicketTickets/user.svg',
+          selctedCount: 0,
           isOfferAvailable: false,
-          discountPrice: '',
+          oldPrice: '',
           offer: '',
           description: '',
+          isTicketsAvailable: true,
         },
         {
-          title: '',
-          price: '',
-          profileImg: '',
-          selcted: 0,
-          isOfferAvailable: false,
-          discountPrice: '',
-          offer: '',
+          title: 'Adult Ticket + Bucket Offer',
+          price: '1549',
+          profileImg: '../../../assets/parkTicketTickets/user.svg',
+          selctedCount: 0,
+          isOfferAvailable: true,
+          oldPrice: '1918',
+          offer: '20% Off',
           description: '',
+          isTicketsAvailable: true,
         },
         {
-          title: '',
-          price: '',
-          profileImg: '',
-          selcted: 0,
+          title: 'Child',
+          price: '961.86',
+          profileImg: '../../../assets/parkTicketTickets/user.svg',
+          selctedCount: 0,
           isOfferAvailable: false,
-          discountPrice: '',
+          oldPrice: '',
           offer: '',
           description: '',
+          isTicketsAvailable: true,
+        },
+        {
+          title: 'Senior Citizen',
+          price: '901.91',
+          profileImg: '../../../assets/parkTicketTickets/user.svg',
+          selctedCount: 0,
+          isOfferAvailable: true,
+          oldPrice: '1202.54',
+          offer: '25% Off',
+          description: '',
+          isTicketsAvailable: true,
         },
       ],
     },
@@ -87,26 +102,29 @@ export class ticketsComponent {
       icon: '../../../assets/parkTicketTickets/user.svg',
       background: '#ffe75f',
       isOpen: false,
+      totalSelectedTickets: 0,
       child: [
         {
-          title: '',
-          price: '',
-          profileImg: '',
-          selcted: 0,
+          title: 'Fast Track Adult',
+          price: '1924.06',
+          profileImg: '../../../assets/parkTicketTickets/user.svg',
+          selctedCount: 0,
           isOfferAvailable: false,
-          discountPrice: '',
+          oldPrice: '',
           offer: '',
           description: '',
+          isTicketsAvailable: true,
         },
         {
-          title: '',
-          price: '',
-          profileImg: '',
-          selcted: 0,
+          title: 'Fast Track Child',
+          price: '1538.98',
+          profileImg: '../../../assets/parkTicketTickets/user.svg',
+          selctedCount: 0,
           isOfferAvailable: false,
-          discountPrice: '',
+          oldPrice: '',
           offer: '',
           description: '',
+          isTicketsAvailable: true,
         },
       ],
     },
@@ -117,62 +135,68 @@ export class ticketsComponent {
       icon: '../../../assets/parkTicketTickets/user.svg',
       background: '',
       isOpen: false,
+      totalSelectedTickets: 0,
       child: [
         {
-          title: '',
-          price: '',
-          profileImg: '',
-          selcted: 0,
-          isOfferAvailable: false,
-          discountPrice: '',
-          offer: '',
-          description: '',
+          title: 'College ID + Biriyani Combo',
+          price: '1284',
+          profileImg: '../../../assets/parkTicketTickets/StudentIDPackage.png',
+          selctedCount: 0,
+          isOfferAvailable: true,
+          oldPrice: '1779',
+          offer: '29% Off',
+          description: '(Get delicious Biryani combo at additional ₹149)',
+          isTicketsAvailable: true,
         },
         {
-          title: '',
-          price: '',
-          profileImg: '',
-          selcted: 0,
-          isOfferAvailable: false,
-          discountPrice: '',
-          offer: '',
+          title: 'College ID Offer',
+          price: '962.03',
+          profileImg: '../../../assets/parkTicketTickets/Student+ID.png',
+          selctedCount: 0,
+          isOfferAvailable: true,
+          oldPrice: '1202.54',
+          offer: '21% Off',
           description: '',
+          isTicketsAvailable: true,
         },
         {
-          title: '',
-          price: '',
-          profileImg: '',
-          selcted: 0,
-          isOfferAvailable: false,
-          discountPrice: '',
-          offer: '',
+          title: 'Birthday Offer - Free Ticket',
+          price: '0.00',
+          profileImg: '../../../assets/parkTicketTickets/BirthdayOffer.png',
+          selctedCount: 0,
+          isOfferAvailable: true,
+          oldPrice: '1202.54',
+          offer: '100% Off',
           description: '',
+          isTicketsAvailable: true,
         },
         {
-          title: '',
-          price: '',
-          profileImg: '',
-          selcted: 0,
-          isOfferAvailable: false,
-          discountPrice: '',
-          offer: '',
+          title: 'Wonder Women - Free Ticket',
+          price: '0.00',
+          profileImg: '../../../assets/parkTicketTickets/FreeTicket.jpg',
+          selctedCount: 0,
+          isOfferAvailable: true,
+          oldPrice: '1202.54',
+          offer: '100% Off',
           description: '',
+          isTicketsAvailable: true,
         },
         {
-          title: '',
-          price: '',
-          profileImg: '',
-          selcted: 0,
-          isOfferAvailable: false,
-          discountPrice: '',
-          offer: '',
+          title: 'Wonder Women - Paid Ticket',
+          price: '1202.54',
+          profileImg: '../../../assets/parkTicketTickets/PaidTicket.jpg',
+          selctedCount: 0,
+          isOfferAvailable: true,
+          oldPrice: '1202.54',
+          offer: '0% Off',
           description: '',
+          isTicketsAvailable: false,
         },
       ],
     },
   ];
 
-  totlaTicketAmount: string = '0.00';
+  totalTicketAmount: string = '0.00';
   selectedTicket: number | null = null;
 
   constructor(private router: Router, public sharedService: SharedService) { }
@@ -209,6 +233,62 @@ export class ticketsComponent {
     }
 
   }
+
+
+
+  addTicket(i: number, j: number) {
+    // console.log('>>>', i, j, typeof (this.ticketData[i]?.child[j]?.selctedCount) == 'number');
+    if (typeof (this.ticketData[i]?.child[j]?.selctedCount) == 'number') {
+      this.ticketData[i].child[j].selctedCount++;
+    }
+    if (typeof (this.ticketData[i]?.totalSelectedTickets) == 'number') {
+      this.ticketData[i].totalSelectedTickets++;
+    }
+    if (Number(this.ticketData[i].child[j].price) == 0) {
+      this.totalTicketAmount = (Number(this.totalTicketAmount) + Number(this.ticketData[i].child[j].oldPrice)).toFixed(2).toString();
+    }
+    else {
+      this.totalTicketAmount = (Number(this.totalTicketAmount) + Number(this.ticketData[i].child[j].price)).toFixed(2).toString();
+    }
+  }
+
+
+
+
+
+  removeTicket(i: number, j: number) {
+    // console.log('>>>', i, j);
+    if (this.ticketData[i]?.child[j]?.selctedCount) {
+      this.ticketData[i].child[j].selctedCount--;
+    }
+    if (this.ticketData[i]?.totalSelectedTickets) {
+      this.ticketData[i].totalSelectedTickets--;
+    }
+    if (Number(this.ticketData[i].child[j].price) == 0 && Number(this.totalTicketAmount) >= 0 && (Number(this.totalTicketAmount) - Number(this.ticketData[i].child[j].price)) >= 0) {
+      this.totalTicketAmount = (Number(this.totalTicketAmount) - Number(this.ticketData[i].child[j].oldPrice)).toFixed(2).toString();
+    }
+    else if (Number(this.totalTicketAmount) >= 0 && (Number(this.totalTicketAmount) - Number(this.ticketData[i].child[j].price)) >= 0) {
+      this.totalTicketAmount = (Number(this.totalTicketAmount) - Number(this.ticketData[i].child[j].price)).toFixed(2).toString();
+    }
+  }
+
+
+
+
+
+
+
+
+  confirmClicked() {
+    this.sharedService.onActiveIndexChange(3, false);
+  }
+
+
+
+
+
+
+
 
 
 

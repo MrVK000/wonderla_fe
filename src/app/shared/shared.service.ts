@@ -35,7 +35,10 @@ export class SharedService {
   selectedHotel: LabelInterface | null = null;
   selectedAdultOption!: LabelInterface;
   resortsData: LabelInterface[] = [];
-
+  progressbarValue: number = 0;
+  parkTicketDetails: any = {};
+  activeIndex: number = 5;
+  
   adultOptionData: LabelInterface[] = [
     {
       label: '1',
@@ -50,9 +53,7 @@ export class SharedService {
       id: 2
     },
   ]
-  activeIndex: number = 2;
-  progressbarValue: number = 0;
-  parkTicketDetails: any = {};
+
 
   constructor(public messageService: MessageService, public router: Router,) { }
 

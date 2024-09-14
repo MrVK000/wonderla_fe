@@ -18,7 +18,7 @@
                     <ng-template let-coupon pTemplate="item">
 
 
-                        <div class="ticketsWrapper flex">
+                        <div class="ticketsWrapper flex cursor-pointer">
                             <div class="leftTicketDiv">
                                 <img class="leftTicket" src="../../../assets/parkTicketTickets/coupons-left.png"
                                     alt="ticket">
@@ -47,9 +47,10 @@
     <div class="ticketsDiv">
 
         <div class="ticketsContentDiv">
-            <div class="ticketsContent " *ngFor="let ticket of ticketData;let i = index" (click)="ticketClicked(i)">
+            <div class="ticketsContent " *ngFor="let ticket of ticketData;let i = index">
 
-                <div class="upperDiv flex justify-content-between align-items-center cursor-pointer">
+                <div class="upperDiv flex justify-content-between align-items-center cursor-pointer"
+                    (click)="ticketClicked(i)">
                     <div class="ticketTitleDiv flex justify-content-between align-items-center p-2">
                         <div class="ticketProfileImgDiv mr-2 flex justify-content-between align-items-center"
                             [ngStyle]="{'background':ticket.background}">
@@ -65,11 +66,46 @@
 
                     <div class="priceDiv flex mr-2">
                         <img class="userImg m-2 mt-1" src="../../../assets/parkTicketTickets/user.svg" alt="user">
-                        <b class="price">0</b>
+                        <b class="price">{{ticket.totalSelectedTickets}}</b>
                     </div>
                 </div>
 
-                <div class="lowerDiv" *ngIf="ticket.isOpen"></div>
+                <div class="lowerDiv" *ngIf="ticket.isOpen">
+                    <div class="child flex justify-content-between p-3"
+                        *ngFor="let child of ticket.child;let j = index">
+                        <div class="childLeft flex justify-content-center align-items-center">
+                            <div class="childProfileDiv">
+                                <img class="childProfile mr-2" [src]="child.profileImg"
+                                    [ngStyle]="i===2?{'width':'4em'}:{'width':'20px'}" alt="profile">
+                            </div>
+                            <div class="childTitleDiv">
+                                <h4 class="m-0">{{child.title}}</h4>
+                                <p class="m-0 childDescription">{{child.description}}</p>
+                                <div class="priceSection flex">
+                                    <p class="m-0 childPrice">₹{{child.price}}</p>
+                                    <p class="m-0 childOldPrice" *ngIf="child.oldPrice">₹{{child.oldPrice}}</p>
+                                    <p class="m-0 childOffer">{{child.offer}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="childRight">
+                            <div class="countButtonsWrapper p-1 flex align-items-center cursor-pointer"
+                                [ngClass]="child.isTicketsAvailable?'justify-content-between':'justify-content-center'">
+                                <div class="decreaseButton text-center" *ngIf="child.isTicketsAvailable"
+                                    (click)="removeTicket(i,j)">
+                                    <p class="m-0">-</p>
+                                </div>
+                                <div class="selectedCount">
+                                    <b class="m-2">{{child.selctedCount}}</b>
+                                </div>
+                                <div class="increaseButton text-center" *ngIf="child.isTicketsAvailable"
+                                    (click)="addTicket(i,j)">
+                                    <p class="m-0">+</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             </div>
 
@@ -103,11 +139,12 @@
 
         <div class="ticketsFooterDiv flex justify-content-between">
             <div class="totalDiv">
-                <b>₹{{totlaTicketAmount}}</b>
+                <b>₹{{totalTicketAmount}}</b>
                 <p class="allTax">{{sharedService.CONSTANTS.parkTicketTicketsTax}}</p>
             </div>
             <div class="confirmButtonDiv">
-                <button pButton class="flex justify-content-center"><b>{{sharedService.CONSTANTS.confirm}}</b></button>
+                <button pButton class="flex justify-content-center"
+                    (click)="confirmClicked()"><b>{{sharedService.CONSTANTS.confirm}}</b></button>
             </div>
         </div>
     </div>

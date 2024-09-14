@@ -1,6 +1,104 @@
 <div class="container">
-    <div class="infoDiv">
+
+    <div class="totalWrapper m-2">
+        <div class="titleDiv mb-2 flex">
+            <img class="backArrow mr-3 cursor-pointer" (click)="backToRules()"
+                src="../../../assets/parkTicketDate/back-arrow.svg" alt="">
+            <h2 class="title m-0 cursor-pointer" (click)="backToRules()">
+                {{sharedService.CONSTANTS.parkTicketBillingTotalTitle}}</h2>
+        </div>
+        <div class="totalDiv">
+            <div class="billDiv m-3 pr-2">
+                <div class="border p-3 mb-2">
+                    <div class="bookingSummaryDiv flex justify-content-between ">
+                        <div class="bookingSummary p-2">
+                            <p class="m-0 text-center">{{sharedService.CONSTANTS.parkTicketBillingBookingSummary}}</p>
+                        </div>
+                        <div class="locationDiv flex justify-content-center align-items-center ">
+                            <img src="../../../assets/parkTicketBilling/location-pin.svg" alt="Location Pin">
+                            <p class="m-0 selectedLocation">{{selectedLocation}}</p>
+                        </div>
+                    </div>
+                    <div class="datesDiv flex justify-content-between">
+                        <div class="">
+                            <p class="totalSplitter">{{sharedService.CONSTANTS.parkTicketBillingDateOfVisit}}</p>
+                            <p class="m-0 dates">{{selectedDate}}</p>
+                        </div>
+                        <div class="">
+                            <p class="totalSplitter">{{sharedService.CONSTANTS.parkTicketBillingVisitors}}</p>
+                            <p class="m-0 dates flex align-items-center"><img class="userImg m-2 mt-1"
+                                    src="../../../assets/parkTicketTickets/user.svg" alt="user">{{visitors}}</p>
+                        </div>
+                        <div class="">
+                            <p class="totalSplitter">{{sharedService.CONSTANTS.parkTicketBillingTotal}}</p>
+                            <p class="m-0 dates">₹{{total}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="border p-3 mb-2 flex justify-content-between align-items-center ">
+                    <div class="ticketType">
+                        <p class="m-0"><b>{{selectedFor}}</b></p>
+                        <p class="m-0 totalSplitter">{{selectedType}}</p>
+                    </div>
+                    <div class="countButtonsWrapper p-1 flex align-items-center justify-content-between cursor-pointer">
+                        <div class="decreaseButton text-center" (click)="removeTicket()">
+                            <p class="m-0">-</p>
+                        </div>
+                        <div class="selectedCount">
+                            <b class="m-2">{{selctedCount}}</b>
+                        </div>
+                        <div class="increaseButton text-center" (click)="addTicket()">
+                            <p class="m-0">+</p>
+                        </div>
+                    </div>
+                    <div class="ticketPrice">
+                        <p class="m-0 total">{{total}}</p>
+                    </div>
+                </div>
+                <div class="border p-3 mb-2 flex justify-content-between align-items-center ">
+                    <div class="mealsDiv">
+                        <p class="m-0"><b>{{sharedService.CONSTANTS.meals}}</b></p>
+                        <p class="m-0 mealsTotal">{{sharedService.CONSTANTS.total}}</p>
+                    </div>
+                    <p class="m-0">{{selctedMealsCount}}</p>
+                    <p class="m-0 mealsTotal">₹{{mealsPrice}}</p>
+                </div>
+                <div class="border p-3 ">
+                    <div class="gstDiv flex justify-content-between align-items-center ">
+                        <div class="gst">
+                            <p class="m-0">{{sharedService.CONSTANTS.parkTicketBillingTicketGst}}</p>
+                            <p class="m-0 mealsTotal">{{sharedService.CONSTANTS.parkTicketBillingGstPercentage}}</p>
+                        </div>
+                        <p class="m-0 mealsTotal">₹{{sharedService.CONSTANTS.parkTicketBillingGstPrice}}</p>
+                    </div>
+                    <div class="amountDiv flex justify-content-between align-items-center ">
+                        <p class="m-0"><b>{{sharedService.CONSTANTS.parkTicketBillingAmountToBePaid}}</b></p>
+                        <p class="m-0 mealsTotal">₹{{priceWithGst}}</p>
+                    </div>
+                </div>
+            </div>
+            <hr class="totalSplitter">
+            <div class="billFooterDiv m-0 p-5 pt-3 flex justify-content-between align-items-center ">
+                <p class="m-0">{{sharedService.CONSTANTS.parkTicketBillingGrandTotal}}</p>
+                <p class="m-0">₹{{grandTotal}}</p>
+            </div>
+        </div>
     </div>
-    <div class="locationDiv">
+
+    <div class="detailsWrapper m-2">
+        <div class="detailsTitleDiv flex justify-content-between">
+            <p class="m-0 detailsTitle">{{sharedService.CONSTANTS.parkTicketBillingDetailsTitle}}</p>
+            <div class="checkboxDiv">
+                <div class="card flex justify-content-center align-items-center">
+                    <p-checkbox class="bookingForSomeoneCheck" [(ngModel)]="isBookingForSomeone" [binary]="true"
+                        inputId="binary" />
+                    <p class="m-0 ml-2 bookingForSomeone">{{sharedService.CONSTANTS.parkTicketBillingBookingForSomeone}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="detailsDiv p-3">
+        </div>
     </div>
+
 </div>

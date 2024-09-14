@@ -1,6 +1,68 @@
 <div class="container">
     <div class="infoDiv">
+        <div class="titleDiv flex">
+            <img class="backArrow mr-3 cursor-pointer" (click)="backToTickets()"
+                src="../../../assets/parkTicketDate/back-arrow.svg" alt="">
+            <h2 class="title m-0 cursor-pointer" (click)="backToTickets()">
+                {{sharedService.CONSTANTS.parkTicketAddOnTitle}}</h2>
+        </div>
+        <div class="paragraphDiv">
+            <p class="paragraph">{{sharedService.CONSTANTS.parkTicketAddOnParagraph}}</p>
+        </div>
+        <div class="imgDiv flex justify-content-center align-items-center ">
+            <img class="fullMealImg" src="../../../assets/parkTicketAddons/Meal_Image_Full.svg" alt="">
+        </div>
     </div>
-    <div class="locationDiv">
+    <div class="addOnsDiv">
+        <div class="foodDiv pr-2">
+            <div class="food flex p-2 mb-2" *ngFor="let food of foodData;let i = index">
+                <div class="foodCarousel mr-3">
+                    <p-carousel [value]="food.foodImages" [numVisible]="1" [numScroll]="1" [circular]="true"
+                        [showIndicators]="false" [showNavigators]="false"
+                        [autoplayInterval]="food.foodImages.length==1?0:(i+1)*1500">
+                        <ng-template let-imgObj pTemplate="item">
+
+                            <img class="foodImg" [src]="imgObj.imgUrl" alt="Food">
+
+                        </ng-template>
+                    </p-carousel>
+                </div>
+                <div class="foodContent flex justify-content-between flex-column">
+                    <div class="foodTitleDiv">
+                        <h3 class="m-0 mb-2 foodTitle">{{food.title}}</h3>
+                        <div class="countButtonsWrapper p-1 flex align-items-center cursor-pointer"
+                            [ngClass]="food.isStockAvailable?'justify-content-between':'justify-content-center'">
+                            <div class="decreaseButton text-center" *ngIf="food.isStockAvailable"
+                                (click)="removeTicket(i)">
+                                <p class="m-0">-</p>
+                            </div>
+                            <div class="selectedCount">
+                                <b class="m-2">{{food.selected}}</b>
+                            </div>
+                            <div class="increaseButton text-center" *ngIf="food.isStockAvailable"
+                                (click)="addTicket(i)">
+                                <p class="m-0">+</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="foodMoreInfoDiv flex justify-content-end">
+                        <div class="foodMoreInfo flex justify-content-center align-items-center p-2">
+                            <i class="pi pi-info-circle mr-1"></i>
+                            <p class="m-0">More Info</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="foodFooterDiv flex justify-content-between pt-3">
+            <div class="totalDiv">
+                <b>₹{{totalFoodAmount}}</b>
+                <p class="allTax">{{sharedService.CONSTANTS.parkTicketTicketsTax}}</p>
+            </div>
+            <div class="confirmButtonDiv">
+                <button pButton class="flex justify-content-center"
+                    (click)="confirmClicked()"><b>{{sharedService.CONSTANTS.confirm}}</b></button>
+            </div>
+        </div>
     </div>
 </div>

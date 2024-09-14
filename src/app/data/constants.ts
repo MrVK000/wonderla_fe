@@ -1,7 +1,11 @@
 const CONSTANT_VARIABLES = {
 
 
-  confirm:'CONFIRM',
+  confirm: 'CONFIRM',
+  meals: 'Meals',
+  total: 'Total (Inclusive of 5% GST)',
+  agreeAndProceed: 'AGREE & PROCEED',
+
 
 
 
@@ -47,12 +51,29 @@ const CONSTANT_VARIABLES = {
   parkTicketTicketsTitle: 'Grab your Tickets',
   parkTicketTicketsparagraph: 'Wonderla provides regular tickets, fast track tickets for queue skipping, and Special Offer tickets designed exclusively for students, Birthday Celebrations and Women, Make your choice',
   parkTicketTicketsTrendingTicket: 'Trending Coupons',
-  parkTicketTicketsAvailOffer:'Click on the above coupon to avail the offer',
+  parkTicketTicketsAvailOffer: 'Click on the above coupon to avail the offer',
   parkTicketTicketsTax: 'Excl. all taxes',
-  
-  
-  
-  parkTicket: '',
+  parkTicketAddOnTitle: 'Plan Your Meal',
+  parkTicketAddOnParagraph: 'Wonderla offers a delightful array of mouth - watering food dishes. A whopping 40% of our bookings opt for the All-Day meal Plan, making it the ideal choice for a day out at Wonderla',
+  parkTicketRulesTitle: 'Park Rules & Guides',
+  parkTicketRulesParagraph: 'To ensure your safety within our park, we kindly ask all guests to adhere to the dress code and familiarize themselves with park’s do’s and don’t',
+
+  parkTicketBillingTotalTitle: 'Review Booking',
+  parkTicketBillingDetailsTitle: 'Add your billing information',
+  parkTicketBillingBookingForSomeone: 'Booking for someone else',
+  parkTicketBillingGrandTotal: 'Grand Total',
+  parkTicketBillingBookingSummary: 'Booking Summary',
+  parkTicketBillingDateOfVisit: 'Date Of Visit',
+  parkTicketBillingVisitors: 'Visitors',
+  parkTicketBillingTotal: 'Total',
+  parkTicketBillingTicketGst: 'Ticket GST',
+  parkTicketBillingGstPercentage: '18%',
+  parkTicketBillingGstPrice: '216.46',
+  parkTicketBillingAmountToBePaid: 'Amount to be paid',
+
+
+
+  parkTicketBilling: '',
 };
 
 

@@ -320,7 +320,7 @@
 
         <div class="bookOptionDiv pt-4 mt-4 flex justify-content-center align-items-center">
           <button pButton pRipple label="BOOK NOW" class="p-button-success"
-            (click)="sharedService.selectedLocation?goToBookTicket():focusOnLocationDropdown()"></button>
+            (click)="sharedService.selectedLocation?sharedService.bookTicket():focusOnLocationDropdown()"></button>
         </div>
 
       </div>

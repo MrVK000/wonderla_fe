@@ -1,6 +1,60 @@
 <div class="container">
     <div class="infoDiv">
+        <div class="titleDiv flex">
+            <img class="backArrow mr-3 cursor-pointer" (click)="backToAddOns()"
+                src="../../../assets/parkTicketDate/back-arrow.svg" alt="">
+            <h2 class="title m-0 cursor-pointer" (click)="backToAddOns()">
+                {{sharedService.CONSTANTS.parkTicketRulesTitle}}</h2>
+        </div>
+        <div class="paragraphDiv">
+            <p class="paragraph">{{sharedService.CONSTANTS.parkTicketRulesParagraph}}</p>
+        </div>
     </div>
-    <div class="locationDiv">
+    <div class="rulesDiv p-3">
+        <div class="ruleContentDiv">
+            <div class="rules p-2 mb-2 flex justify-content-center align-items-center cursor-pointer flex-column"
+                *ngFor="let rule of rulesData;let i = index" (click)="ruleClicked(i)">
+
+                <div class="upperDiv flex justify-content-between align-items-center w-full">
+                    <div class="titleDiv flex justify-content-between align-items-center">
+                        <img class="ruleIcon m-2" [src]="rule.icon" [alt]="rule.title">
+                        <p class="m-0 ruleTitle">{{rule.title}}</p>
+                    </div>
+                    <div class="expansionDiv mr-2 flex justify-content-between align-items-center">
+                        <p class="m-0" *ngIf="!rule.isOpen"><b>+</b></p>
+                        <p class="m-0" *ngIf="rule.isOpen"><b>-</b></p>
+                    </div>
+                </div>
+
+                <div class="lowerDiv w-full p-3" *ngIf="rule.isOpen">
+                    <div class="ruleChild" *ngFor="let childRule of rule.child">
+                        <div class="normal mb-5 flex justify-content-center align-items-center "
+                            *ngIf="childRule.type=='normal'">
+                            <img class="mr-3" [src]="childRule.icon" alt="Image">
+                            <p class="m-0">{{childRule.description}}</p>
+                        </div>
+                        <div class="image" *ngIf="childRule.type=='image'">
+                            <div class="ruleChildTitle">
+                                <b>{{childRule.title}}</b>
+                            </div>
+                            <div class="ruleChildImagesDiv flex mt-3">
+                                <div class="ruleChildImages" *ngFor="let childRuleImage of childRule.images">
+                                    <img class="childRuleImage pl-2" [src]="childRuleImage.img" [alt]="childRuleImage.label">
+                                    <p class="m-0 text-center">{{childRuleImage.label}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="list flex p-2" *ngIf="childRule.type=='list'">
+                            • <p class="m-0 ml-2">{{childRule.description}}</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="ruleFooterDiv pt-3">
+            <button class="flex justify-content-center" pButton
+                (click)="agreedClicked()"><b>{{sharedService.CONSTANTS.agreeAndProceed}}</b></button>
+        </div>
     </div>
 </div>
