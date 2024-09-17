@@ -182,22 +182,22 @@ hr {
     border: #2f47ab;
 }
 
-::ng-deep.p-dialog .p-dialog-header {
-    padding-bottom: 0;
-}
+// ::ng-deep.p-dialog .p-dialog-header {
+//     padding-bottom: 0;
+// }
 
-::ng-deep.dialogButton .p-ripple {
-    background-color: #fad500;
-    width: 8em;
-    border: none;
-    border-radius: 30px;
-    color: #2f46ab;
-}
+// ::ng-deep.dialogButton .p-ripple {
+//     background-color: #fad500;
+//     width: 8em;
+//     border: none;
+//     border-radius: 30px;
+//     color: #2f46ab;
+// }
 
-.warningImage {
-    width: 8em;
-    height: auto;
-}
+// .warningImage {
+//     width: 8em;
+//     height: auto;
+// }
 
 ::ng-deep .confirm .p-ripple {
     width: 100%;

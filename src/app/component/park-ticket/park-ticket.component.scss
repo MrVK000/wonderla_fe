@@ -81,7 +81,7 @@
   margin: 0 40px;
   z-index: 0;
   position: relative;
-  bottom: 73px;
+  bottom: 70px;
 }
 
 ::ng-deep.p-progressbar-determinate .p-progressbar-label {
@@ -94,6 +94,7 @@
 
 ::ng-deep.p-progressbar {
   box-shadow: inset 0px 0px 20px grey;
+  height: 18px;
 }
 
 
@@ -164,6 +165,137 @@
 }
 
 
+.summaryDiv,
+.paymentDiv {
+  background-color: #ffffff;
+  border-radius: 30px;
+  width: 34em;
+  border: 1px solid rgb(128, 128, 128, 0.3);
+  // height: 20em;
+}
+
+
+.backArrow {
+  width: 20px;
+}
+
+.summaryTitleDiv {
+  font-size: 22px;
+}
+
+.summaryTitleDiv,
+.paymentTitleDiv {
+  height: 3em;
+}
+
+.paymentTitleDiv {
+  font-size: 22px;
+}
+
+
+.bookingSummary,
+.selectedLocation {
+  color: #2f47ab;
+}
+
+.bookingSummary {
+  font-size: 12px;
+  background-color: #eff3ff;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.dates {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+
+
+
+input[pInputText] {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 0;
+}
+
+
+input[pInputText]:focus {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  /* Remove the focus effect */
+}
+
+::ng-deep p-inputnumber input {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  width: 10em !important;
+  padding: 0 !important;
+  /* Remove the blue focus shadow */
+}
+
+::ng-deep p-inputnumber input:focus {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  /* Ensure focus state also has no border */
+}
+
+::ng-deep.p-disabled,
+.p-component:disabled {
+  opacity: 1;
+  font-weight: 700;
+}
+
+
+.amountFooterDiv {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.paymantWrapper {
+  height: 22em;
+}
+
+
+.payment:hover,
+.selectedPayment {
+  border: 1px solid #2f47ab;
+}
+
+
+.tearmsAndConditionsInfo {
+  font-size: 12px;
+}
+
+
+.paymentFooterDiv .p-button {
+  width: 100%;
+  border-radius: 30px;
+  background-color: #2f46ab;
+}
+
+
+::ng-deep.p-dialog .p-dialog-header {
+  padding-bottom: 0;
+}
+
+::ng-deep.dialogButton .p-ripple {
+  background-color: #fad500;
+  width: 8em;
+  border: none;
+  border-radius: 30px;
+  color: #2f46ab;
+}
+
+
+.warningImage {
+  width: 8em;
+  height: auto;
+}
 
 
 
@@ -184,7 +316,7 @@
 
   .progressbarDiv {
     margin: 0 24px;
-    bottom: 65px;
+    bottom: 62px;
   }
 
   .stepLabel {
@@ -201,6 +333,29 @@
 
   ::ng-deep.p-sidebar .p-sidebar-header {
     margin: 0;
+  }
+
+  .paymentContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+  .summaryDiv,
+  .paymentDiv {
+    width: 20em;
+  }
+
+  .paymantWrapper {
+    height: auto;
+  }
+
+  .payment {
+    justify-content: center;
+  }
+
+  .upiDescription {
+    display: none;
   }
 
 }
@@ -223,7 +378,7 @@
 
   .progressbarDiv {
     margin: 0 36px;
-    bottom: 65px;
+    bottom: 62px;
   }
 
   .stepLabel {
@@ -238,11 +393,26 @@
     padding: 0 !important;
   }
 
+  .paymentContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .summaryDiv,
+  .paymentDiv {
+    width: 30em;
+  }
 
 }
 
 @media screen and (min-width: 768px) and (max-width: 1199px) {
+
   .wrapper {
     width: 45em;
+  }
+
+  .paymentContainer {
+    flex-direction: column;
+    align-items: center;
   }
 }

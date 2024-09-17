@@ -37,12 +37,8 @@ export class LocationComponent {
     this.sharedService.onActiveIndexChange(0, false);
   }
 
-
   locationSelected(i: number) {
+    this.sharedService.ticketDetails.location = this.parkLocationData[i]?.label;
     this.sharedService.onActiveIndexChange(1, false);
-    this.sharedService.parkTicketDetails.location = this.parkLocationData[i]?.label;
   }
-
-
-
 }

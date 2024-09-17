@@ -1,0 +1,16 @@
+<div class="container flex justify-content-center align-items-center ">
+    <div class="content p-3">
+        <div class="paymentImgDiv flex justify-content-center align-items-center">
+            <img class="paymentImg" src="../../../assets/paymentSuccessful/check2.gif" alt="Payment Successful Image">
+        </div>
+
+        <p class="text-center ticketSuccessful">{{sharedService.CONSTANTS.paymentTicketSuccessful}}</p>
+        <p class="text-center transactionId">{{sharedService.CONSTANTS.paymentTransactionID}}: {{transactionId}}</p>
+        <p class="text-center amount">{{sharedService.CONSTANTS.paymentAmount}}: <b>₹{{amount}}</b></p>
+        <p class="text-center payedBy">{{sharedService.CONSTANTS.paymentBy}}: {{payedBy}}</p>
+        <div class="backToButtonDiv flex justify-content-center align-items-center">
+            <button class="flex justify-content-center" pButton
+                (click)="backTo()"><b>{{sharedService.CONSTANTS.paymentBackTo}}</b></button>
+        </div>
+    </div>
+</div>

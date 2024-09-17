@@ -13,7 +13,7 @@
             </div>
         </div>
 
-        <div class="stepsWrapper flex justify-content-center">
+        <div class="stepsWrapper flex justify-content-center" *ngIf="!sharedService.isStepsCompleted">
             <div class="stepsWrapperDiv">
                 <div class="stepsDiv flex justify-content-around">
                     <div class="steps flex justify-content-center align-items-center m-2 cursor-pointer flex-column"
@@ -36,7 +36,7 @@
         </div>
 
 
-        <div class="contentWrapper">
+        <div class="contentWrapper" *ngIf="!sharedService.isStepsCompleted">
             <app-location *ngIf="sharedService.activeIndex==0"></app-location>
             <app-date *ngIf="sharedService.activeIndex==1"></app-date>
             <app-tickets *ngIf="sharedService.activeIndex==2"></app-tickets>
@@ -46,10 +46,104 @@
         </div>
 
 
+        <div class="flex paymentContainer" *ngIf="sharedService.isStepsCompleted">
+            <div class="summaryWrapper m-2">
+                <div class="summaryTitleDiv flex align-items-center justify-content-start ">
+                    <img class="backArrow mr-3 cursor-pointer" (click)="backToBilling()"
+                        src="../../../assets/parkTicketDate/back-arrow.svg" alt="">
+                    <h2 class="title m-0 cursor-pointer" (click)="backToBilling()">
+                        {{sharedService.CONSTANTS.parkTicketPaymentTitle}}</h2>
+                </div>
+                <div class="summaryDiv">
+                    <div class="summary m-3">
+                        <div class="border p-3 mb-2">
+                            <div class="bookingSummaryDiv flex justify-content-between ">
+                                <div class="bookingSummary p-2">
+                                    <p class="m-0 text-center">
+                                        {{sharedService.CONSTANTS.parkTicketBillingBookingSummary}}
+                                    </p>
+                                </div>
+                                <div class="locationDiv flex justify-content-center align-items-center ">
+                                    <img src="../../../assets/parkTicketBilling/location-pin.svg" alt="Location Pin">
+                                    <p class="m-0 selectedLocation">{{selectedLocation}}</p>
+                                </div>
+                            </div>
+                            <div class="datesDiv flex justify-content-between">
+                                <div class="">
+                                    <p class="totalSplitter opacity-80">
+                                        {{sharedService.CONSTANTS.parkTicketBillingDateOfVisit}}</p>
+                                    <p class="m-0 dates">{{selectedDate}}</p>
+                                </div>
+                                <div class="">
+                                    <p class="totalSplitter opacity-80">
+                                        {{sharedService.CONSTANTS.parkTicketBillingVisitors}}</p>
+                                    <p class="m-0 dates flex align-items-center"><img class="userImg m-2 mt-1"
+                                            src="../../../assets/parkTicketTickets/user.svg" alt="user">{{visitors}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border p-4 pb-3 mb-3">
+                            <p-floatLabel>
+                                <input id="fullName" type="text" [disabled]="true" pInputText [(ngModel)]="fullName" />
+                                <label class="opacity-80" for="fullName">Full Name <span
+                                        class="required">*</span></label>
+                            </p-floatLabel>
+                        </div>
+                        <div class="border p-4 pb-3 mb-3 flex">
+                            <div class="flagDiv flex justify-content-between align-items-center w-4rem">
+                                <img src="../../../assets/parkTicketBilling/india-flag.svg" alt="Flag">
+                                <p class="m-0"><b>+91</b></p>
+                            </div>
+                            <div class="border ml-2 mr-2 opacity-50 phoneNumberSplitter"></div>
+                            <p-floatLabel>
+                                <input id="phoneNumber" type="text" [disabled]="true" pInputText
+                                    [(ngModel)]="phoneNumber" />
+                                <label class="opacity-80" for="phoneNumber">Phone Number <span
+                                        class="required">*</span></label>
+                            </p-floatLabel>
+                        </div>
+                        <div class="border p-4 pb-3 mb-3">
+                            <p-floatLabel>
+                                <input id="email" type="text" [disabled]="true" pInputText [(ngModel)]="email" />
+                                <label class="opacity-80" for="email">Email Address <span
+                                        class="required">*</span></label>
+                            </p-floatLabel>
+                        </div>
+                    </div>
+                    <hr class="totalSplitter">
+                    <div class="amountFooterDiv m-0 p-5 pt-3 flex justify-content-between align-items-center">
+                        <p class="m-0">{{sharedService.CONSTANTS.parkTicketBillingGrandTotal}}</p>
+                        <p class="m-0">₹{{grandTotal}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="paymentWrapper m-2">
+                <div class="paymentTitleDiv font-bold flex justify-content-between align-items-center">
+                    <p class="m-0 paymentTitle">{{sharedService.CONSTANTS.parkTicketPaymentSelectPaymentOption}}</p>
+                </div>
+                <div class="paymentDiv p-4">
+
+                    <div class="paymantWrapper">
+                        <div class="payment border m-0 mb-2 p-3 pt-2 pb-2 cursor-pointer flex align-items-center "
+                            [ngClass]="item.isSelected?'selectedPayment':''" *ngFor="let item of upiData;let i=index"
+                            (click)="paymentClicked(i)">
+                            <div class="upiImgDiv w-6rem"><img [src]="item.imgUrl" alt="UPI Image"></div>
+                            <p class="m-0 upiDescription">{{item.description}}</p>
+                        </div>
+                    </div>
 
 
+                    <p class="text-center tearmsAndConditionsInfo">
+                        {{sharedService.CONSTANTS.parkTicketPaymentTearmsAndConditions}}</p>
+                    <div class="paymentFooterDiv pt-3">
+                        <button class="flex justify-content-center" pButton
+                            (click)="makePayment()"><b>{{sharedService.CONSTANTS.parkTicketPaymentMakePayment}}</b></button>
+                    </div>
+                </div>
+            </div>
 
-
+        </div>
 
 
 
@@ -71,8 +165,8 @@
                 <i class="pi pi-chevron-right" *ngIf="!item.isopen&&item.types"></i>
             </div>
             <div class="firstChildDiv" *ngIf="item.isopen">
-                <div class="firstChild"
-                    *ngFor="let firstChildItem of item.types" (click)="firstChildItem.isopen=!firstChildItem.isopen">
+                <div class="firstChild" *ngFor="let firstChildItem of item.types"
+                    (click)="firstChildItem.isopen=!firstChildItem.isopen">
                     <div class=" flex justify-content-between align-items-center cursor-pointer">
                         <div class="firstChildLabelDiv flex justify-content-between align-items-center cursor-pointer">
                             <i class="fa fa-angle-double-right mr-2"></i>
@@ -92,6 +186,19 @@
         </div>
     </div>
 </p-sidebar>
+
+<p-dialog [(visible)]="sharedService.showDialog" [modal]="true" [style]="{ width: '25rem' }" [draggable]="false"
+    [resizable]="false">
+    <div class="flex align-items-center justify-content-center gap-2">
+        <img class="warningImage" src="../../../assets/parkTicketDate/my-booking-popup.png" alt="Warning">
+    </div>
+    <div class="dialogInfo">
+        <p class="text-center"><b>{{sharedService.dialogContent}}</b></p>
+    </div>
+    <div class="dialogButtonDiv flex justify-content-center">
+        <p-button class="dialogButton" label="OK" severity="secondary" (onClick)="sharedService.showDialog = false" />
+    </div>
+</p-dialog>
 
 <div class=" flex justify-content-center loader align-items-center" *ngIf="isLoading">
     <img class="parkTicketLoading" src="../../../assets/parkTicketLoading/Loading Gif.gif" alt="Loading gif">

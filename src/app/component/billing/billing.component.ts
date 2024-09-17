@@ -20,6 +20,13 @@ export class BillingComponent {
   selectedFor: string = 'Adult';
   mealsPrice: string = '379.00';
   priceWithGst: string = '1798.00';
+  fullName:string='';
+  phoneNumber:string='';
+  email:string='';
+  pinCode!:string;
+  receiverFullName:string='';
+  receiverPhoneNumber:string='';
+  receiverEmail:string='';
 
   constructor(public sharedService: SharedService) { }
 
@@ -57,8 +64,9 @@ export class BillingComponent {
 
 
 
-  agreedClicked() {
+  goToPayment() {
     console.log('>>>');
+    this.sharedService.isStepsCompleted = true;
 
   }
 }

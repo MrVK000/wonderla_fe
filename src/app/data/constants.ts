@@ -46,7 +46,6 @@ const CONSTANT_VARIABLES = {
   parkTicketDateWaterPark: "Water Park",
   parkTicketDateWaterParkTimeOne: "12:30 PM - 05:00 PM",
   parkTicketDateWaterParkTimeTwo: "12:00 PM - 06:00 PM",
-  parkDialogInfo: 'Please select a date to continue..!',
   parkTicketSelectDate: 'Select a Date of Visit',
   parkTicketTicketsTitle: 'Grab your Tickets',
   parkTicketTicketsparagraph: 'Wonderla provides regular tickets, fast track tickets for queue skipping, and Special Offer tickets designed exclusively for students, Birthday Celebrations and Women, Make your choice',
@@ -70,10 +69,19 @@ const CONSTANT_VARIABLES = {
   parkTicketBillingGstPercentage: '18%',
   parkTicketBillingGstPrice: '216.46',
   parkTicketBillingAmountToBePaid: 'Amount to be paid',
+  parkTicketBillingManditoryInfo: 'All fields are mandatory to be filled with relevant information.',
+  parkTicketBillingReceiversDetails: 'Receiver’s Details',
+  parkTicketBillingProceedToPay: 'Proceed To Pay',
+  parkTicketPaymentSelectPaymentOption: 'Select Payment Option',
+  parkTicketPaymentTitle: 'Payment',
+  parkTicketPaymentMakePayment: 'Make Payment',
+  parkTicketPaymentTearmsAndConditions: 'By proceeding further, you agree to all our T&Cs and Privacy Policy',
 
-
-
-  parkTicketBilling: '',
+  paymentTicketSuccessful:'Ticket Payment Successful',
+  paymentTransactionID:'Transaction ID',
+  paymentAmount:'Amount paid',
+  paymentBy:'Payed by',
+  paymentBackTo:'Back To Home',
 };
 
 

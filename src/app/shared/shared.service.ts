@@ -36,9 +36,9 @@ export class SharedService {
   selectedAdultOption!: LabelInterface;
   resortsData: LabelInterface[] = [];
   progressbarValue: number = 0;
-  parkTicketDetails: any = {};
-  activeIndex: number = 5;
-  
+  activeIndex: number = 0;
+  isStepsCompleted: boolean = false;
+
   adultOptionData: LabelInterface[] = [
     {
       label: '1',
@@ -53,6 +53,16 @@ export class SharedService {
       id: 2
     },
   ]
+
+  showDialog: boolean = false;
+  dialogContent: string = '';
+
+  ticketDetails = {
+    location:'',
+    date:'',
+    ticketPrice:'',
+    mealsPrice:'',    
+  };
 
 
   constructor(public messageService: MessageService, public router: Router,) { }
@@ -156,11 +166,19 @@ export class SharedService {
 
 
 
+  generateTransactionID() {
+    return Math.random().toString(18).slice(2);
+  }
 
 
 
 
 
+  showTheDialog(content: string) {
+    console.log('>>>');
+    this.showDialog = true;
+    this.dialogContent = content;
+  }
 
 
 

@@ -15,6 +15,7 @@ import { AddonsComponent } from './component/addons/addons.component';
 import { RulesComponent } from './component/rules/rules.component';
 import { BillingComponent } from './component/billing/billing.component'; // Import this
 import { ticketsComponent } from './component/ticktes/tickets.component';
+import { PaymentSuccessfulComponent } from './component/payment-successful/payment-successful.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ticketsComponent } from './component/ticktes/tickets.component';
     ticketsComponent,
     AddonsComponent,
     RulesComponent,
-    BillingComponent
+    BillingComponent,
+    PaymentSuccessfulComponent
   ],
   imports: [
     BrowserModule,

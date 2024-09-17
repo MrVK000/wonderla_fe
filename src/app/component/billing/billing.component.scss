@@ -1,3 +1,7 @@
+::selection {
+    background-color: #eff3ff;
+}
+
 .container {
     display: flex;
     justify-content: center;
@@ -51,16 +55,19 @@
 
 
 
-.billDiv {
+.billDiv,
+.basicDetailsDiv {
     height: 26em;
     overflow: auto;
 }
 
+.basicDetailsDiv::-webkit-scrollbar,
 .billDiv::-webkit-scrollbar {
     width: 5px;
     background-color: #e1e6ec;
 }
 
+.basicDetailsDiv::-webkit-scrollbar-thumb,
 .billDiv::-webkit-scrollbar-thumb {
     background: #2f47ab;
     border-radius: 5px;
@@ -132,8 +139,158 @@
 }
 
 
-.border {
-    border: 1px solid rgb(128, 128, 128, 0.3);
-    // height: 8em;
-    border-radius: 20px;
+
+.manditoryInfo {
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+
+input[pInputText] {
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 0;
+}
+
+
+input[pInputText]:focus {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    /* Remove the focus effect */
+}
+
+::ng-deep p-inputnumber input {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    width: 10em !important;
+    padding: 0 !important;
+    /* Remove the blue focus shadow */
+}
+
+::ng-deep p-inputnumber input:focus {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    /* Ensure focus state also has no border */
+}
+
+
+.receiversDetails {
+    font-size: 22px;
+    font-weight: 900;
+}
+
+
+.detailsFooterDiv .p-button {
+    width: 100%;
+    border-radius: 30px;
+    background-color: #2f46ab;
+}
+
+
+
+@media screen and (max-width: 575px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    // .container>div {
+    //     width: 18em;
+    //     margin: 10px;
+    // }
+
+    .totalDiv,
+    .detailsDiv {
+        width: 18em;
+    }
+
+    .detailsTitleDiv {
+        flex-direction: column;
+        margin: 20px;
+        margin-bottom: 3em;
+        width: 12em;
+        height: 6em;
+    }
+
+    .basicDetailsDiv {
+        height: 20em;
+    }
+
+    .checkboxWrapper {
+        justify-content: flex-start !important;
+    }
+
+    .title {
+        font-size: 28px;
+    }
+
+    .datesDiv {
+        flex-direction: column;
+    }
+
+    .mealsCount {
+        display: none !important;
+    }
+
+    .countButtonsWrapper {
+        display: none !important;
+    }
+
+
+    .detailsDiv {
+        padding: 10px !important;
+    }
+
+    .phoneNumberSplitter {
+        margin-right: 0 !important;
+    }
+
+
+
+    // .detailsFooterDiv .p-button {
+    //     width: 8em;
+    // }
+}
+
+@media screen and (min-width: 576px) and (max-width: 767px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    // .container>div {
+    //     width: 28em;
+    //     margin: 10px;
+    // }
+
+    .totalDiv,
+    .detailsDiv {
+        width: 32em;
+    }
+
+    .detailsTitleDiv {
+        flex-direction: column;
+        margin: 20px;
+    }
+
+    .checkboxWrapper {
+        justify-content: flex-start !important;
+    }
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    // .container>div {
+    //     width: 100%;
+    //     margin: 10px;
+    // }
 }

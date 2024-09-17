@@ -19,6 +19,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 import { PanelMenuModule } from 'primeng/panelmenu';
 import { InputGroupModule } from 'primeng/inputgroup';
+import { FloatLabelModule } from 'primeng/floatlabel';
+import { InputNumberModule } from 'primeng/inputnumber';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
@@ -49,6 +51,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     InputTextModule,
     PanelMenuModule,
     InputGroupModule,
+    FloatLabelModule,
+    InputNumberModule,
     ProgressBarModule,
     OverlayPanelModule,
     InputGroupAddonModule,
@@ -77,6 +81,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     InputTextModule,
     PanelMenuModule,
     InputGroupModule,
+    FloatLabelModule,
+    InputNumberModule,
     ProgressBarModule,
     OverlayPanelModule,
     InputGroupAddonModule,

@@ -60,7 +60,7 @@
                         <p class="m-0"><b>{{sharedService.CONSTANTS.meals}}</b></p>
                         <p class="m-0 mealsTotal">{{sharedService.CONSTANTS.total}}</p>
                     </div>
-                    <p class="m-0">{{selctedMealsCount}}</p>
+                    <p class="m-0 mealsCount"><b>{{selctedMealsCount}}</b></p>
                     <p class="m-0 mealsTotal">₹{{mealsPrice}}</p>
                 </div>
                 <div class="border p-3 ">
@@ -86,18 +86,89 @@
     </div>
 
     <div class="detailsWrapper m-2">
-        <div class="detailsTitleDiv flex justify-content-between">
+        <div class="detailsTitleDiv mb-2 flex justify-content-between">
             <p class="m-0 detailsTitle">{{sharedService.CONSTANTS.parkTicketBillingDetailsTitle}}</p>
             <div class="checkboxDiv">
-                <div class="card flex justify-content-center align-items-center">
+                <div class="card checkboxWrapper flex justify-content-center align-items-center">
                     <p-checkbox class="bookingForSomeoneCheck" [(ngModel)]="isBookingForSomeone" [binary]="true"
-                        inputId="binary" />
-                    <p class="m-0 ml-2 bookingForSomeone">{{sharedService.CONSTANTS.parkTicketBillingBookingForSomeone}}
+                        #checkbox inputId="binary" />
+                    <p class="m-0 ml-2 bookingForSomeone cursor-pointer"
+                        (click)="isBookingForSomeone=!isBookingForSomeone">
+                        {{sharedService.CONSTANTS.parkTicketBillingBookingForSomeone}}
                     </p>
                 </div>
             </div>
         </div>
-        <div class="detailsDiv p-3">
+        <div class="detailsDiv p-4">
+            <p class="m-0 mb-3 manditoryInfo"><span class="required">*</span>
+                {{sharedService.CONSTANTS.parkTicketBillingManditoryInfo}}</p>
+            <div class="basicDetailsDiv pr-2">
+                <div class="border p-4 pb-3 mb-3">
+                    <p-floatLabel>
+                        <input id="fullName" type="text" pInputText [(ngModel)]="fullName" />
+                        <label class="opacity-80" for="fullName">Full Name <span class="required">*</span></label>
+                    </p-floatLabel>
+                </div>
+                <div class="border p-4 pb-3 mb-3 flex">
+                    <div class="flagDiv flex justify-content-between align-items-center w-4rem">
+                        <img src="../../../assets/parkTicketBilling/india-flag.svg" alt="Flag">
+                        <p class="m-0"><b>+91</b></p>
+                    </div>
+                    <div class="border ml-2 mr-2 opacity-50 phoneNumberSplitter"></div>
+                    <p-floatLabel>
+                        <input id="phoneNumber" type="text" pInputText [(ngModel)]="phoneNumber" />
+                        <label class="opacity-80" for="phoneNumber">Phone Number <span class="required">*</span></label>
+                    </p-floatLabel>
+                </div>
+                <div class="border p-4 pb-3 mb-3">
+                    <p-floatLabel>
+                        <input id="email" type="text" pInputText [(ngModel)]="email" />
+                        <label class="opacity-80" for="email">Email Address <span class="required">*</span></label>
+                    </p-floatLabel>
+                </div>
+                <div class="border p-4 pb-3 mb-3 w-12rem">
+                    <p-floatLabel>
+                        <p-inputNumber [(ngModel)]="pinCode" mode="decimal" inputId="withoutgrouping" maxlength="6"
+                            [useGrouping]="false" />
+                        <label class="opacity-80" for="pinCode">PIN Code <span class="required">*</span></label>
+                    </p-floatLabel>
+                </div>
+
+                <div class="receiversDiv" *ngIf="isBookingForSomeone">
+                    <p class="receiversDetails"> {{sharedService.CONSTANTS.parkTicketBillingReceiversDetails}}</p>
+                    <div class="border p-4 pb-3 mb-3">
+                        <p-floatLabel>
+                            <input id="receiverFullName" type="text" pInputText [(ngModel)]="receiverFullName" />
+                            <label class="opacity-80" for="receiverFullName">Full Name <span
+                                    class="required">*</span></label>
+                        </p-floatLabel>
+                    </div>
+                    <div class="border p-4 pb-3 mb-3 flex">
+                        <div class="flagDiv flex justify-content-between align-items-center w-4rem">
+                            <img src="../../../assets/parkTicketBilling/india-flag.svg" alt="Flag">
+                            <p class="m-0"><b>+91</b></p>
+                        </div>
+                        <div class="border ml-2 mr-2 opacity-50 phoneNumberSplitter"></div>
+                        <p-floatLabel>
+                            <input id="receiverPhoneNumber" type="text" pInputText [(ngModel)]="receiverPhoneNumber" />
+                            <label class="opacity-80" for="receiverPhoneNumber">Phone Number <span
+                                    class="required">*</span></label>
+                        </p-floatLabel>
+                    </div>
+                    <div class="border p-4 pb-3 mb-3">
+                        <p-floatLabel>
+                            <input id="receiverEmail" type="text" pInputText [(ngModel)]="receiverEmail" />
+                            <label class="opacity-80" for="receiverEmail">Email Address <span
+                                    class="required">*</span></label>
+                        </p-floatLabel>
+                    </div>
+                </div>
+
+            </div>
+            <div class="detailsFooterDiv pt-3">
+                <button class="flex justify-content-center" pButton
+                    (click)="goToPayment()"><b>{{sharedService.CONSTANTS.parkTicketBillingProceedToPay}}</b></button>
+            </div>
         </div>
     </div>
 

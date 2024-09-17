@@ -100,14 +100,3 @@
 </div>
 
 
-<p-dialog [(visible)]="showPopup" [modal]="true" [style]="{ width: '25rem' }" [draggable]="false" [resizable]="false">
-    <div class="flex align-items-center justify-content-center gap-2">
-        <img class="warningImage" src="../../../assets/parkTicketDate/my-booking-popup.png" alt="Warning">
-    </div>
-    <div class="dialogInfo">
-        <p class="text-center"><b>{{sharedService.CONSTANTS.parkDialogInfo}}</b></p>
-    </div>
-    <div class="dialogButtonDiv flex justify-content-center">
-        <p-button class="dialogButton" label="OK" severity="secondary" (onClick)="showPopup = false" />
-    </div>
-</p-dialog>

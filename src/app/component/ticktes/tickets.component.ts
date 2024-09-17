@@ -280,7 +280,14 @@ export class ticketsComponent {
 
 
   confirmClicked() {
-    this.sharedService.onActiveIndexChange(3, false);
+    if (this.totalTicketAmount !== '0.00') {
+      this.sharedService.ticketDetails.ticketPrice=this.totalTicketAmount;
+      this.sharedService.onActiveIndexChange(3, false);
+    }
+    else {
+      this.sharedService.showTheDialog('Please add ticket/s to proceed!');
+    }
+
   }
 
 

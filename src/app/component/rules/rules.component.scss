@@ -106,8 +106,12 @@
 
     .rulesDiv {
         padding: 10px;
+        height: auto !important;
     }
 
+    .ruleContentDiv {
+        height: 20em;
+    }
 
     .ruleChildImagesDiv {
         flex-direction: column;

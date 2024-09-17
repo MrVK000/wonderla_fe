@@ -81,7 +81,30 @@ export class ParkTicketComponent {
     {
       label: 'Contact Us'
     },
-  ]
+  ];
+
+
+  selectedLocation = 'HYDERBAD';
+  selectedDate = '25 September 2024';
+  visitors = '1';
+  fullName = 'James';
+  phoneNumber = '1234567890';
+  email = 'James@gmail.com';
+  grandTotal = '1419.00';
+
+  upiData = [
+    {
+      imgUrl: '../../../assets/parkTicket/payubiz.svg',
+      description: 'Net Banking/Credit Card / Debit Card/UPI',
+      isSelected: false,
+    },
+    {
+      imgUrl: '../../../assets/parkTicket/paytm.svg',
+      description: 'Paytm Wallet',
+      isSelected: false,
+    },
+  ];
+
 
 
 
@@ -93,7 +116,7 @@ export class ParkTicketComponent {
     if (i <= this.sharedService.activeIndex)
       return true;
     else
-      return false
+      return false;
   }
 
 
@@ -101,8 +124,35 @@ export class ParkTicketComponent {
     if (i < this.sharedService.activeIndex)
       return true;
     else
-      return false
+      return false;
   }
+
+  backToBilling() {
+    this.sharedService.isStepsCompleted = false;
+    this.sharedService.onActiveIndexChange(5, false);
+  }
+
+  paymentClicked(i: number) {
+    console.log('>>>');
+
+    if (i == 0) {
+      this.upiData[0].isSelected = true;
+      this.upiData[1].isSelected = false;
+    }
+    else {
+      this.upiData[0].isSelected = false;
+      this.upiData[1].isSelected = true;
+    }
+  }
+
+  makePayment() {
+    setTimeout(() => {
+      this.router.navigate(['/payment-successful']);
+    }, 2000);
+  }
+
+
+
 
 
 }

@@ -9,6 +9,7 @@ import { DateComponent } from './component/date/date.component';
 import { AddonsComponent } from './component/addons/addons.component';
 import { RulesComponent } from './component/rules/rules.component';
 import { BillingComponent } from './component/billing/billing.component';
+import { PaymentSuccessfulComponent } from './component/payment-successful/payment-successful.component';
 
 const routes: Routes = [
   {
@@ -32,32 +33,10 @@ const routes: Routes = [
   {
     path: 'park-ticket',
     component: ParkTicketComponent,
-    // children: [
-    //   {
-    //     path: '',
-    //     component: LocationComponent
-    //   },
-    //   {
-    //     path: 'date',
-    //     component: DateComponent
-    //   },
-    //   {
-    //     path: 'tickets',
-    //     component: ticketsComponent
-    //   },
-    //   {
-    //     path: 'addons',
-    //     component: AddonsComponent
-    //   },
-    //   {
-    //     path: 'rules',
-    //     component: RulesComponent
-    //   },
-    //   {
-    //     path: 'billing',
-    //     component: BillingComponent
-    //   },
-    // ]
+  },
+  {
+    path: 'payment-successful',
+    component: PaymentSuccessfulComponent,
   },
 ];
 

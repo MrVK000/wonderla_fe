@@ -36,7 +36,6 @@ export class DateComponent {
   selectedDate!: Date;
   minDate!: Date;
   maxDate!: Date;
-  showPopup: boolean = false;
   weekDays: string[] = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
 
   constructor(private router: Router, public sharedService: SharedService,) { }
@@ -109,11 +108,11 @@ export class DateComponent {
 
   confirmDate() {
     if (this.selectedDate) {
-      this.sharedService.parkTicketDetails.date = this.selectedDate.toString();
+      this.sharedService.ticketDetails.date = this.selectedDate.toString();
       this.sharedService.onActiveIndexChange(2, false);
     }
     else {
-      this.showPopup = true;
+      this.sharedService.showTheDialog('Please select a date to continue..!');
     }
   }
 
