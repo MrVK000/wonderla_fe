@@ -12,19 +12,19 @@ export class LocationComponent {
   parkLocationData = [
     {
       label: 'KOCHI',
-      url: '../../../assets/parkTicketLocation/kerala2.png'
+      url: '../../../assets/parkTicketLocation/kerala2.png',
     },
     {
       label: 'BENGALURU',
-      url: '../../../assets/parkTicketLocation/blr2.png'
+      url: '../../../assets/parkTicketLocation/blr2.png',
     },
     {
       label: 'HYDERABAD',
-      url: '../../../assets/parkTicketLocation/hyd2.png'
+      url: '../../../assets/parkTicketLocation/hyd2.png',
     },
     {
       label: 'BHUBANESWAR',
-      url: '../../../assets/parkTicketLocation/Odisha2.png'
+      url: '../../../assets/parkTicketLocation/Odisha2.png',
     },
   ]
 
@@ -35,10 +35,17 @@ export class LocationComponent {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     this.sharedService.onActiveIndexChange(0, false);
+    // this.sharedService.isParkTicketLoading=true;
+    this.sharedService.parkTicketDetails = {
+      location: '',
+      date: '',
+      ticketPrice: '',
+      mealsPrice: '',
+    };
   }
 
   locationSelected(i: number) {
-    this.sharedService.ticketDetails.location = this.parkLocationData[i]?.label;
+    this.sharedService.parkTicketDetails.location = this.parkLocationData[i]?.label;
     this.sharedService.onActiveIndexChange(1, false);
   }
 }

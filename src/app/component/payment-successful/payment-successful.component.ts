@@ -21,9 +21,7 @@ export class PaymentSuccessfulComponent {
     this.transactionId = this.sharedService.generateTransactionID();
   }
 
-  backTo() {
-    console.log('>>>ksfgn');
-    
+  backTo() {    
     this.router.navigate(['/']);
   }
 

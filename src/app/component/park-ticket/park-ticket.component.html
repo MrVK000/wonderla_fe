@@ -146,10 +146,10 @@
         </div>
 
 
-
-
     </div>
 </div>
+
+
 <p-sidebar [(visible)]="showSidebar" position="right">
     <ng-template pTemplate="header">
         <div class="flex align-items-center gap-2">
@@ -200,6 +200,6 @@
     </div>
 </p-dialog>
 
-<div class=" flex justify-content-center loader align-items-center" *ngIf="isLoading">
+<div class=" flex justify-content-center loader align-items-center" *ngIf="sharedService.isParkTicketLoading">
     <img class="parkTicketLoading" src="../../../assets/parkTicketLoading/Loading Gif.gif" alt="Loading gif">
 </div>

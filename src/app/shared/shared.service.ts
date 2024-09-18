@@ -28,16 +28,18 @@ export class SharedService {
   tomorrowDate: Date = new Date(this.todayDate);
 
   selectedLocation!: LabelInterface;
-  locationsData: LabelInterface[] = [];
   parkData: LabelInterface[] = [];
   hotelData: LabelInterface[] = [];
   outingData: LabelInterface[] = [];
+  resortsData: LabelInterface[] = [];
+  locationsData: LabelInterface[] = [];
+
   selectedHotel: LabelInterface | null = null;
   selectedAdultOption!: LabelInterface;
-  resortsData: LabelInterface[] = [];
   progressbarValue: number = 0;
   activeIndex: number = 0;
   isStepsCompleted: boolean = false;
+  isParkTicketLoading: boolean = false;
 
   adultOptionData: LabelInterface[] = [
     {
@@ -54,10 +56,13 @@ export class SharedService {
     },
   ]
 
+  //dialog
   showDialog: boolean = false;
   dialogContent: string = '';
 
-  ticketDetails = {
+
+  //park ticket details
+  parkTicketDetails = {
     location:'',
     date:'',
     ticketPrice:'',

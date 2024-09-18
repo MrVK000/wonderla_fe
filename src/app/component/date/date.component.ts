@@ -107,8 +107,8 @@ export class DateComponent {
   }
 
   confirmDate() {
-    if (this.selectedDate) {
-      this.sharedService.ticketDetails.date = this.selectedDate.toString();
+    if (this.sharedService.parkTicketDetails.date) {
+      // this.sharedService.parkTicketDetails.date = this.selectedDate.toString();
       this.sharedService.onActiveIndexChange(2, false);
     }
     else {
@@ -133,12 +133,18 @@ export class DateComponent {
 
 
   dateSelected(day: Date) {
-    if (day.getMonth() === this.currentDate.getMonth())
-      this.selectedDate = day;
+    if (day.getMonth() === this.currentDate.getMonth() && this.showColorForThisMonth(day))
+      this.sharedService.parkTicketDetails.date = day.toString();
   }
 
+  // dateConversion(ip: string, date: Date): Date {
+  //   console.log('>>>', new Date(ip), date, new Date(ip) == date, ip == (date).toString());
+
+  //   return new Date(ip) as Date;
+  // }
+
   backToLocation() {
-    this.sharedService.onActiveIndexChange(0, false)
+    this.sharedService.onActiveIndexChange(0, false);
   }
 
 }

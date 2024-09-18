@@ -1,6 +1,7 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { DatePipe } from '@angular/common';
 
 
 import { MenuModule } from 'primeng/menu';
@@ -89,7 +90,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ProgressSpinnerModule,
 
   ],
-  providers: [MessageService],
+  providers: [MessageService, DatePipe],
 
 })
 export class SharedModule { }

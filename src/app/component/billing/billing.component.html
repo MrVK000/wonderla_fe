@@ -16,7 +16,7 @@
                         </div>
                         <div class="locationDiv flex justify-content-center align-items-center ">
                             <img src="../../../assets/parkTicketBilling/location-pin.svg" alt="Location Pin">
-                            <p class="m-0 selectedLocation">{{selectedLocation}}</p>
+                            <p class="m-0 selectedLocation">{{sharedService.parkTicketDetails.location}}</p>
                         </div>
                     </div>
                     <div class="datesDiv flex justify-content-between">
@@ -31,7 +31,7 @@
                         </div>
                         <div class="">
                             <p class="totalSplitter">{{sharedService.CONSTANTS.parkTicketBillingTotal}}</p>
-                            <p class="m-0 dates">₹{{total}}</p>
+                            <p class="m-0 dates">₹{{sharedService.parkTicketDetails.ticketPrice}}</p>
                         </div>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                         </div>
                     </div>
                     <div class="ticketPrice">
-                        <p class="m-0 total">{{total}}</p>
+                        <p class="m-0 total">{{sharedService.parkTicketDetails.ticketPrice}}</p>
                     </div>
                 </div>
                 <div class="border p-3 mb-2 flex justify-content-between align-items-center ">
@@ -61,7 +61,7 @@
                         <p class="m-0 mealsTotal">{{sharedService.CONSTANTS.total}}</p>
                     </div>
                     <p class="m-0 mealsCount"><b>{{selctedMealsCount}}</b></p>
-                    <p class="m-0 mealsTotal">₹{{mealsPrice}}</p>
+                    <p class="m-0 mealsTotal">₹{{sharedService.parkTicketDetails.mealsPrice}}</p>
                 </div>
                 <div class="border p-3 ">
                     <div class="gstDiv flex justify-content-between align-items-center ">

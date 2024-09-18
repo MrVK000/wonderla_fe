@@ -120,6 +120,8 @@ export class RulesComponent {
   }
 
   agreedClicked() {
+    console.log('>>>',this.sharedService.parkTicketDetails);
+    
     this.sharedService.onActiveIndexChange(5, false);
   }
 }

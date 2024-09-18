@@ -9,9 +9,6 @@ import { SharedService } from '../../shared/shared.service';
 })
 export class ParkTicketComponent {
 
-  isLoading: boolean = false;
-
-
   stepsData = [
     {
       label: 'Location',
@@ -133,8 +130,6 @@ export class ParkTicketComponent {
   }
 
   paymentClicked(i: number) {
-    console.log('>>>');
-
     if (i == 0) {
       this.upiData[0].isSelected = true;
       this.upiData[1].isSelected = false;

@@ -139,7 +139,7 @@ export class AddonsComponent {
   }
 
   confirmClicked() {
-    this.sharedService.ticketDetails.mealsPrice = this.totalFoodAmount;
+    this.sharedService.parkTicketDetails.mealsPrice = this.totalFoodAmount;
     this.sharedService.onActiveIndexChange(4, false);
   }
 
