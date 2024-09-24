@@ -117,6 +117,10 @@
     padding: 10px;
 }
 
+.ticketsContent ::selection {
+    background-color: #ffffff;
+}
+
 .ticketProfileImgDiv {
     border-radius: 100px;
     overflow: hidden;
@@ -303,6 +307,14 @@
         display: none;
     }
 
+    .title {
+        font-size: 24px;
+    }
+
+    .ticketsContentDiv {
+        padding-left: 4px;
+    }
+
     .ticketProfileImgDiv {
         display: none !important;
     }
@@ -310,7 +322,17 @@
     .titleWrapper,
     .ticketDescription {
         font-size: 12px;
+        text-wrap: wrap;
+        width: 10em;
     }
+
+
+    .childTitleDiv {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
 
     .child {
         flex-direction: column;
@@ -326,11 +348,12 @@
     }
 
     ::ng-deep .p-inputgroup .p-button {
-        width: 6em;
+        width: 4em;
+        padding: 0;
     }
 
     ::ng-deep .p-inputgroup .p-inputtext {
-        padding: 2 px;
+        padding: 8px;
     }
 
 

@@ -41,7 +41,9 @@ export class DateComponent {
   constructor(private router: Router, public sharedService: SharedService,) { }
 
   ngOnInit(): void {
-    this.sharedService.onActiveIndexChange(1, false);
+    setTimeout(() => {      
+      this.sharedService.onActiveIndexChange(1, false);
+    }, 0);
 
     const month = this.currentDate.getMonth();
     const year = this.currentDate.getFullYear();
@@ -52,6 +54,10 @@ export class DateComponent {
     const max = new Date(today);
     max.setMonth(today.getMonth() + 2);
     this.maxDate = max;
+    if (this.sharedService.parkTicketDetails.date) {
+      // this.sharedService.parkTicketDetails.date = this.selectedDate.toString();
+      this.selectedDate = new Date(this.sharedService.parkTicketDetails.date);
+    }
 
   }
 
@@ -107,6 +113,9 @@ export class DateComponent {
   }
 
   confirmDate() {
+    if (this.selectedDate) {
+      this.sharedService.parkTicketDetails.date = this.selectedDate.toString();
+    }
     if (this.sharedService.parkTicketDetails.date) {
       // this.sharedService.parkTicketDetails.date = this.selectedDate.toString();
       this.sharedService.onActiveIndexChange(2, false);

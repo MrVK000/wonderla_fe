@@ -14,7 +14,7 @@
             <h2 class="text-center trendingTitle">{{sharedService.CONSTANTS.parkTicketTicketsTrendingTicket}}</h2>
             <div class="carouselDiv">
                 <p-carousel [value]="couponData" [numVisible]="1" [numScroll]="1" [circular]="true"
-                    [responsiveOptions]="responsiveOptions" autoplayInterval="3000">
+                    [responsiveOptions]="responsiveOptions" [autoplayInterval]="autoplayInterval">
                     <ng-template let-coupon pTemplate="item">
 
 
@@ -111,13 +111,13 @@
 
 
             <p-inputGroup class="mt-5 mb-5">
-                <input type="text" pInputText placeholder="Enter Coupon Code" />
+                <input type="text" [(ngModel)]="sharedService.couponCode" pInputText placeholder="Enter Coupon Code" />
                 <button type="button" pButton label="APPLY"></button>
             </p-inputGroup>
 
 
             <p-inputGroup class="mt-5 mb-5">
-                <input type="text" pInputText placeholder="Enter GSTN For GST Bill" />
+                <input type="text" [(ngModel)]="sharedService.gstn" pInputText placeholder="Enter GSTN For GST Bill" />
                 <button type="button" pButton label="APPLY"></button>
             </p-inputGroup>
 

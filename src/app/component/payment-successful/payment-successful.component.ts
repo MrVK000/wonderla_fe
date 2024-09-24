@@ -16,8 +16,6 @@ export class PaymentSuccessfulComponent {
   constructor(private router: Router, public sharedService: SharedService) { }
 
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
     this.transactionId = this.sharedService.generateTransactionID();
   }
 

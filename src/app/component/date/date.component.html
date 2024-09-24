@@ -69,7 +69,7 @@
                         (click)="dateSelected(day)">
                         <div *ngIf="day.getMonth() === currentDate.getMonth()">
                             <span class="cursor-pointer"><b>{{ day.getDate() }}</b></span>
-                            <span *ngIf="showColorForThisMonth(day)&&day.getMonth() === currentDate.getMonth()"
+                            <span *ngIf="showColorForThisMonth(day) && day.getMonth() === currentDate.getMonth()"
                                 class="daySpan"></span>
                         </div>
                     </div>

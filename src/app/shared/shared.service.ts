@@ -11,63 +11,107 @@ import { Router } from '@angular/router';
 })
 export class SharedService {
 
+  //common loading
   isLoading: boolean = false;
 
-  mobileSliderImageData = mobileSliderImageData;
-  CONSTANTS = CONSTANT_VARIABLES;
-
+  //image data
   cardData = cardData;
+  CONSTANTS = CONSTANT_VARIABLES;
   offersCardData = offersCardData;
   sliderImageData = sliderImageData;
+  mobileSliderImageData = mobileSliderImageData;
   zigZagInterTwoCardData = zigZagInterTwoCardData;
   zigZagInterOneCardData = zigZagInterOneCardData;
 
+  //for date component
   endDate!: Date;
   startDate!: Date;
   todayDate: Date = new Date;
   tomorrowDate: Date = new Date(this.todayDate);
 
-  selectedLocation!: LabelInterface;
+  //data for dropdown
   parkData: LabelInterface[] = [];
   hotelData: LabelInterface[] = [];
   outingData: LabelInterface[] = [];
   resortsData: LabelInterface[] = [];
   locationsData: LabelInterface[] = [];
+  adultOptionData: LabelInterface[] = [];
 
+  //dropdown selected options
   selectedHotel: LabelInterface | null = null;
+  selectedLocation!: LabelInterface;
   selectedAdultOption!: LabelInterface;
+
+  //for stepper
+  activeIndex: number = 3;
   progressbarValue: number = 0;
-  activeIndex: number = 0;
+
+  //payment details
   isStepsCompleted: boolean = false;
+
+  //park loading
   isParkTicketLoading: boolean = false;
 
-  adultOptionData: LabelInterface[] = [
-    {
-      label: '1',
-      id: 0
-    },
-    {
-      label: '2',
-      id: 1
-    },
-    {
-      label: '3',
-      id: 2
-    },
-  ]
-
-  //dialog
+  //warning dialog
   showDialog: boolean = false;
   dialogContent: string = '';
+
+  //booknow dialog
+  showBookNowDialog: boolean = false;
 
 
   //park ticket details
   parkTicketDetails = {
-    location:'',
-    date:'',
-    ticketPrice:'',
-    mealsPrice:'',    
+    location: '',
+    date: '',
+    ticketPrice: '',
+    mealsPrice: '',
   };
+
+  //selectedtickets
+  adult: any = [];
+  adultOffer: any = [];
+  child: any = [];
+  senior: any = [];
+
+  fastAdult: any = [];
+  fastChild: any = [];
+
+  collegeIdCombo: any = [];
+  collegeId: any = [];
+  birthday: any = [];
+  womenFree: any = [];
+  womenPaid: any = [];
+  
+  couponCode: string = '';
+  gstn: string = '';
+  
+  parkTicketWrapper: any = [];
+
+
+  //selected meals
+  meal1: any = [];
+  meal2: any = [];
+  meal3: any = [];
+  meal4: any = [];
+  meal5: any = [];
+  meal6: any = [];
+
+  mealsWrapper: any = [];
+
+
+
+
+
+
+
+
+
+
+  // parkTicketWrapperArray = [...this.adult, ...this.adultOffer, ...this.child, ...this.senior, ...this.fastAdult, ...this.fastChild, ...this.collegeIdCombo, ...this.collegeId, ...this.birthday, ...this.womenFree, ...this.womenPaid];
+  // parkTicketWrapperArray = [...this.adult];
+  // parkTicketWrapperArray :any= [];
+  // parkTicketWrapperArray = [...[{na:'hii'}]];
 
 
   constructor(public messageService: MessageService, public router: Router,) { }
@@ -105,7 +149,6 @@ export class SharedService {
   }
 
 
-  showBookNowDialog: boolean = false;
 
   bookTicket() {
     this.showBookNowDialog = false;
@@ -180,7 +223,6 @@ export class SharedService {
 
 
   showTheDialog(content: string) {
-    console.log('>>>');
     this.showDialog = true;
     this.dialogContent = content;
   }

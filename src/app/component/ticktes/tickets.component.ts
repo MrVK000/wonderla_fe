@@ -15,10 +15,6 @@ export class ticketsComponent {
       description: 'Get 10% discount on Regular Adualt Tickets',
       code: 'ADVO3DAYS',
     },
-    // {
-    //   description: 'Get 10% discount on Regular Adualt Tickets',
-    //   code: 'ADVO3DAYS',
-    // },
   ];
 
   responsiveOptions = [
@@ -47,13 +43,13 @@ export class ticketsComponent {
       icon: '../../../assets/parkTicketTickets/user.svg',
       background: '#cdd6ff',
       isOpen: false,
-      totalSelectedTickets: 0,
+      totalSelectedTickets: [...this.sharedService.adult, ...this.sharedService.adultOffer, ...this.sharedService.child, ...this.sharedService.senior].length,
       child: [
         {
           title: 'Adult',
           price: '1202.54',
           profileImg: '../../../assets/parkTicketTickets/user.svg',
-          selctedCount: 0,
+          selctedCount: this.sharedService.adult.length,
           isOfferAvailable: false,
           oldPrice: '',
           offer: '',
@@ -64,7 +60,7 @@ export class ticketsComponent {
           title: 'Adult Ticket + Bucket Offer',
           price: '1549',
           profileImg: '../../../assets/parkTicketTickets/user.svg',
-          selctedCount: 0,
+          selctedCount: this.sharedService.adultOffer.length,
           isOfferAvailable: true,
           oldPrice: '1918',
           offer: '20% Off',
@@ -75,7 +71,7 @@ export class ticketsComponent {
           title: 'Child',
           price: '961.86',
           profileImg: '../../../assets/parkTicketTickets/user.svg',
-          selctedCount: 0,
+          selctedCount: this.sharedService.child.length,
           isOfferAvailable: false,
           oldPrice: '',
           offer: '',
@@ -86,7 +82,7 @@ export class ticketsComponent {
           title: 'Senior Citizen',
           price: '901.91',
           profileImg: '../../../assets/parkTicketTickets/user.svg',
-          selctedCount: 0,
+          selctedCount: this.sharedService.senior.length,
           isOfferAvailable: true,
           oldPrice: '1202.54',
           offer: '25% Off',
@@ -102,13 +98,13 @@ export class ticketsComponent {
       icon: '../../../assets/parkTicketTickets/user.svg',
       background: '#ffe75f',
       isOpen: false,
-      totalSelectedTickets: 0,
+      totalSelectedTickets: [...this.sharedService.fastAdult, ...this.sharedService.fastChild].length,
       child: [
         {
           title: 'Fast Track Adult',
           price: '1924.06',
           profileImg: '../../../assets/parkTicketTickets/user.svg',
-          selctedCount: 0,
+          selctedCount: this.sharedService.fastAdult.length,
           isOfferAvailable: false,
           oldPrice: '',
           offer: '',
@@ -119,7 +115,7 @@ export class ticketsComponent {
           title: 'Fast Track Child',
           price: '1538.98',
           profileImg: '../../../assets/parkTicketTickets/user.svg',
-          selctedCount: 0,
+          selctedCount: this.sharedService.fastChild.length,
           isOfferAvailable: false,
           oldPrice: '',
           offer: '',
@@ -141,7 +137,7 @@ export class ticketsComponent {
           title: 'College ID + Biriyani Combo',
           price: '1284',
           profileImg: '../../../assets/parkTicketTickets/StudentIDPackage.png',
-          selctedCount: 0,
+          selctedCount: this.sharedService.collegeIdCombo.length,
           isOfferAvailable: true,
           oldPrice: '1779',
           offer: '29% Off',
@@ -152,7 +148,7 @@ export class ticketsComponent {
           title: 'College ID Offer',
           price: '962.03',
           profileImg: '../../../assets/parkTicketTickets/Student+ID.png',
-          selctedCount: 0,
+          selctedCount: this.sharedService.collegeId.length,
           isOfferAvailable: true,
           oldPrice: '1202.54',
           offer: '21% Off',
@@ -163,7 +159,7 @@ export class ticketsComponent {
           title: 'Birthday Offer - Free Ticket',
           price: '0.00',
           profileImg: '../../../assets/parkTicketTickets/BirthdayOffer.png',
-          selctedCount: 0,
+          selctedCount: this.sharedService.birthday.length,
           isOfferAvailable: true,
           oldPrice: '1202.54',
           offer: '100% Off',
@@ -174,7 +170,7 @@ export class ticketsComponent {
           title: 'Wonder Women - Free Ticket',
           price: '0.00',
           profileImg: '../../../assets/parkTicketTickets/FreeTicket.jpg',
-          selctedCount: 0,
+          selctedCount: this.sharedService.womenFree.length,
           isOfferAvailable: true,
           oldPrice: '1202.54',
           offer: '100% Off',
@@ -185,7 +181,7 @@ export class ticketsComponent {
           title: 'Wonder Women - Paid Ticket',
           price: '1202.54',
           profileImg: '../../../assets/parkTicketTickets/PaidTicket.jpg',
-          selctedCount: 0,
+          selctedCount: this.sharedService.womenPaid.length,
           isOfferAvailable: true,
           oldPrice: '1202.54',
           offer: '0% Off',
@@ -198,22 +194,22 @@ export class ticketsComponent {
 
   totalTicketAmount: string = '0.00';
   selectedTicket: number | null = null;
+  autoplayInterval: number = 3000;
 
   constructor(private router: Router, public sharedService: SharedService) { }
 
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-    this.sharedService.onActiveIndexChange(2, false);
+    setTimeout(() => {      
+      this.sharedService.onActiveIndexChange(2, false);
+    }, 0);
+    this.calculateTotalAmount();
   }
 
 
 
   backToDate() {
-    this.sharedService.onActiveIndexChange(1, false)
+    this.sharedService.onActiveIndexChange(1, false);
   }
-
-
 
 
   ticketClicked(i: number) {
@@ -236,52 +232,209 @@ export class ticketsComponent {
 
 
 
+  // addTicket(i: number, j: number) {
+  //   // console.log('>>>', i, j, typeof (this.ticketData[i]?.child[j]?.selctedCount) == 'number');
+  //   if (typeof (this.ticketData[i]?.child[j]?.selctedCount) == 'number') {
+  //     this.ticketData[i].child[j].selctedCount++;
+  //   }
+  //   if (typeof (this.ticketData[i]?.totalSelectedTickets) == 'number') {
+  //     this.ticketData[i].totalSelectedTickets++;
+  //   }
+  //   if (Number(this.ticketData[i].child[j].price) == 0) {
+  //     this.totalTicketAmount = (Number(this.totalTicketAmount) + Number(this.ticketData[i].child[j].oldPrice)).toFixed(2).toString();
+  //   }
+  //   else {
+  //     this.totalTicketAmount = (Number(this.totalTicketAmount) + Number(this.ticketData[i].child[j].price)).toFixed(2).toString();
+  //   }
+  // }
+
+
+
+  // removeTicket(i: number, j: number) {
+  //   // console.log('>>>', i, j);
+  //   if (this.ticketData[i]?.child[j]?.selctedCount) {
+  //     this.ticketData[i].child[j].selctedCount--;
+  //   }
+  //   if (this.ticketData[i]?.totalSelectedTickets) {
+  //     this.ticketData[i].totalSelectedTickets--;
+  //   }
+  //   if (Number(this.ticketData[i].child[j].price) == 0 && Number(this.totalTicketAmount) >= 0 && (Number(this.totalTicketAmount) - Number(this.ticketData[i].child[j].price)) >= 0) {
+  //     this.totalTicketAmount = (Number(this.totalTicketAmount) - Number(this.ticketData[i].child[j].oldPrice)).toFixed(2).toString();
+  //   }
+  //   else if (Number(this.totalTicketAmount) >= 0 && (Number(this.totalTicketAmount) - Number(this.ticketData[i].child[j].price)) >= 0) {
+  //     this.totalTicketAmount = (Number(this.totalTicketAmount) - Number(this.ticketData[i].child[j].price)).toFixed(2).toString();
+  //   }
+  // }
+
+
+
+
   addTicket(i: number, j: number) {
-    // console.log('>>>', i, j, typeof (this.ticketData[i]?.child[j]?.selctedCount) == 'number');
-    if (typeof (this.ticketData[i]?.child[j]?.selctedCount) == 'number') {
-      this.ticketData[i].child[j].selctedCount++;
+    // console.log('>>>>>', i, j);
+    if (!i) {
+      if (!j) {
+        this.sharedService.adult.push({ ...this.ticketData[i].child[j], parent: 'regular' });
+        this.ticketData[i].child[j].selctedCount = this.sharedService.adult.length;
+        // console.log(this.sharedService.adult);
+      }
+      if (j === 1) {
+        this.sharedService.adultOffer.push({ ...this.ticketData[i].child[j], parent: 'regular' });
+        this.ticketData[i].child[j].selctedCount = this.sharedService.adultOffer.length;
+        // console.log(this.sharedService.adultOffer);
+      }
+      if (j === 2) {
+        this.sharedService.child.push({ ...this.ticketData[i].child[j], parent: 'regular' });
+        this.ticketData[i].child[j].selctedCount = this.sharedService.child.length;
+        // console.log(this.sharedService.child);
+      }
+      if (j === 3) {
+        this.sharedService.senior.push({ ...this.ticketData[i].child[j], parent: 'regular' });
+        this.ticketData[i].child[j].selctedCount = this.sharedService.senior.length;
+        // console.log(this.sharedService.senior);
+      }
+      this.ticketData[i].totalSelectedTickets = [...this.sharedService.adult, ...this.sharedService.adultOffer, ...this.sharedService.child, ...this.sharedService.senior].length;
     }
-    if (typeof (this.ticketData[i]?.totalSelectedTickets) == 'number') {
-      this.ticketData[i].totalSelectedTickets++;
+
+    else if (i === 1) {
+      if (!j) {
+        this.sharedService.fastAdult.push({ ...this.ticketData[i].child[j], parent: 'fast' });
+        this.ticketData[i].child[j].selctedCount = this.sharedService.fastAdult.length;
+        console.log();
+      }
+      if (j) {
+        this.sharedService.fastChild.push({ ...this.ticketData[i].child[j], parent: 'fast' });
+        this.ticketData[i].child[j].selctedCount = this.sharedService.fastChild.length;
+        console.log();
+      }
+      this.ticketData[i].totalSelectedTickets = [...this.sharedService.fastAdult, ...this.sharedService.fastChild].length;
     }
-    if (Number(this.ticketData[i].child[j].price) == 0) {
-      this.totalTicketAmount = (Number(this.totalTicketAmount) + Number(this.ticketData[i].child[j].oldPrice)).toFixed(2).toString();
+
+    else if (i === 2) {
+      if (!j) {
+        this.sharedService.collegeIdCombo.push({ ...this.ticketData[i].child[j], parent: 'offer' });
+        this.ticketData[i].child[j].selctedCount = this.sharedService.collegeIdCombo.length;
+        console.log();
+      }
+      if (j === 1) {
+        this.sharedService.collegeId.push({ ...this.ticketData[i].child[j], parent: 'offer' });
+        this.ticketData[i].child[j].selctedCount = this.sharedService.collegeId.length;
+        console.log();
+      }
+      if (j === 2) {
+        this.sharedService.birthday.push({ ...this.ticketData[i].child[j], parent: 'offer' });
+        this.ticketData[i].child[j].selctedCount = this.sharedService.birthday.length;
+        console.log(this.sharedService.birthday);
+      }
+      if (j === 3) {
+        this.sharedService.womenFree.push({ ...this.ticketData[i].child[j], parent: 'offer' });
+        this.ticketData[i].child[j].selctedCount = this.sharedService.womenFree.length;
+        console.log();
+      }
+      if (j === 4) {
+        this.sharedService.womenPaid.push({ ...this.ticketData[i].child[j], parent: 'offer' });
+        this.ticketData[i].child[j].selctedCount = this.sharedService.womenPaid.length;
+        console.log();
+      }
+      this.ticketData[i].totalSelectedTickets = [...this.sharedService.collegeIdCombo, ...this.sharedService.collegeId, ...this.sharedService.birthday, ...this.sharedService.womenFree, ...this.sharedService.womenPaid].length;
     }
-    else {
-      this.totalTicketAmount = (Number(this.totalTicketAmount) + Number(this.ticketData[i].child[j].price)).toFixed(2).toString();
-    }
+    this.calculateTotalAmount();
   }
-
-
-
 
 
   removeTicket(i: number, j: number) {
-    // console.log('>>>', i, j);
-    if (this.ticketData[i]?.child[j]?.selctedCount) {
-      this.ticketData[i].child[j].selctedCount--;
+    // console.log('>>>>>', i, j);
+    if (!i) {
+      if (!j) {
+        this.sharedService.adult.length ? this.sharedService.adult.pop() : this.sharedService.showTheDialog('Quantity cannot be less than 0');
+        this.ticketData[i].child[j].selctedCount = this.sharedService.adult.length;
+      }
+      if (j === 1) {
+        this.sharedService.adultOffer.length ? this.sharedService.adultOffer.pop() : this.sharedService.showTheDialog('Quantity cannot be less than 0');
+        this.ticketData[i].child[j].selctedCount = this.sharedService.adultOffer.length;
+      }
+      if (j === 2) {
+        this.sharedService.child.length ? this.sharedService.child.pop() : this.sharedService.showTheDialog('Quantity cannot be less than 0');
+        this.ticketData[i].child[j].selctedCount = this.sharedService.child.length;
+      }
+      if (j === 3) {
+        this.sharedService.senior.length ? this.sharedService.senior.pop() : this.sharedService.showTheDialog('Quantity cannot be less than 0');
+        this.ticketData[i].child[j].selctedCount = this.sharedService.senior.length;
+      }
+      this.ticketData[i].totalSelectedTickets = [...this.sharedService.adult, ...this.sharedService.adultOffer, ...this.sharedService.child, ...this.sharedService.senior].length;
     }
-    if (this.ticketData[i]?.totalSelectedTickets) {
-      this.ticketData[i].totalSelectedTickets--;
+
+    else if (i === 1) {
+      if (!j) {
+        this.sharedService.fastAdult.length ? this.sharedService.fastAdult.pop() : this.sharedService.showTheDialog('Quantity cannot be less than 0');
+        this.ticketData[i].child[j].selctedCount = this.sharedService.fastAdult.length;
+      }
+      if (j) {
+        this.sharedService.fastChild.length ? this.sharedService.fastChild.pop() : this.sharedService.showTheDialog('Quantity cannot be less than 0');
+        this.ticketData[i].child[j].selctedCount = this.sharedService.fastChild.length;
+      }
+      this.ticketData[i].totalSelectedTickets = [...this.sharedService.fastAdult, ...this.sharedService.fastChild].length;
     }
-    if (Number(this.ticketData[i].child[j].price) == 0 && Number(this.totalTicketAmount) >= 0 && (Number(this.totalTicketAmount) - Number(this.ticketData[i].child[j].price)) >= 0) {
-      this.totalTicketAmount = (Number(this.totalTicketAmount) - Number(this.ticketData[i].child[j].oldPrice)).toFixed(2).toString();
+
+    else if (i === 2) {
+      if (!j) {
+        this.sharedService.collegeIdCombo.length ? this.sharedService.collegeIdCombo.pop() : this.sharedService.showTheDialog('Quantity cannot be less than 0');
+        this.ticketData[i].child[j].selctedCount = this.sharedService.collegeIdCombo.length;
+      }
+      if (j === 1) {
+        this.sharedService.collegeId.length ? this.sharedService.collegeId.pop() : this.sharedService.showTheDialog('Quantity cannot be less than 0');
+        this.ticketData[i].child[j].selctedCount = this.sharedService.collegeId.length;
+      }
+      if (j === 2) {
+        this.sharedService.birthday.length ? this.sharedService.birthday.pop() : this.sharedService.showTheDialog('Quantity cannot be less than 0');
+        this.ticketData[i].child[j].selctedCount = this.sharedService.birthday.length;
+      }
+      if (j === 3) {
+        this.sharedService.womenFree.length ? this.sharedService.womenFree.pop() : this.sharedService.showTheDialog('Quantity cannot be less than 0');
+        this.ticketData[i].child[j].selctedCount = this.sharedService.womenFree.length;
+      }
+      if (j === 4) {
+        this.sharedService.womenPaid.length ? this.sharedService.womenPaid.pop() : this.sharedService.showTheDialog('Quantity cannot be less than 0');
+        this.ticketData[i].child[j].selctedCount = this.sharedService.womenPaid.length;
+      }
+      this.ticketData[i].totalSelectedTickets = [...this.sharedService.collegeIdCombo, ...this.sharedService.collegeId, ...this.sharedService.birthday, ...this.sharedService.womenFree, ...this.sharedService.womenPaid].length;
     }
-    else if (Number(this.totalTicketAmount) >= 0 && (Number(this.totalTicketAmount) - Number(this.ticketData[i].child[j].price)) >= 0) {
-      this.totalTicketAmount = (Number(this.totalTicketAmount) - Number(this.ticketData[i].child[j].price)).toFixed(2).toString();
-    }
+    this.calculateTotalAmount();
   }
 
 
+  calculateTotalAmount() {
+    // this.sharedService.parkTicketWrapperArray = [...this.sharedService.adult, ...this.sharedService.adultOffer, ...this.sharedService.child, ...this.sharedService.senior, ...this.sharedService.fastAdult, ...this.sharedService.fastChild, ...this.sharedService.collegeIdCombo, ...this.sharedService.collegeId, ...this.sharedService.birthday, ...this.sharedService.womenFree, ...this.sharedService.womenPaid];
+    // parkTicketWrapperArray = [...this.adult, ...this.adultOffer, ...this.child, ...this.senior, ...this.fastAdult, ...this.fastChild, ...this.collegeIdCombo, ...this.collegeId, ...this.birthday, ...this.womenFree, ...this.womenPaid];
+
+    const parkTicketWrapperArray = [...this.sharedService.adult, ...this.sharedService.adultOffer, ...this.sharedService.child, ...this.sharedService.senior, ...this.sharedService.fastAdult, ...this.sharedService.fastChild, ...this.sharedService.collegeIdCombo, ...this.sharedService.collegeId, ...this.sharedService.birthday, ...this.sharedService.womenFree, ...this.sharedService.womenPaid];
+    let total = 0;
+    parkTicketWrapperArray.forEach((obj) => {
+      // console.log('>>>>>', obj.price);
+      total += Number(obj.price);
+    })
+
+    // console.log('>>>>>total price', total, total.toFixed(2).toString(),);
+    this.totalTicketAmount = total.toFixed(2).toString();
+    // console.log('>>>>>parkTicketWrapperArray', this.sharedService.parkTicketWrapperArray);
+
+  }
 
 
+  onManualScroll() {
+    // Temporarily stop the autoplay
+    this.autoplayInterval = 0;
 
+    // Restart autoplay after a delay
+    setTimeout(() => {
+      this.autoplayInterval = 3000; // Reset to original interval
+    }, 3000); // Adjust this delay as needed
+  }
 
 
 
   confirmClicked() {
-    if (this.totalTicketAmount !== '0.00') {
-      this.sharedService.parkTicketDetails.ticketPrice=this.totalTicketAmount;
+    if (parseInt(this.totalTicketAmount) > 0) {
+      this.sharedService.parkTicketDetails.ticketPrice = this.totalTicketAmount;
       this.sharedService.onActiveIndexChange(3, false);
     }
     else {

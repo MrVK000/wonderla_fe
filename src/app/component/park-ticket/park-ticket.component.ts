@@ -141,7 +141,9 @@ export class ParkTicketComponent {
   }
 
   makePayment() {
+    this.sharedService.isParkTicketLoading = true;
     setTimeout(() => {
+      this.sharedService.isParkTicketLoading = false;
       this.router.navigate(['/payment-successful']);
     }, 2000);
   }

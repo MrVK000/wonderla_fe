@@ -5,6 +5,7 @@ const CONSTANT_VARIABLES = {
   meals: 'Meals',
   total: 'Total (Inclusive of 5% GST)',
   agreeAndProceed: 'AGREE & PROCEED',
+  proceed: 'PROCEED',
 
 
 

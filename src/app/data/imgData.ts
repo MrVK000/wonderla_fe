@@ -352,7 +352,3 @@ export const offersCardData = [
   },
 
 ];
-
-export const hello = {
-  name: 'vk'
-}

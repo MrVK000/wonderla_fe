@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { DatePipe } from '@angular/common';
 
+import { CarouselModule as crModule } from 'ngx-owl-carousel-o';
+
 
 import { MenuModule } from 'primeng/menu';
 import { ToastModule } from 'primeng/toast';
@@ -36,6 +38,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CommonModule,
     BrowserAnimationsModule,
 
+    crModule,
+
     //primeng packages
     MenuModule,
     StepsModule,
@@ -65,6 +69,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   exports: [
 
     BrowserAnimationsModule,
+
+    crModule,
 
     //primeng packages
     MenuModule,

@@ -16,7 +16,7 @@ export class BillingComponent {
   visitors: string = '1';
   // total: string = '1202.54';
   selctedCount: number = 0;
-  selctedMealsCount: number = 1;
+  // selctedMealsCount: number = 1;
   selectedType: string = 'Regular';
   selectedFor: string = 'Adult';
   // mealsPrice: string = '379.00';
@@ -28,16 +28,18 @@ export class BillingComponent {
   receiverFullName: string = '';
   receiverPhoneNumber: string = '';
   receiverEmail: string = '';
+  totalFoodAmount: string = '';
 
   constructor(public sharedService: SharedService, private datePipe: DatePipe) { }
 
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-    this.sharedService.onActiveIndexChange(5, false);
+    setTimeout(() => {      
+      this.sharedService.onActiveIndexChange(5, false);
+    }, 0);
     this.selectedDate = this.sharedService.parkTicketDetails.date;
     const date = new Date(this.sharedService.parkTicketDetails.date);
-    this.selectedDate = this.datePipe.transform(date, 'dd MMMM yyyy');
+    // this.selectedDate = this.datePipe.transform(date, 'dd MMMM yyyy');
+    this.calculateMealsAmount();
   }
 
 
@@ -46,6 +48,16 @@ export class BillingComponent {
   }
 
 
+
+  calculateMealsAmount() {
+    this.sharedService.mealsWrapper = [...this.sharedService.meal1, ...this.sharedService.meal2, ...this.sharedService.meal3, ...this.sharedService.meal4, ...this.sharedService.meal5, ...this.sharedService.meal6]
+    let total = 0;
+    this.sharedService.mealsWrapper.forEach((item: any) => {
+      total += item.price;
+    });
+    this.totalFoodAmount = total.toFixed(2).toString();
+    console.log('>>>>>', this.totalFoodAmount);
+  }
 
 
   addTicket() {

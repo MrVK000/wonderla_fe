@@ -7,24 +7,26 @@ import { Observable } from 'rxjs';
 })
 export class ApiService {
 
-  // baseUrl: string = 'http://localhost:8000/';
-  baseUrl: string = 'https://dblessbackend.onrender.com/';
+  baseUrl: string = 'http://localhost:8000/';
+  // baseUrl: string = 'https://dblessbackend.onrender.com/';
   // baseUrl: string = 'https://wonderla-be-5mh1.vercel.app/';
 
   park: string = 'park/get';
+  adult: string = 'adult/get';
   outing: string = 'outing/get';
   resort: string = 'resort/get';
   address: string = 'address/get';
   locations: string = 'locations/get';
+  mobileMenu: string = 'mobileMenu/get';
   socialLinks: string = 'socialLinks/get';
-  mobileMenuUrl: string = 'mobileMenu/get';
   contactLinks: string = 'contactLinks/get';
+  mobileMenuOption: string = 'mobileMenuOption/get';
   liveChatConversationProperty: string = 'liveChatConversationProperty/get';
 
   constructor(private http: HttpClient) { }
 
   getMobileMenu(): Observable<any> {
-    return this.http.get(this.baseUrl + this.mobileMenuUrl);
+    return this.http.get(this.baseUrl + this.mobileMenu);
   }
 
   getLiveChatConversationProperty(): Observable<any> {
@@ -57,6 +59,14 @@ export class ApiService {
 
   getSocialLinks(): Observable<any> {
     return this.http.get(this.baseUrl + this.socialLinks);
+  }
+
+  getAdult(): Observable<any> {
+    return this.http.get(this.baseUrl + this.adult);
+  }
+
+  getMobileMenuOption(): Observable<any> {
+    return this.http.get(this.baseUrl + this.mobileMenuOption);
   }
 
 }

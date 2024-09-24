@@ -104,9 +104,9 @@ export class RulesComponent {
   constructor(public sharedService: SharedService) { }
 
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-    this.sharedService.onActiveIndexChange(4, false);
+    setTimeout(() => {      
+      this.sharedService.onActiveIndexChange(4, false);
+    }, 0);
   }
 
 

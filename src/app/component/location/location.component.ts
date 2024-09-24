@@ -32,9 +32,9 @@ export class LocationComponent {
   constructor(private router: Router, public sharedService: SharedService) { }
 
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-    this.sharedService.onActiveIndexChange(0, false);
+    setTimeout(() => {      
+      this.sharedService.onActiveIndexChange(0, false);
+    }, 0);
     // this.sharedService.isParkTicketLoading=true;
     this.sharedService.parkTicketDetails = {
       location: '',

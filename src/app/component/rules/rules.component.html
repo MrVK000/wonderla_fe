@@ -27,9 +27,9 @@
                 </div>
 
                 <div class="lowerDiv w-full p-3" *ngIf="rule.isOpen">
-                    <div class="ruleChild" *ngFor="let childRule of rule.child">
-                        <div class="normal mb-5 flex justify-content-center align-items-center "
-                            *ngIf="childRule.type=='normal'">
+                    <div class="ruleChild" *ngFor="let childRule of rule.child;let i = index">
+                        <div class="normal flex justify-content-center align-items-center "
+                            [ngClass]="i==(rule.child.length-1)?'':'mb-5'" *ngIf="childRule.type=='normal'">
                             <img class="mr-3" [src]="childRule.icon" alt="Image">
                             <p class="m-0">{{childRule.description}}</p>
                         </div>
@@ -39,7 +39,8 @@
                             </div>
                             <div class="ruleChildImagesDiv flex mt-3">
                                 <div class="ruleChildImages" *ngFor="let childRuleImage of childRule.images">
-                                    <img class="childRuleImage pl-2" [src]="childRuleImage.img" [alt]="childRuleImage.label">
+                                    <img class="childRuleImage pl-2" [src]="childRuleImage.img"
+                                        [alt]="childRuleImage.label">
                                     <p class="m-0 text-center">{{childRuleImage.label}}</p>
                                 </div>
                             </div>
