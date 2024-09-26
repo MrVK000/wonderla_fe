@@ -55,9 +55,14 @@
 
 
 
-.billDiv,
-.basicDetailsDiv {
+.billDiv {
     height: 26em;
+    overflow: auto;
+}
+
+
+.basicDetailsDiv {
+    height: 24em;
     overflow: auto;
 }
 
@@ -113,6 +118,19 @@
     color: #ffffff;
 }
 
+
+.ticketType {
+    width: 8em;
+}
+
+.arrayParent {
+    opacity: 0.5;
+    font-size: 12px;
+}
+
+.ticketPrice {
+    width: 4em;
+}
 
 .mealsTotal,
 .total {

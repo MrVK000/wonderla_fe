@@ -9,7 +9,7 @@ import { CarouselModule as crModule } from 'ngx-owl-carousel-o';
 import { MenuModule } from 'primeng/menu';
 import { ToastModule } from 'primeng/toast';
 import { StepsModule } from 'primeng/steps';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
@@ -37,6 +37,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     CommonModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
 
     crModule,
 
@@ -69,6 +70,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   exports: [
 
     BrowserAnimationsModule,
+    ReactiveFormsModule,
 
     crModule,
 

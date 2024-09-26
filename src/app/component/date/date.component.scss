@@ -10,6 +10,7 @@
     margin: 10px;
     border: 1px solid rgb(128, 128, 128, 0.3);
     min-height: 20em;
+    height: 34em;
 }
 
 .infoDiv {
@@ -70,13 +71,28 @@ hr {
     padding: 20px;
 }
 
+
+.calendarContainer {
+    overflow: scroll;
+    height: 26em;
+}
+
+.calendarContainer {
+    overflow: scroll !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+}
+
+.calendarContainer::-webkit-scrollbar {
+    display: none !important;
+}
+
 .calendarDiv,
 .calendarInfoDiv,
 .confirmButtonDiv {
     border: 1px solid rgb(128, 128, 128, 0.3);
     border-radius: 30px;
     width: 100%;
-    margin: 10px;
 }
 
 .calendarInfoDiv {
@@ -217,6 +233,7 @@ hr {
         width: 18em;
         margin: 0px;
         min-height: auto;
+        height: auto;
     }
 
     .infoDiv {
@@ -265,6 +282,7 @@ hr {
     .container>div {
         width: 28em;
         margin: 10px;
+        height: auto;
     }
 
     .infoDiv {
@@ -289,6 +307,7 @@ hr {
     .container>div {
         width: 100%;
         margin: 10px;
+        height: auto;
     }
 
     .infoDiv {

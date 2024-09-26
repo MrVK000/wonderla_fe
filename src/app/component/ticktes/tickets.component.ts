@@ -199,7 +199,7 @@ export class ticketsComponent {
   constructor(private router: Router, public sharedService: SharedService) { }
 
   ngOnInit(): void {
-    setTimeout(() => {      
+    setTimeout(() => {
       this.sharedService.onActiveIndexChange(2, false);
     }, 0);
     this.calculateTotalAmount();
@@ -268,76 +268,81 @@ export class ticketsComponent {
 
 
 
-
+  //A maximum of 20 tickets are allowed for one transaction..!!
   addTicket(i: number, j: number) {
     // console.log('>>>>>', i, j);
-    if (!i) {
-      if (!j) {
-        this.sharedService.adult.push({ ...this.ticketData[i].child[j], parent: 'regular' });
-        this.ticketData[i].child[j].selctedCount = this.sharedService.adult.length;
-        // console.log(this.sharedService.adult);
+    if (this.sharedService.parkTicketWrapper.length < 20) {
+      if (!i) {
+        if (!j) {
+          this.sharedService.adult.push({ ...this.ticketData[i].child[j], parent: 'Regular' });
+          this.ticketData[i].child[j].selctedCount = this.sharedService.adult.length;
+          // console.log(this.sharedService.adult);
+        }
+        if (j === 1) {
+          this.sharedService.adultOffer.push({ ...this.ticketData[i].child[j], parent: 'Regular' });
+          this.ticketData[i].child[j].selctedCount = this.sharedService.adultOffer.length;
+          // console.log(this.sharedService.adultOffer);
+        }
+        if (j === 2) {
+          this.sharedService.child.push({ ...this.ticketData[i].child[j], parent: 'Regular' });
+          this.ticketData[i].child[j].selctedCount = this.sharedService.child.length;
+          // console.log(this.sharedService.child);
+        }
+        if (j === 3) {
+          this.sharedService.senior.push({ ...this.ticketData[i].child[j], parent: 'Regular' });
+          this.ticketData[i].child[j].selctedCount = this.sharedService.senior.length;
+          // console.log(this.sharedService.senior);
+        }
+        this.ticketData[i].totalSelectedTickets = [...this.sharedService.adult, ...this.sharedService.adultOffer, ...this.sharedService.child, ...this.sharedService.senior].length;
       }
-      if (j === 1) {
-        this.sharedService.adultOffer.push({ ...this.ticketData[i].child[j], parent: 'regular' });
-        this.ticketData[i].child[j].selctedCount = this.sharedService.adultOffer.length;
-        // console.log(this.sharedService.adultOffer);
-      }
-      if (j === 2) {
-        this.sharedService.child.push({ ...this.ticketData[i].child[j], parent: 'regular' });
-        this.ticketData[i].child[j].selctedCount = this.sharedService.child.length;
-        // console.log(this.sharedService.child);
-      }
-      if (j === 3) {
-        this.sharedService.senior.push({ ...this.ticketData[i].child[j], parent: 'regular' });
-        this.ticketData[i].child[j].selctedCount = this.sharedService.senior.length;
-        // console.log(this.sharedService.senior);
-      }
-      this.ticketData[i].totalSelectedTickets = [...this.sharedService.adult, ...this.sharedService.adultOffer, ...this.sharedService.child, ...this.sharedService.senior].length;
-    }
 
-    else if (i === 1) {
-      if (!j) {
-        this.sharedService.fastAdult.push({ ...this.ticketData[i].child[j], parent: 'fast' });
-        this.ticketData[i].child[j].selctedCount = this.sharedService.fastAdult.length;
-        console.log();
+      else if (i === 1) {
+        if (!j) {
+          this.sharedService.fastAdult.push({ ...this.ticketData[i].child[j], parent: 'Fasttrack' });
+          this.ticketData[i].child[j].selctedCount = this.sharedService.fastAdult.length;
+          console.log();
+        }
+        if (j) {
+          this.sharedService.fastChild.push({ ...this.ticketData[i].child[j], parent: 'Fasttrack' });
+          this.ticketData[i].child[j].selctedCount = this.sharedService.fastChild.length;
+          console.log();
+        }
+        this.ticketData[i].totalSelectedTickets = [...this.sharedService.fastAdult, ...this.sharedService.fastChild].length;
       }
-      if (j) {
-        this.sharedService.fastChild.push({ ...this.ticketData[i].child[j], parent: 'fast' });
-        this.ticketData[i].child[j].selctedCount = this.sharedService.fastChild.length;
-        console.log();
-      }
-      this.ticketData[i].totalSelectedTickets = [...this.sharedService.fastAdult, ...this.sharedService.fastChild].length;
-    }
 
-    else if (i === 2) {
-      if (!j) {
-        this.sharedService.collegeIdCombo.push({ ...this.ticketData[i].child[j], parent: 'offer' });
-        this.ticketData[i].child[j].selctedCount = this.sharedService.collegeIdCombo.length;
-        console.log();
+      else if (i === 2) {
+        if (!j) {
+          this.sharedService.collegeIdCombo.push({ ...this.ticketData[i].child[j], parent: 'Offer' });
+          this.ticketData[i].child[j].selctedCount = this.sharedService.collegeIdCombo.length;
+          console.log();
+        }
+        if (j === 1) {
+          this.sharedService.collegeId.push({ ...this.ticketData[i].child[j], parent: 'Offer' });
+          this.ticketData[i].child[j].selctedCount = this.sharedService.collegeId.length;
+          console.log();
+        }
+        if (j === 2) {
+          this.sharedService.birthday.push({ ...this.ticketData[i].child[j], parent: 'Offer' });
+          this.ticketData[i].child[j].selctedCount = this.sharedService.birthday.length;
+          console.log(this.sharedService.birthday);
+        }
+        if (j === 3) {
+          this.sharedService.womenFree.push({ ...this.ticketData[i].child[j], parent: 'Offer' });
+          this.ticketData[i].child[j].selctedCount = this.sharedService.womenFree.length;
+          console.log();
+        }
+        if (j === 4) {
+          this.sharedService.womenPaid.push({ ...this.ticketData[i].child[j], parent: 'Offer' });
+          this.ticketData[i].child[j].selctedCount = this.sharedService.womenPaid.length;
+          console.log();
+        }
+        this.ticketData[i].totalSelectedTickets = [...this.sharedService.collegeIdCombo, ...this.sharedService.collegeId, ...this.sharedService.birthday, ...this.sharedService.womenFree, ...this.sharedService.womenPaid].length;
       }
-      if (j === 1) {
-        this.sharedService.collegeId.push({ ...this.ticketData[i].child[j], parent: 'offer' });
-        this.ticketData[i].child[j].selctedCount = this.sharedService.collegeId.length;
-        console.log();
-      }
-      if (j === 2) {
-        this.sharedService.birthday.push({ ...this.ticketData[i].child[j], parent: 'offer' });
-        this.ticketData[i].child[j].selctedCount = this.sharedService.birthday.length;
-        console.log(this.sharedService.birthday);
-      }
-      if (j === 3) {
-        this.sharedService.womenFree.push({ ...this.ticketData[i].child[j], parent: 'offer' });
-        this.ticketData[i].child[j].selctedCount = this.sharedService.womenFree.length;
-        console.log();
-      }
-      if (j === 4) {
-        this.sharedService.womenPaid.push({ ...this.ticketData[i].child[j], parent: 'offer' });
-        this.ticketData[i].child[j].selctedCount = this.sharedService.womenPaid.length;
-        console.log();
-      }
-      this.ticketData[i].totalSelectedTickets = [...this.sharedService.collegeIdCombo, ...this.sharedService.collegeId, ...this.sharedService.birthday, ...this.sharedService.womenFree, ...this.sharedService.womenPaid].length;
+      this.calculateTotalAmount();
     }
-    this.calculateTotalAmount();
+    else {
+      this.sharedService.showTheDialog('A maximum of 20 tickets are allowed for one transaction..!!');
+    }
   }
 
 
@@ -406,9 +411,10 @@ export class ticketsComponent {
     // this.sharedService.parkTicketWrapperArray = [...this.sharedService.adult, ...this.sharedService.adultOffer, ...this.sharedService.child, ...this.sharedService.senior, ...this.sharedService.fastAdult, ...this.sharedService.fastChild, ...this.sharedService.collegeIdCombo, ...this.sharedService.collegeId, ...this.sharedService.birthday, ...this.sharedService.womenFree, ...this.sharedService.womenPaid];
     // parkTicketWrapperArray = [...this.adult, ...this.adultOffer, ...this.child, ...this.senior, ...this.fastAdult, ...this.fastChild, ...this.collegeIdCombo, ...this.collegeId, ...this.birthday, ...this.womenFree, ...this.womenPaid];
 
-    const parkTicketWrapperArray = [...this.sharedService.adult, ...this.sharedService.adultOffer, ...this.sharedService.child, ...this.sharedService.senior, ...this.sharedService.fastAdult, ...this.sharedService.fastChild, ...this.sharedService.collegeIdCombo, ...this.sharedService.collegeId, ...this.sharedService.birthday, ...this.sharedService.womenFree, ...this.sharedService.womenPaid];
+    this.sharedService.parkTicketWrapper = [...this.sharedService.adult, ...this.sharedService.adultOffer, ...this.sharedService.child, ...this.sharedService.senior, ...this.sharedService.fastAdult, ...this.sharedService.fastChild, ...this.sharedService.collegeIdCombo, ...this.sharedService.collegeId, ...this.sharedService.birthday, ...this.sharedService.womenFree, ...this.sharedService.womenPaid];
+    this.sharedService.parkTicketArrayOfArray = [this.sharedService.adult, this.sharedService.adultOffer, this.sharedService.child, this.sharedService.senior, this.sharedService.fastAdult, this.sharedService.fastChild, this.sharedService.collegeIdCombo, this.sharedService.collegeId, this.sharedService.birthday, this.sharedService.womenFree, this.sharedService.womenPaid];
     let total = 0;
-    parkTicketWrapperArray.forEach((obj) => {
+    this.sharedService.parkTicketWrapper.forEach((obj: any) => {
       // console.log('>>>>>', obj.price);
       total += Number(obj.price);
     })

@@ -21,12 +21,13 @@
                         *ngFor="let step of stepsData;let i = index"
                         (click)="sharedService.onActiveIndexChange(i,true)">
                         <img class="stepsImg" [ngClass]="[isStepGreaterThanIndex(i)?'':'disabledStepsImg ',]"
-                            src="../../../assets/parkTicketStepsImage/image (5).png" alt="">
+                            src="../../../assets/parkTicketStepsImage/image (5).png" alt="check">
                     </div>
                 </div>
                 <div class="stepLabelDiv flex justify-content-around ">
-                    <div class="stepLabel" *ngFor="let step of stepsData">
-                        <p class="mt-1">{{step.label}}</p>
+                    <div class="stepLabel" *ngFor="let step of stepsData;let i = index">
+                        <p class="mt-1 cursor-pointer" (click)="sharedService.onActiveIndexChange(i,true)">
+                            {{step.label}}</p>
                     </div>
                 </div>
                 <div class="progressbarDiv">
@@ -37,13 +38,16 @@
 
 
         <div class="contentWrapper" *ngIf="!sharedService.isStepsCompleted">
-            <app-location *ngIf="sharedService.activeIndex==0"></app-location>
-            <app-date *ngIf="sharedService.activeIndex==1"></app-date>
-            <app-tickets *ngIf="sharedService.activeIndex==2"></app-tickets>
-            <app-addons *ngIf="sharedService.activeIndex==3"></app-addons>
-            <app-rules *ngIf="sharedService.activeIndex==4"></app-rules>
-            <app-billing *ngIf="sharedService.activeIndex==5"></app-billing>
+            <div [ngSwitch]="sharedService.activeIndex">
+                <app-location *ngSwitchCase="0"></app-location>
+                <app-date *ngSwitchCase="1"></app-date>
+                <app-tickets *ngSwitchCase="2"></app-tickets>
+                <app-addons *ngSwitchCase="3"></app-addons>
+                <app-rules *ngSwitchCase="4"></app-rules>
+                <app-billing *ngSwitchCase="5"></app-billing>
+            </div>
         </div>
+        
 
 
         <div class="flex paymentContainer" *ngIf="sharedService.isStepsCompleted">

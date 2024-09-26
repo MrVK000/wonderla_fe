@@ -10,6 +10,7 @@
     width: 34em;
     margin: 10px;
     border: 1px solid rgb(128, 128, 128, 0.3);
+    height: 34em;
 }
 
 
@@ -109,6 +110,7 @@
     .container>div {
         width: 18em;
         margin: 10px;
+        height: auto;
     }
 
     .infoDiv {
@@ -165,8 +167,9 @@
     .container>div {
         width: 28em;
         margin: 10px;
+        height: auto;
     }
-    
+
     .infoDiv {
         padding: 10px;
         padding-bottom: 6em;
@@ -221,8 +224,9 @@
     .container>div {
         width: 100%;
         margin: 10px;
+        height: auto;
     }
-    
+
     .infoDiv {
         padding: 10px;
         padding-bottom: 14em;

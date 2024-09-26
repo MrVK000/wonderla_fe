@@ -43,7 +43,7 @@ export class SharedService {
   selectedAdultOption!: LabelInterface;
 
   //for stepper
-  activeIndex: number = 3;
+  activeIndex: number = 5;
   progressbarValue: number = 0;
 
   //payment details
@@ -82,11 +82,12 @@ export class SharedService {
   birthday: any = [];
   womenFree: any = [];
   womenPaid: any = [];
-  
+
   couponCode: string = '';
   gstn: string = '';
-  
+
   parkTicketWrapper: any = [];
+  parkTicketArrayOfArray: any = [];
 
 
   //selected meals
@@ -101,6 +102,7 @@ export class SharedService {
 
 
 
+  grandTotal: string = '';
 
 
 

@@ -68,7 +68,7 @@ const CONSTANT_VARIABLES = {
   parkTicketBillingTotal: 'Total',
   parkTicketBillingTicketGst: 'Ticket GST',
   parkTicketBillingGstPercentage: '18%',
-  parkTicketBillingGstPrice: '216.46',
+  parkTicketBillingGstPrice: '378.80',
   parkTicketBillingAmountToBePaid: 'Amount to be paid',
   parkTicketBillingManditoryInfo: 'All fields are mandatory to be filled with relevant information.',
   parkTicketBillingReceiversDetails: 'Receiver’s Details',
