@@ -43,7 +43,7 @@ export class SharedService {
   selectedAdultOption!: LabelInterface;
 
   //for stepper
-  activeIndex: number = 5;
+  activeIndex: number = 0;
   progressbarValue: number = 0;
 
   //payment details
