@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { SharedService } from '../../shared/shared.service';
-import { DatePipe } from '@angular/common';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -10,38 +9,31 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class BillingComponent {
 
-  isBookingForSomeone: boolean = false;
-  // selectedLocation: string = 'HYDERBAD';
-  selectedDate: any;
-  // visitors: string = '1';
-  // total: string = '1202.54';
-  selctedCount: number = 0;
-  // selctedMealsCount: number = 1;
-  selectedType: string = 'Regular';
-  selectedFor: string = 'Adult';
-  // mealsPrice: string = '379.00';
-  // fullName: string = '';
-  // phoneNumber: string = '';
-  // email: string = '';
-  // pinCode!: string;
-  // receiverFullName: string = '';
-  // receiverPhoneNumber: string = '';
-  // receiverEmail: string = '';
+
   totalFoodAmount: string = '';
 
-  constructor(public sharedService: SharedService, private datePipe: DatePipe) { }
+
+  primaryForm!: FormGroup;
+  secondaryForm!: FormGroup;
+
+  constructor(public sharedService: SharedService) { }
 
   ngOnInit(): void {
+
     setTimeout(() => {
       this.sharedService.onActiveIndexChange(5, false);
     }, 0);
+
     this.createForm();
-    this.selectedDate = this.sharedService.parkTicketDetails.date;
-    const date = new Date(this.sharedService.parkTicketDetails.date);
-    this.selectedDate = this.datePipe.transform(date, 'dd MMMM yyyy');
     this.calculateMealsAmount();
     this.addGstWithTotal();
-    console.log('>>>>', this.sharedService.parkTicketArrayOfArray);
+
+    if (this.sharedService.primaryForm) {
+      this.primaryForm.patchValue(this.sharedService.primaryForm);
+    }
+    if (this.sharedService.secondaryForm) {
+      this.secondaryForm.patchValue(this.sharedService.secondaryForm);
+    }
 
   }
 
@@ -50,8 +42,6 @@ export class BillingComponent {
     this.sharedService.onActiveIndexChange(4, false);
   }
 
-  primaryForm!: FormGroup;
-  secondaryForm!: FormGroup;
 
   createForm() {
     this.primaryForm = new FormGroup({
@@ -78,14 +68,14 @@ export class BillingComponent {
   }
 
 
-  addTicket() {
-    console.log('>>>');
+  addTicket(array: any, i: number) {
+    console.log('>>>', array, i);
   }
 
 
 
-  removeTicket() {
-    console.log('>>>');
+  removeTicket(array: any, i: number) {
+    console.log('>>>', array, i);
   }
 
 
@@ -111,21 +101,24 @@ export class BillingComponent {
   }
 
 
-
-  //Please fill all the fields to continue..!!
-
-
-
   goToPayment() {
     // console.log('>>>form', this.primaryForm, this.secondaryForm, this.primaryForm.valid, this.secondaryForm.valid);
 
-    if (this.isBookingForSomeone ? this.primaryForm.valid && this.secondaryForm.valid : this.primaryForm.valid) {
-      this.sharedService.isStepsCompleted = true;
+    if (this.sharedService.pincode.includes(this.primaryForm.value.pincode)) {
+      if (this.sharedService.isBookingForSomeone ? this.primaryForm.valid && this.secondaryForm.valid : this.primaryForm.valid) {
+        this.sharedService.primaryForm = this.primaryForm.value;
+        this.sharedService.secondaryForm = this.secondaryForm.value;
+        this.sharedService.isStepsCompleted = true;
+      }
+      else {
+        this.sharedService.showTheDialog('Please fill all the fields to continue..!!');
+      }
     }
     else {
-      this.sharedService.showTheDialog('Please fill all the fields to continue..!!');
+      this.sharedService.showTheDialog('Please enter a valid pincode to continue..!!');
     }
 
-
   }
+
+
 }

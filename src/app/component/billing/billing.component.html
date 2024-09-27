@@ -22,7 +22,7 @@
                     <div class="datesDiv flex justify-content-between">
                         <div class="">
                             <p class="totalSplitter">{{sharedService.CONSTANTS.parkTicketBillingDateOfVisit}}</p>
-                            <p class="m-0 dates">{{selectedDate}}</p>
+                            <p class="m-0 dates">{{sharedService.parkTicketDetails.date|parkDate}}</p>
                         </div>
                         <div class="">
                             <p class="totalSplitter">{{sharedService.CONSTANTS.parkTicketBillingVisitors}}</p>
@@ -37,23 +37,23 @@
                     </div>
                 </div>
                 <div class="border p-3 mb-2 ">
-                    <div *ngFor="let array of sharedService.parkTicketArrayOfArray">
+                    <div *ngFor="let array of sharedService.parkTicketArrayOfArray;let i = index">
                         <div class="flex justify-content-between align-items-center mb-4" *ngIf="array.length">
                             <div class="ticketType">
                                 <p class="m-0"><b>{{array[0].title}}</b></p>
                                 <p class="m-0 arrayParent totalSplitter">{{array[0].parent}}</p>
                             </div>
                             <div
-                                class="countButtonsWrapper p-1 flex align-items-center justify-content-between cursor-pointer">
-                                <div class="decreaseButton text-center" (click)="removeTicket()">
+                                class="countButtonsWrapper p-1 flex align-items-center justify-content-center cursor-pointer">
+                                <!-- <div class="decreaseButton text-center" (click)="removeTicket(array,i)">
                                     <p class="m-0">-</p>
-                                </div>
+                                </div> -->
                                 <div class="selectedCount">
                                     <b class="m-2">{{array.length}}</b>
                                 </div>
-                                <div class="increaseButton text-center" (click)="addTicket()">
+                                <!-- <div class="increaseButton text-center" (click)="addTicket(array,i)">
                                     <p class="m-0">+</p>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="ticketPrice">
                                 <p class="m-0 total">₹{{getTheTicketPrice(array)}}</p>
@@ -96,10 +96,10 @@
             <p class="m-0 detailsTitle">{{sharedService.CONSTANTS.parkTicketBillingDetailsTitle}}</p>
             <div class="checkboxDiv">
                 <div class="card checkboxWrapper flex justify-content-center align-items-center">
-                    <p-checkbox class="bookingForSomeoneCheck" [(ngModel)]="isBookingForSomeone" [binary]="true"
-                        #checkbox inputId="binary" />
+                    <p-checkbox class="bookingForSomeoneCheck" [(ngModel)]="sharedService.isBookingForSomeone"
+                        [binary]="true" #checkbox inputId="binary" />
                     <p class="m-0 ml-2 bookingForSomeone cursor-pointer"
-                        (click)="isBookingForSomeone=!isBookingForSomeone">
+                        (click)="sharedService.isBookingForSomeone=!sharedService.isBookingForSomeone">
                         {{sharedService.CONSTANTS.parkTicketBillingBookingForSomeone}}
                     </p>
                 </div>
@@ -108,7 +108,7 @@
         <div class="detailsDiv p-4">
             <p class="m-0 mb-3 manditoryInfo"><span class="required">*</span>
                 {{sharedService.CONSTANTS.parkTicketBillingManditoryInfo}}</p>
-            <div class="basicDetailsDiv" [ngClass]="isBookingForSomeone?'pr-2':'' ">
+            <div class="basicDetailsDiv" [ngClass]="sharedService.isBookingForSomeone?'pr-2':'' ">
 
                 <div class="primary" [formGroup]="primaryForm">
                     <div class="border p-4 pb-3 mb-3">
@@ -146,7 +146,7 @@
                     </div>
                 </div>
 
-                <div class="secondary" *ngIf="isBookingForSomeone" [formGroup]="secondaryForm">
+                <div class="secondary" *ngIf="sharedService.isBookingForSomeone" [formGroup]="secondaryForm">
                     <p class="receiversDetails"> {{sharedService.CONSTANTS.parkTicketBillingReceiversDetails}}</p>
                     <div class="border p-4 pb-3 mb-3">
                         <p-floatLabel>

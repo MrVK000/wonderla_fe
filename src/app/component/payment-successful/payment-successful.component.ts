@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
 export class PaymentSuccessfulComponent {
 
   transactionId = '';
-  amount = '1419.00';
-  payedBy = 'Paytm';
+  // amount = '1419.00';
+  // payedBy = 'Paytm';
 
   constructor(private router: Router, public sharedService: SharedService) { }
 

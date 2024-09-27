@@ -35,13 +35,6 @@ export class LocationComponent {
     setTimeout(() => {      
       this.sharedService.onActiveIndexChange(0, false);
     }, 0);
-    // this.sharedService.isParkTicketLoading=true;
-    this.sharedService.parkTicketDetails = {
-      location: '',
-      date: '',
-      ticketPrice: '',
-      mealsPrice: '',
-    };
   }
 
   locationSelected(i: number) {

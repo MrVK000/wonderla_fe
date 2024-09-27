@@ -6,8 +6,10 @@
 
         <p class="text-center ticketSuccessful">{{sharedService.CONSTANTS.paymentTicketSuccessful}}</p>
         <p class="text-center transactionId">{{sharedService.CONSTANTS.paymentTransactionID}}: {{transactionId}}</p>
-        <p class="text-center amount">{{sharedService.CONSTANTS.paymentAmount}}: <b>₹{{amount}}</b></p>
-        <p class="text-center payedBy">{{sharedService.CONSTANTS.paymentBy}}: {{payedBy}}</p>
+        <p class="text-center amount">{{sharedService.CONSTANTS.paymentAmount}}: <b>₹{{sharedService.grandTotal}}</b>
+        </p>
+        <p class="text-center payedBy">{{sharedService.CONSTANTS.paymentBy}}:
+            {{sharedService.selectedPaymentMethod==1?'Paytm':sharedService.selectedPaymentMethod==0?'PayUbiz':''}}</p>
         <div class="backToButtonDiv flex justify-content-center align-items-center">
             <button class="flex justify-content-center" pButton
                 (click)="backTo()"><b>{{sharedService.CONSTANTS.paymentBackTo}}</b></button>

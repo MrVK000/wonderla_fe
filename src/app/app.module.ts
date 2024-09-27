@@ -16,6 +16,7 @@ import { RulesComponent } from './component/rules/rules.component';
 import { BillingComponent } from './component/billing/billing.component'; // Import this
 import { ticketsComponent } from './component/ticktes/tickets.component';
 import { PaymentSuccessfulComponent } from './component/payment-successful/payment-successful.component';
+import { ParkDatePipe } from './pipe/park-date.pipe';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { PaymentSuccessfulComponent } from './component/payment-successful/payme
     AddonsComponent,
     RulesComponent,
     BillingComponent,
-    PaymentSuccessfulComponent
+    PaymentSuccessfulComponent,
+    ParkDatePipe
   ],
   imports: [
     BrowserModule,

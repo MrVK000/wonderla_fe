@@ -101,7 +101,7 @@
 .countButtonsWrapper {
     background-color: #2f47ab;
     border-radius: 40px;
-    width: 7em;
+    width: 4em;
     min-height: 38px;
 }
 
@@ -195,6 +195,10 @@ input[pInputText]:focus {
     /* Ensure focus state also has no border */
 }
 
+.detailsDiv {
+    padding-bottom: 1.8rem !important;
+}
+
 
 .receiversDetails {
     font-size: 22px;
@@ -208,7 +212,11 @@ input[pInputText]:focus {
     background-color: #2f46ab;
 }
 
-
+::ng-deep .p-inputnumber,
+p-inputnumber,
+p-floatlabel {
+    width: 100%;
+}
 
 @media screen and (max-width: 575px) {
     .container {

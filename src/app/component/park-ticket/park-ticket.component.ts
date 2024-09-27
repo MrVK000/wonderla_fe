@@ -1,3 +1,4 @@
+import { ApiService } from './../../services/api.service';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { SharedService } from '../../shared/shared.service';
@@ -80,15 +81,6 @@ export class ParkTicketComponent {
     },
   ];
 
-
-  selectedLocation = 'HYDERBAD';
-  selectedDate = '25 September 2024';
-  visitors = '1';
-  fullName = 'James';
-  phoneNumber = '1234567890';
-  email = 'James@gmail.com';
-  grandTotal = '1419.00';
-
   upiData = [
     {
       imgUrl: '../../../assets/parkTicket/payubiz.svg',
@@ -102,11 +94,19 @@ export class ParkTicketComponent {
     },
   ];
 
+  selectedPaymentMethod: boolean = false;
 
 
+  constructor(private router: Router, public sharedService: SharedService, private apiService: ApiService) { }
 
-  constructor(private router: Router, public sharedService: SharedService) { }
 
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    this.apiService.getPincode().subscribe((res) => {
+      this.sharedService.pincode = res;
+    });
+  }
 
 
   isStepGreaterThanIndex(i: number): boolean {
@@ -130,7 +130,7 @@ export class ParkTicketComponent {
   }
 
   paymentClicked(i: number) {
-    if (i == 0) {
+    if (!i) {
       this.upiData[0].isSelected = true;
       this.upiData[1].isSelected = false;
     }
@@ -138,14 +138,29 @@ export class ParkTicketComponent {
       this.upiData[0].isSelected = false;
       this.upiData[1].isSelected = true;
     }
+    this.sharedService.selectedPaymentMethod = i;
+    this.selectedPaymentMethod = true;
   }
 
   makePayment() {
-    this.sharedService.isParkTicketLoading = true;
-    setTimeout(() => {
-      this.sharedService.isParkTicketLoading = false;
-      this.router.navigate(['/payment-successful']);
-    }, 2000);
+    if (this.selectedPaymentMethod) {
+      this.sharedService.isParkTicketLoading = true;
+      setTimeout(() => {
+        this.sharedService.isParkTicketLoading = false;
+        this.sharedService.isStepsCompleted = false;
+        this.sharedService.parkTicketDetails = {
+          location: '',
+          date: '',
+          ticketPrice: '',
+          mealsPrice: '',
+        };
+        this.sharedService.onActiveIndexChange(0, false);
+        this.router.navigate(['/payment-successful']);
+      }, 2000);
+    }
+    else {
+      this.sharedService.showTheDialog('Please select a payment method to continue....!!')
+    }
   }
 
 

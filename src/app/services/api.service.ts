@@ -16,6 +16,7 @@ export class ApiService {
   outing: string = 'outing/get';
   resort: string = 'resort/get';
   address: string = 'address/get';
+  pincode: string = 'pincode/get';
   locations: string = 'locations/get';
   mobileMenu: string = 'mobileMenu/get';
   socialLinks: string = 'socialLinks/get';
@@ -67,6 +68,10 @@ export class ApiService {
 
   getMobileMenuOption(): Observable<any> {
     return this.http.get(this.baseUrl + this.mobileMenuOption);
+  }
+
+  getPincode(): Observable<any> {
+    return this.http.get(this.baseUrl + this.pincode);
   }
 
 }

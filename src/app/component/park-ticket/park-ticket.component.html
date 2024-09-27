@@ -47,7 +47,7 @@
                 <app-billing *ngSwitchCase="5"></app-billing>
             </div>
         </div>
-        
+
 
 
         <div class="flex paymentContainer" *ngIf="sharedService.isStepsCompleted">
@@ -59,7 +59,7 @@
                         {{sharedService.CONSTANTS.parkTicketPaymentTitle}}</h2>
                 </div>
                 <div class="summaryDiv">
-                    <div class="summary m-3">
+                    <div class="summary m-4">
                         <div class="border p-3 mb-2">
                             <div class="bookingSummaryDiv flex justify-content-between ">
                                 <div class="bookingSummary p-2">
@@ -69,26 +69,28 @@
                                 </div>
                                 <div class="locationDiv flex justify-content-center align-items-center ">
                                     <img src="../../../assets/parkTicketBilling/location-pin.svg" alt="Location Pin">
-                                    <p class="m-0 selectedLocation">{{selectedLocation}}</p>
+                                    <p class="m-0 selectedLocation">{{sharedService.parkTicketDetails.location}}</p>
                                 </div>
                             </div>
                             <div class="datesDiv flex justify-content-between">
                                 <div class="">
                                     <p class="totalSplitter opacity-80">
                                         {{sharedService.CONSTANTS.parkTicketBillingDateOfVisit}}</p>
-                                    <p class="m-0 dates">{{selectedDate}}</p>
+                                    <p class="m-0 dates">{{sharedService.parkTicketDetails.date|parkDate}}</p>
                                 </div>
                                 <div class="">
                                     <p class="totalSplitter opacity-80">
                                         {{sharedService.CONSTANTS.parkTicketBillingVisitors}}</p>
                                     <p class="m-0 dates flex align-items-center"><img class="userImg m-2 mt-1"
-                                            src="../../../assets/parkTicketTickets/user.svg" alt="user">{{visitors}}</p>
+                                            src="../../../assets/parkTicketTickets/user.svg"
+                                            alt="user">{{sharedService.parkTicketWrapper.length}}</p>
                                 </div>
                             </div>
                         </div>
                         <div class="border p-4 pb-3 mb-3">
                             <p-floatLabel>
-                                <input id="fullName" type="text" [disabled]="true" pInputText [(ngModel)]="fullName" />
+                                <input id="fullName" type="text" [disabled]="true" pInputText
+                                    [(ngModel)]="sharedService.primaryForm.name" />
                                 <label class="opacity-80" for="fullName">Full Name <span
                                         class="required">*</span></label>
                             </p-floatLabel>
@@ -101,14 +103,15 @@
                             <div class="border ml-2 mr-2 opacity-50 phoneNumberSplitter"></div>
                             <p-floatLabel>
                                 <input id="phoneNumber" type="text" [disabled]="true" pInputText
-                                    [(ngModel)]="phoneNumber" />
+                                    [(ngModel)]="sharedService.primaryForm.phNumber" />
                                 <label class="opacity-80" for="phoneNumber">Phone Number <span
                                         class="required">*</span></label>
                             </p-floatLabel>
                         </div>
                         <div class="border p-4 pb-3 mb-3">
                             <p-floatLabel>
-                                <input id="email" type="text" [disabled]="true" pInputText [(ngModel)]="email" />
+                                <input id="email" type="text" [disabled]="true" pInputText
+                                    [(ngModel)]="sharedService.primaryForm.email" />
                                 <label class="opacity-80" for="email">Email Address <span
                                         class="required">*</span></label>
                             </p-floatLabel>
@@ -117,7 +120,7 @@
                     <hr class="totalSplitter">
                     <div class="amountFooterDiv m-0 p-5 pt-3 flex justify-content-between align-items-center">
                         <p class="m-0">{{sharedService.CONSTANTS.parkTicketBillingGrandTotal}}</p>
-                        <p class="m-0">₹{{grandTotal}}</p>
+                        <p class="m-0">₹{{sharedService.grandTotal}}</p>
                     </div>
                 </div>
             </div>

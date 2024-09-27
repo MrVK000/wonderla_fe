@@ -5,6 +5,7 @@ import { DropdownChangeEvent } from 'primeng/dropdown';
 import { cardData, mobileSliderImageData, offersCardData, sliderImageData, zigZagInterOneCardData, zigZagInterTwoCardData } from '../data/imgData';
 import CONSTANT_VARIABLES from '../data/constants';
 import { Router } from '@angular/router';
+import { json } from 'stream/consumers';
 
 @Injectable({
   providedIn: 'root'
@@ -59,6 +60,8 @@ export class SharedService {
   //booknow dialog
   showBookNowDialog: boolean = false;
 
+  //pincode
+  pincode!: number[];
 
   //park ticket details
   parkTicketDetails = {
@@ -104,7 +107,14 @@ export class SharedService {
 
   grandTotal: string = '';
 
+  isBookingForSomeone: boolean = false;
 
+  primaryForm!: any;
+  secondaryForm!: any;
+
+
+
+  selectedPaymentMethod!:number;
 
 
 
@@ -228,10 +238,6 @@ export class SharedService {
     this.showDialog = true;
     this.dialogContent = content;
   }
-
-
-
-
 
 
 
